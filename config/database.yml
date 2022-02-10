@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: peterkopler_development
+  username: gabrielwalsh
+  password: amops
+
+test:
+  <<: *default
+  database: peterkopler_test
+  username: postgres
+  password: amops
+
+production:
+  <<: *default
+  database: <%= ENV['PETER_KOPLER_DATABASE_DATABASE'] %>
+  username: <%= ENV['PETER_KOPLER_DATABASE_USERNAME'] %>
+  password: <%= ENV['PETER_KOPLER_DATABASE_PASSWORD'] %>
