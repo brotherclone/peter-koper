@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Royal Signage", serif;
+  src: url("RoyalSignage-Rg.ttf");
+}
+
+@import url("https://use.typekit.net/lfp4fzo.css");
+
+html, body{
+  font-family: aw-conqueror-didot, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: "Royal Signage", serif;
+}
+
+h3, h4, h5{
+  font-family: aw-conqueror-didot, serif;
+  font-weight: 700;
+  font-style: normal;
+}
