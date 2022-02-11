@@ -17,7 +17,7 @@ gem 'activeadmin'
 gem 'devise'
 gem 'cloudinary'
 gem 'shoulda-matchers'
-
+gem 'breadcrumbs_on_rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,6 +25,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'seed_dump'
+  gem 'rails-controller-testing'
 end
 
 group :development do
