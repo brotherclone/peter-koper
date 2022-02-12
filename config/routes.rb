@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :memories
+  resources :categories
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'back-stage', to: 'backstage#index'

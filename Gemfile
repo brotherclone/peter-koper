@@ -19,6 +19,7 @@ gem 'cloudinary'
 gem 'shoulda-matchers'
 gem 'breadcrumbs_on_rails'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'
@@ -33,6 +34,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem "rails-erd"
 end
 
 group :test do
