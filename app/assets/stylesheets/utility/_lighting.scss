@@ -1,0 +1,5 @@
+@import "pallete";
+
+@mixin box-shadower($x-axis: 6px, $y-axis: 5px, $blur:9px, $color: transparentize($palette_black, 0.75)) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}

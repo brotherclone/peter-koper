@@ -1,6 +1,31 @@
+@import "utility/pallete";
+@import "utility/lighting";
+
+@mixin color-name($col, $nm:"", $lightText: false){
+  @if $lightText{
+    color: $palette_off_white
+  }@else {
+    color: $palette_black;
+  }
+
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  content: '#{$nm} #{$col}';
+}
+
 .back-stage{
   .heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+      display: inline-flex;
+      margin-top: 2rem;
+    }
     h2{
+      margin-top: 2rem;
+      display: inline-flex;
       font-family: aw-conqueror-didot, serif;
       font-weight: 400;
       font-style: normal;
@@ -8,8 +33,6 @@
   }
   .style-guide {
     .color{
-      min-height: 900px;
-      min-width: 900px;
       .sample-holder{
         display: flex;
         flex-direction: row;
@@ -20,36 +43,110 @@
           border: 1px solid black;
           border-radius: 10rem;
           margin: 2rem;
-          //ToDo: use mixin
-          box-shadow: 6px 9px 14px 5px rgba(0,0,0,0.19);
-          //ToDo: use palette object
+          @include box-shadower();
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
           &.red{
-            background-color: red;
+            background-color: $palette_red;
+            &::after{
+              @include color-name($palette_red, "Bacchus Red", true);
+            }
+          }
+          &.off-red{
+            background-color: $palette_off_red;
+            &::after {
+              @include color-name($palette_off_red, "Blood Stain Red", true);
+            }
           }
           &.blue{
-            background-color: blue;
+            background-color: $palette_blue;
+            &::after {
+              @include color-name($palette_blue, "Paris, Midnight", true);
+            }
           }
-          &.green{
-            background-color: green;
+          &.light-blue{
+            background-color: $palette_light_blue;
+            &::after {
+              @include color-name($palette_light_blue, "Midwestern Sky");
+            }
           }
           &.white{
-            background-color: white;
+            background-color: $palette_white;
+            &::after {
+              @include color-name($palette_white, "Starlight White");
+            }
+          }
+          &.off-white{
+            background-color: $palette_off_white;
+            &::after {
+              @include color-name($palette_off_white, "Faded Frog White");
+            }
           }
           &.black{
-            background-color: black;
+            background-color: $palette_black;
+            &::after {
+              @include color-name($palette_black, "Leather Bar Black", true);
+            }
           }
-          &.orange{
-            background-color: orange;
+          &.yellow{
+            background-color: $palette_yellow;
+            &::after {
+              @include color-name($palette_yellow, "Sol Yellow");
+            }
+          }
+          &.off-yellow{
+            background-color: $palette_off_yellow;
+            &::after {
+              @include color-name($palette_off_yellow, "Summer Dress Yellow");
+            }
           }
           &.grey{
-            background-color: grey;
+            background-color: $palette_grey;
+            &::after {
+              @include color-name($palette_grey, "Neutral", true);
+            }
             &.light{
-              background-color: lighten(grey, 10%);
+              background-color: $palette_grey_darker;
+              &::after{
+                @include color-name($palette_grey_darker, "Neutral Darker", true);
+              }
             }
             &.lighter{
-              background-color: lighten(grey, 25%);
+              background-color: $palette_grey_lighter;
+              &::after {
+                @include color-name($palette_grey_lighter, "Neutral Lighter");
+              }
             }
           }
+        }
+      }
+    }
+  }
+  .icons {
+    .sample-holder {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .sample {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        border: solid 1px $palette_grey_lighter;
+        border-radius: 50px;
+        background-color: $palette_white;
+        margin: 2rem;
+        @include box-shadower();
+        i {
+          font-size: 2rem;
+          color: $palette_black;
+        }
+        label {
+          font-size:0.75rem;
+          color: $palette_black;
         }
       }
     }

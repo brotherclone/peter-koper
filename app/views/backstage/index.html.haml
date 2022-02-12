@@ -1,3 +1,26 @@
 = render :partial=> "components/breadcrumb"
-%h1
-  Back Stage
+.back-stage
+  .heading.row
+    %h1
+      Back Stage
+  %hr
+  .row
+    %p
+      Information about the site's parts and pieces.
+  .row
+    .col-12-sm.col-6
+      %h2
+        Style Guide
+      %p
+        Colors, Type faces, etc.
+      %p
+        %a{:href=> back_stage_style_guide_path}
+          View the Style Guide
+    .col-12-sm.col-6
+      %h2
+        Developer Info
+      %p
+        Data Models, instructions, etc.
+      %p
+        %a{:href=> back_stage_dev_info_path}
+          View the Developer Information
