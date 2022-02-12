@@ -1,0 +1,103 @@
+@import "pallete";
+
+@font-face {
+  font-family: "Royal Signage", serif;
+  src: url("app/assets/fonts/RoyalSignage-Rg.ttf");
+}
+
+@import url("https://use.typekit.net/lfp4fzo.css");
+
+
+@mixin base-type(){
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: aw-conqueror-didot, serif;
+  font-weight: 300;
+  font-style: normal;
+  color: $palette_black;
+}
+
+@mixin base-header(){
+  font-family: "Royal Signage", serif;
+  font-size: 2rem;
+  color: $palette_black;
+}
+
+@mixin sub-header(){
+  @include base-header();
+  font-family: aw-conqueror-didot, serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+html, body, p{
+  font-size: 16px;
+  @include base-type();
+  a{
+    text-decoration: none !important;
+    color: $palette_blue;
+    transition: color 0.5s ease;
+    &:hover{
+      color: $palette_grey;
+    }
+  }
+}
+
+h1, h2 {
+  @include base-header();
+}
+
+h3, h4, h5{
+  @include sub-header();
+}
+
+h1.heroic{
+  font-size: 8rem;
+  color: $palette_off_red;
+  margin: 5rem 0 6rem 0.25rem;
+  text-transform: capitalize;
+}
+h1{
+  font-size: 4rem;
+  text-transform: capitalize;
+  color: $palette_black;
+  margin: 5rem 0 4rem 0;
+}
+
+h2{
+  font-size: 1.85rem;
+  color: $palette_grey_darker;
+  margin: 2rem 0 3rem 0;
+  letter-spacing: 0.003rem;
+  text-transform: capitalize;
+}
+
+h3{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02rem;
+  color: $palette_grey;
+}
+
+h4{
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  color: $palette_grey_darker;
+  text-decoration: overline dotted $palette_grey;
+}
+
+h5{
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 0.001rem;
+  color: $palette_black;
+}
+
+p{
+  letter-spacing: 0.15rem;
+  padding: 0 .75rem 0 0.75rem;
+  margin: 1rem 0 0 1rem;
+  text-transform: none;
+}
+

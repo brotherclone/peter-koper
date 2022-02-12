@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Homes", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+RSpec.describe "Home", type: :request do
+  it "ensures the home page is available" do
+    get "/home"
+    expect(response).to render_template(:index)
   end
+  # ToDo: Add root path test
 end
