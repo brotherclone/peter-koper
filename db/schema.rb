@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_225238) do
     t.string "title"
     t.boolean "is_live"
     t.text "body"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
