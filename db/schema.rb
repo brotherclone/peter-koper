@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_225238) do
+ActiveRecord::Schema.define(version: 2022_02_13_224525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,14 +47,33 @@ ActiveRecord::Schema.define(version: 2022_02_12_225238) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories_memories", force: :cascade do |t|
+    t.bigint "memory_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_categories_memories_on_category_id"
+    t.index ["memory_id"], name: "index_categories_memories_on_memory_id"
+  end
+
   create_table "memories", force: :cascade do |t|
     t.string "title"
-    t.boolean "is_live"
     t.text "body"
+    t.boolean "is_live"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_memories_on_category_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags_memories", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "memory_id"
+    t.index ["memory_id"], name: "index_tags_memories_on_memory_id"
+    t.index ["tag_id"], name: "index_tags_memories_on_tag_id"
   end
 
 end

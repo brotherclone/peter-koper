@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Royal Signage", serif;
-  src: url("app/assets/fonts/RoyalSignage-Rg.ttf");
+  src: url("app/assets/fonts/Campanile.ttf");
 }
 
 @import url("https://use.typekit.net/lfp4fzo.css");
@@ -18,7 +18,7 @@
 }
 
 @mixin base-header(){
-  font-family: "Royal Signage", serif;
+  font-family: "Campanile", serif;
   font-size: 2rem;
   color: $palette_black;
 }

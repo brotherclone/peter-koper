@@ -1,6 +1,6 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Tag do
 
-  permit_params :name, :memory_id
+  permit_params  :name, :category_id, :memory_id
 
   form do |f|
     f.inputs do
@@ -8,5 +8,6 @@ ActiveAdmin.register Category do
     end
     f.actions
   end
+
 
 end

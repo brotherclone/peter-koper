@@ -6,8 +6,5 @@ RSpec.describe Memory, type: :model do
     expect(build(:memory)).to be_valid
   end
 
-  it 'belongs to a category' do
-    should belong_to(:category)
-  end
 
 end

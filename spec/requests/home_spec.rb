@@ -5,5 +5,4 @@ RSpec.describe "Home", type: :request do
     get "/home"
     expect(response).to render_template(:index)
   end
-  # ToDo: Add root path test
 end

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'back-stage/style-guide', to: 'backstage#style'
   get 'back-stage/dev-info', to: 'backstage#dev'
   get 'home', to:'home#index'
-  root 'home#index'
+  get 'soon', to:'soon#index'
+  root 'soon#index'
 end

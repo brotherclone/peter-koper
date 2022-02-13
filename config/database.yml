@@ -5,18 +5,18 @@ default: &default
 
 development:
   <<: *default
-  database: peterkopler_development
+  database: peterkoper_development
   username: gabrielwalsh
   password: amops
 
 test:
   <<: *default
-  database: peterkopler_test
+  database: peterkoper_test
   username: postgres
   password: amops
 
 production:
   <<: *default
-  database: <%= ENV['PETER_KOPLER_DATABASE_DATABASE'] %>
-  username: <%= ENV['PETER_KOPLER_DATABASE_USERNAME'] %>
-  password: <%= ENV['PETER_KOPLER_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PETER_KOPER_DATABASE_DATABASE'] %>
+  username: <%= ENV['PETER_KOPER_DATABASE_USERNAME'] %>
+  password: <%= ENV['PETER_KOPER_DATABASE_PASSWORD'] %>
