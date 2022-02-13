@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_225238) do
+ActiveRecord::Schema.define(version: 2022_02_13_183731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,10 +51,20 @@ ActiveRecord::Schema.define(version: 2022_02_12_225238) do
     t.string "title"
     t.boolean "is_live"
     t.text "body"
+    t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_memories_on_category_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.text "caption"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "memory_id"
+    t.index ["memory_id"], name: "index_photos_on_memory_id"
   end
 
 end
