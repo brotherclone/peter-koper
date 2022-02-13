@@ -1,11 +1,10 @@
 ActiveAdmin.register Memory do
 
-  permit_params :category_id, :title, :body, :is_live, :image, :image_cache
+  permit_params  :title, :body, :is_live, :image, :image_cache
 
   form do |f|
     f.inputs do
       f.input :title
-      f.input :category_id, :label => 'Category', :as => :select, :collection => Category.all.map{|c| ["#{c.name}", c.id]}
       f.input :body
       f.input :is_live
       f.input :image, :as => :file
