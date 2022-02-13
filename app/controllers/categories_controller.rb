@@ -1,4 +1,4 @@
-class CategoriesController < InheritedResources::Base
+class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:show]
 

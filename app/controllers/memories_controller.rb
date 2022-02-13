@@ -1,4 +1,4 @@
-class MemoriesController < InheritedResources::Base
+class MemoriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Memories", :memories_path
@@ -6,7 +6,7 @@ class MemoriesController < InheritedResources::Base
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
   def index
-    @memories = Memory.all.order(occurance: :desc).where(is_live: true)
+    @memories = Memory.all.where(is_live: true)
     respond_to do |format|
       format.html { render :index}
       format.json { render :json => @memories}
@@ -22,7 +22,7 @@ class MemoriesController < InheritedResources::Base
   end
 
   def new
-    @album = Memory.new
+    @memory = Memory.new
   end
 
   def edit
@@ -32,7 +32,7 @@ class MemoriesController < InheritedResources::Base
   def create
     @memory = Memory.new(memory_params)
     respond_to do |format|
-      if @album.save
+      if @memory.save
         format.html { redirect_to @memory, notice: 'Memory was successfully created.' }
         format.json { render :show, status: :created, location: @memory }
       else
@@ -62,6 +62,7 @@ class MemoriesController < InheritedResources::Base
   end
 
   private
+
   def set_memory
     @memory = Memory.find(params[:id])
   end
