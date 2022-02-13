@@ -4,5 +4,6 @@ FactoryBot.define do
     body { Faker::Lorem.paragraph }
     title { Faker::Lorem.word }
     category
+    image { Faker::Internet.url}
   end
 end

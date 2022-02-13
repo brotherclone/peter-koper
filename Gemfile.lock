@@ -122,6 +122,7 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.6)
     erubi (1.10.0)
     erubis (2.7.0)
     factory_bot (6.2.0)
@@ -380,6 +381,7 @@ DEPENDENCIES
   cloudinary
   database_cleaner
   devise
+  dotenv
   factory_bot_rails
   faker
   haml-rails (~> 2.0)

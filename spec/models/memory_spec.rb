@@ -10,4 +10,5 @@ RSpec.describe Memory, type: :model do
     should belong_to(:category)
   end
 
+
 end

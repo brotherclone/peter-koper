@@ -4,6 +4,7 @@ class CreateMemories < ActiveRecord::Migration[6.1]
       t.string :title
       t.boolean :is_live
       t.text :body
+      t.string :image
       t.timestamps
     end
     add_reference :memories, :category, index: true
