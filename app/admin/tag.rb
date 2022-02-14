@@ -1,6 +1,6 @@
 ActiveAdmin.register Tag do
 
-  permit_params  :name, :category_id, :memory_id
+  permit_params  :name, :memory_id, :category_id
 
   form do |f|
     f.inputs do

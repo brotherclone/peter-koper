@@ -18,6 +18,10 @@ RSpec.describe Category, type: :model do
     it{ should have_and_belong_to_many(:memories) }
   end
 
+  describe 'Tag Relationship' do
+    it{ should have_and_belong_to_many(:tags) }
+  end
+
   describe 'Must have a name' do
     it { should validate_presence_of(:name) }
   end

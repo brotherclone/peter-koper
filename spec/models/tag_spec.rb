@@ -15,7 +15,7 @@ RSpec.describe Tag, type: :model do
   end
 
   describe 'Category Relationship' do
-    it{ should have_many(:categories) }
+    it{ should have_and_belong_to_many(:categories) }
   end
 
   describe 'Memory Relationship' do

@@ -1,12 +1,14 @@
 ActiveAdmin.register Memory do
 
-  permit_params  :title, :body, :is_live, :image, :image_cache
+  permit_params  :title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :tag_id, :category_id
 
   form do |f|
     f.inputs do
       f.input :title
       f.input :body
       f.input :is_live
+      f.input :occurrence, :as=> :date_picker
+      f.input :fuzzy_date
       f.input :image, :as => :file
       f.input :image_cache, :as => :hidden
     end

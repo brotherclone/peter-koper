@@ -15,7 +15,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   private
 
   def set_category
@@ -23,7 +22,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :memory_id)
+    params.require(:category).permit(:name, :tag_id, :memory_id, tag_attributes:[:id, :name, :category_id, :memory_id, :_delete])
   end
 
 end

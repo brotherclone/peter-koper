@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 2022_02_13_224525) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "tag_id"
-    t.index ["tag_id"], name: "index_categories_on_tag_id"
   end
 
   create_table "categories_memories", force: :cascade do |t|
@@ -54,6 +52,13 @@ ActiveRecord::Schema.define(version: 2022_02_13_224525) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_memories_on_category_id"
     t.index ["memory_id"], name: "index_categories_memories_on_memory_id"
+  end
+
+  create_table "categories_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_categories_tags_on_category_id"
+    t.index ["tag_id"], name: "index_categories_tags_on_tag_id"
   end
 
   create_table "memories", force: :cascade do |t|
