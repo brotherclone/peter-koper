@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2022_02_13_224525) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tag_id"
+    t.index ["tag_id"], name: "index_categories_on_tag_id"
   end
 
   create_table "categories_memories", force: :cascade do |t|
@@ -59,21 +61,23 @@ ActiveRecord::Schema.define(version: 2022_02_13_224525) do
     t.text "body"
     t.boolean "is_live"
     t.string "image"
+    t.date "occurrence"
+    t.integer "fuzzy_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memories_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "memory_id"
+    t.index ["memory_id"], name: "index_memories_tags_on_memory_id"
+    t.index ["tag_id"], name: "index_memories_tags_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tags_memories", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "memory_id"
-    t.index ["memory_id"], name: "index_tags_memories_on_memory_id"
-    t.index ["tag_id"], name: "index_tags_memories_on_tag_id"
   end
 
 end

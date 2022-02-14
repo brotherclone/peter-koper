@@ -5,6 +5,8 @@ class CreateMemories < ActiveRecord::Migration[6.1]
       t.text :body
       t.boolean :is_live
       t.string :image
+      t.date :occurrence
+      t.integer :fuzzy_date
       t.timestamps
     end
   end
