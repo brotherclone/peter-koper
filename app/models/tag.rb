@@ -1,7 +1,7 @@
 class Tag < ApplicationRecord
-  has_and_belongs_to_many :memories
-  accepts_nested_attributes_for :memories
-  has_and_belongs_to_many :categories
-  accepts_nested_attributes_for :categories
+  has_many :tag_memories
+  has_many :tags, :through => :tag_memories
+  has_many :tag_categories
+  has_many :tags, :through => :tag_categories
   validates :name, presence: true
 end

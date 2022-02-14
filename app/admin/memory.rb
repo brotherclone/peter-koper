@@ -1,6 +1,6 @@
 ActiveAdmin.register Memory do
 
-  permit_params  :title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :tag_id, :category_id
+  permit_params  :title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date
 
   form do |f|
     f.inputs do
@@ -11,6 +11,8 @@ ActiveAdmin.register Memory do
       f.input :fuzzy_date
       f.input :image, :as => :file
       f.input :image_cache, :as => :hidden
+      f.input :categories, as: :check_boxes, collection: Category.all.map { |t| [t.name, t.id] }
+      f.input :tags, as: :check_boxes, collection: Tag.all.map { |t| [t.name, t.id] }
     end
     f.actions
   end
