@@ -6,4 +6,6 @@ class Memory < ApplicationRecord
   mount_uploader :image, PhotosUploader
   enum fuzzy_date: [:regular, :month, :year, :decade]
   validates :occurrence, presence: true
+  has_one :video
+  has_one :audio_commentary
 end

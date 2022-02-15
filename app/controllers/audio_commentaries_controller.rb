@@ -1,0 +1,3 @@
+class AudioCommentariesController < ApplicationController
+
+end

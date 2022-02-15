@@ -1,0 +1,2 @@
+module GuestBookEntriesHelper
+end
