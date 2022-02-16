@@ -1,0 +1,9 @@
+= render :partial=> "components/breadcrumb"
+
+%h1 Editing guest_book_entry
+
+= render 'form'
+
+= link_to 'Show', @guest_book_entry
+\|
+= link_to 'Back', guest_book_entries_path
