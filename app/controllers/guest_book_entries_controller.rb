@@ -3,7 +3,8 @@ class GuestBookEntriesController < InheritedResources::Base
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Guest Book", :guest_book_entries_path
 
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 
   def index
     @guest_book_entries = GuestBookEntry.all

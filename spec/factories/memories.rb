@@ -5,7 +5,7 @@ FactoryBot.define do
     title { Faker::Lorem.word }
     image { Faker::Internet.url}
     occurrence { Faker::Date.backward(days: 1000) }
-    fuzzy_date { 1 }
+    fuzzy_date { 'regular' }
     factory :memory_with_tags do
       after(:create) do |memory|
         create(:tag, memory: memory)
