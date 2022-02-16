@@ -3,20 +3,20 @@ require 'rails_helper'
 RSpec.describe "/guest-book", type: :request do
 
   let(:valid_attributes) {
-    {:title=> "Title", :body=> "Body"}
+    FactoryBot.attributes_for(:guest_book_entry)
   }
 
   let(:invalid_attributes) {
-    {:title=> nil, :body=> nil }
+    { :title => nil, :body => nil }
   }
 
-  # describe "GET /index" do
-  #   it "renders a successful response" do
-  #     GuestBookEntry.create! valid_attributes
-  #     get guest_book_entry_url
-  #     expect(response).to be_successful
-  #   end
-  # end
+  describe "GET /index" do
+    it "renders a successful response" do
+      GuestBookEntry.create! valid_attributes
+      get guest_book_entries_url
+      expect(response).to be_successful
+    end
+  end
 
   # describe "GET /show" do
   #   it "renders a successful response" do

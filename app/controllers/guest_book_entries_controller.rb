@@ -6,23 +6,23 @@ class GuestBookEntriesController < InheritedResources::Base
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = GuestBookEntry.all
+    @guest_book_entries = GuestBookEntry.all
     respond_to do |format|
       format.html { render :index}
-      format.json { render :json => @entries}
+      format.json { render :json => @guest_book_entries}
     end
   end
 
   def show
-    add_breadcrumb @entry.title.to_s, guest_book_entries_path
+    add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
     respond_to do |format|
       format.html { render :show}
-      format.json { render :json => @entry}
+      format.json { render :json => @guest_book_entry}
     end
   end
 
   def new
-    @entry = GuestBookEntry.new
+    @guest_book_entry = GuestBookEntry.new
   end
 
   def edit
@@ -30,20 +30,20 @@ class GuestBookEntriesController < InheritedResources::Base
   end
 
   def create
-    @entry = GuestBookEntry.new(guest_book_entry_params)
+    @guest_book_entry = GuestBookEntry.new(guest_book_entry_params)
     respond_to do |format|
-      if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @entry }
+      if @guest_book_entry.save
+        format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
+        format.json { render :show, status: :created, location: @guest_book_entry }
       else
         format.html { render :new }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
+        format.json { render json: @guest_book_entry.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @entry.destroy
+    @guest_book_entry.destroy
     respond_to do |format|
       format.html { redirect_to guest_book_entries_url, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
@@ -53,7 +53,7 @@ class GuestBookEntriesController < InheritedResources::Base
   private
 
   def set_guest_book_entry
-    @entry = GuestBookEntry.find(params[:id])
+    @guest_book_entry = GuestBookEntry.find(params[:id])
   end
 
   def guest_book_entry_params
