@@ -1,8 +1,9 @@
 FactoryBot.define do
+
   factory :audio_commentary do
-    is_live {true}
+    is_live { true }
     title { Faker::Lorem.word }
-    file {Faker::Internet.url}
+    file { true }
     memory
   end
 end

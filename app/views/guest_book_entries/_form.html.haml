@@ -1,4 +1,14 @@
 = form_for @guest_book_entry do |f|
+
+  -f.label :title
+  -f.text_field :title
+  -f.label :body
+  -f.text_field :body
+  -f.label :guest_name
+  -f.text_field :guest_name
+  -f.label :guest_email
+  -f.text_field :guest_email
+
   - if @guest_book_entry.errors.any?
     #error_explanation
       %h2= "#{pluralize(@guest_book_entry.errors.count, "error")} prohibited this guest_book_entry from being saved:"
