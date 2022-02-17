@@ -1,0 +1,18 @@
+header{
+  background-color: orange;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  transition: 0.2s;
+  &.expanded{
+    height: 100px;
+    background-color: pink;
+    border: 1px solid red;
+  }
+  &.shrink{
+    height: 50px;
+    background-color: purple;
+    border: 1px solid pink;
+  }
+}
