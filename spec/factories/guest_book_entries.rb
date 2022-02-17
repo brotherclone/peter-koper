@@ -8,6 +8,6 @@ FactoryBot.define do
     guest_name { Faker::Name.name}
     guest_email {Faker::Internet.email}
     challenge_passed { true }
-    admin_state { 1 }
+    admin_state { "submitted" }
   end
 end

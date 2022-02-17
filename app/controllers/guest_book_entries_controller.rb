@@ -1,9 +1,8 @@
-class GuestBookEntriesController < InheritedResources::Base
+class GuestBookEntriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Guest Book", :guest_book_entries_path
 
-  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
   before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -27,7 +26,17 @@ class GuestBookEntriesController < InheritedResources::Base
   end
 
   def edit
+  end
 
+  def update
+    if @guest_book_entry.update(guest_book_entry_params)
+      redirect_to @guest_book_entry
+    else
+      respond_to do |format|
+        format.html { render :edit}
+        format.json { render :json => @guest_book_entry}
+      end
+    end
   end
 
   def create
@@ -58,7 +67,17 @@ class GuestBookEntriesController < InheritedResources::Base
   end
 
   def guest_book_entry_params
-    params.require(:guest_book_entry).permit(:title, :body, :guest_name, :guest_email)
+    params.require(:guest_book_entry).permit(:title,
+                                             :body,
+                                             :image_one_url,
+                                             :image_one_url_cache,
+                                             :image_two_url,
+                                             :image_two_url_cache,
+                                             :image_three_url,
+                                             :image_three_url_cache,
+                                             :guest_email, :guest_name,
+                                             :challenge_passed,
+                                             :admin_state)
   end
 
 end

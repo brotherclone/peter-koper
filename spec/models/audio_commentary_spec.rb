@@ -10,8 +10,4 @@ RSpec.describe AudioCommentary, type: :model do
     should belong_to(:memory)
   end
 
-  describe 'Must have a file' do
-    it { should validate_presence_of(:file) }
-  end
-
 end
