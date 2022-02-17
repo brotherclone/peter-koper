@@ -1,62 +1,73 @@
-class GuestBookEntriesController < ApplicationController
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :guest_book_entries_path
+class VideosController < ApplicationController
 
-  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Guest Book", :videos_path
+
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
-    @guest_book_entries = GuestBookEntry.all
+    @videos = Video.all
     respond_to do |format|
       format.html { render :index}
-      format.json { render :json => @guest_book_entries}
+      format.json { render :json => @videos}
     end
   end
 
   def show
-    add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
+    add_breadcrumb @video.title.to_s, videos_path
     respond_to do |format|
       format.html { render :show}
-      format.json { render :json => @guest_book_entry}
+      format.json { render :json => @video}
     end
   end
 
   def new
-    @guest_book_entry = GuestBookEntry.new
+    @video = Video.new
   end
 
   def edit
+  end
 
+  def update
+    if @video.update(video_params)
+      redirect_to @video
+    else
+      respond_to do |format|
+        format.html { render :edit}
+        format.json { render :json => @video}
+      end
+    end
   end
 
   def create
-    @guest_book_entry = GuestBookEntry.new(guest_book_entry_params)
+    @video = Video.new(video_params)
     respond_to do |format|
-      if @guest_book_entry.save
-        format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @guest_book_entry }
+      if @video.save
+        format.html { redirect_to @video, notice: 'Entry was successfully created.' }
+        format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
-        format.json { render json: @guest_book_entry.errors, status: :unprocessable_entity }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @guest_book_entry.destroy
+    @video.destroy
     respond_to do |format|
-      format.html { redirect_to guest_book_entries_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to videos_url, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
 
-  def set_guest_book_entry
-    @guest_book_entry = GuestBookEntry.find(params[:id])
+  def set_video
+    @video = Video.find(params[:id])
   end
 
-  def guest_book_entry_params
-    params.require(:guest_book_entry).permit(:is_live, :title, :url, :video_service, :video_id, :memory_id)
+  def video_params
+    params.require(:video).permit(:is_live, :title, :url, :video_service, :video_id, :memory_id)
   end
 
 end
