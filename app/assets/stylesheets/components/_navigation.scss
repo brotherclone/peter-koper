@@ -1,0 +1,59 @@
+@import "../utility/pallete";
+@import "../utility/buttons";
+@import "../utility/lighting";
+
+header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  transition: 0.2s;
+  background-color: $palette_grey;
+  @include box-shadower();
+  .title, .guest-book-link{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h1{
+    transition: 0.2s;
+  }
+  .navigation-button{
+    @include button-bg();
+    margin: 0.5rem 1rem 0.5rem;
+    height: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &.expanded{
+    height: 6.25rem;
+    h1{
+      font-size: 4rem;
+      margin: 0 0 0 1rem;
+      padding: 0;
+      color: $palette_grey_darker;
+    }
+  }
+  &.shrink{
+    height: 3.125rem;
+    h1{
+      font-size: 2rem;
+      margin: 0 0 0 1.5rem;
+      padding: 0;
+      color: $palette_grey_darker;
+    }
+  }
+}
+
+.header-spacing{
+
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px; // TEMP
+}

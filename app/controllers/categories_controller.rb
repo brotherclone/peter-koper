@@ -2,6 +2,22 @@ class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:show]
 
+  def self.selected_category=(id)
+    @selected_category = id
+  end
+
+  def self.selected_category
+    @selected_category
+  end
+
+  def self.relevant_categories=(ids)
+    @relevant_categories = ids
+  end
+
+  def self.relevant_categories
+    @relevant_categories
+  end
+
   def index
     @categories = Category.all.order(name: desc)
     respond_to do |format|

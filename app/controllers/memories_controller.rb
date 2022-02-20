@@ -5,13 +5,47 @@ class MemoriesController < ApplicationController
 
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
+
+  def self.relevant_memories=(ids)
+    @relevant_memories = ids
+  end
+
+  def self.relevant_memories
+    @relevant_memories
+  end
+
+  def self.current_memory=(id)
+    @current_memory = id
+  end
+
+  def self.current_memory
+    @current_memory
+  end
+
+  def stream
+    @memories = Memory.all
+    if TagsController.related_tags
+      @tags = TagsController.related_tags
+    else
+      @tags = Tag.all
+    end
+
+    if params[:select_id]
+      @current_memory = Memory.find(params[:select_id])
+    end
+    if params[:relevant_ids]
+      @relevant_memories = Memory.where(id: params[:relevant_ids])
+    end
+  end
+
   def index
-    @memories = Memory.all.where(is_live: true)
+    @memories = Memory.all
     respond_to do |format|
       format.html { render :index}
       format.json { render :json => @memories}
     end
   end
+
 
   def show
     add_breadcrumb @memory.title.to_s, memory_path

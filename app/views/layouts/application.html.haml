@@ -11,5 +11,9 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      - if @show_navigation
+        = render :partial=> "components/navigation"
       .main-wrapper
+        - if @show_breadcrumbs
+          = render :partial=> "components/breadcrumbs"
         = yield

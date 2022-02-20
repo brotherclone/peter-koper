@@ -6,6 +6,7 @@ class GuestBookEntriesController < ApplicationController
   before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 
   def index
+    @show_breadcrumbs = true
     @guest_book_entries = GuestBookEntry.all
     respond_to do |format|
       format.html { render :index}
@@ -14,6 +15,7 @@ class GuestBookEntriesController < ApplicationController
   end
 
   def show
+    @show_breadcrumbs = true
     add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
     respond_to do |format|
       format.html { render :show}
