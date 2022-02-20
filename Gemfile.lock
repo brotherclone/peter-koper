@@ -267,6 +267,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     regexp_parser (2.2.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -335,6 +336,9 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
+    turbo-rails (1.0.1)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -393,12 +397,14 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-controller-testing
   rails-erd
+  redis (~> 4.0)
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
   seed_dump
   selenium-webdriver
   shoulda-matchers
   spring
+  turbo-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
