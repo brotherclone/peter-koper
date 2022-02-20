@@ -50,3 +50,12 @@ header{
     }
   }
 }
+
+.header-spacing{
+  width: 100%;
+  display: block;
+  border: 1px solid red;
+  &::after{
+    margin-bottom: 100px;
+  }
+}

@@ -20,6 +20,7 @@ gem 'cloudinary'
 gem 'shoulda-matchers'
 gem 'breadcrumbs_on_rails'
 gem 'turbo-rails'
+gem 'stimulus-rails'
 
 
 group :development, :test do

@@ -333,6 +333,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    stimulus-rails (1.0.3)
+      railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
@@ -404,6 +406,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   spring
+  stimulus-rails
   turbo-rails
   turbolinks (~> 5)
   tzinfo-data

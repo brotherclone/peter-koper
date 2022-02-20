@@ -10,6 +10,7 @@ import "@hotwired/turbo-rails"
 require('packs/navigation/navigation')
 import "@fortawesome/fontawesome-free/css/all"
 import "channels"
+import "controllers"
 
 Rails.start()
 Turbolinks.start()
