@@ -1,5 +1,7 @@
 %header.expanded{:id=>'peterKoperHeader'}
-  %h1
-    Peter Koper
-  %a{:href=> guest_book_entries_path}
-    Guest Book
+  .title
+    %h1
+      Peter Koper
+  .guest-book-link
+    %a{:href=> guest_book_entries_path, :tab=>{:index=>0}, :class=> "navigation-button guest-book"}
+      Guest Book
