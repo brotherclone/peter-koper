@@ -2,6 +2,26 @@ class TagsController < ApplicationController
 
   before_action :set_tag, only: [:show]
 
+  def self.current_tags=(ids)
+    @current_tags = ids
+  end
+
+  def self.current_tags
+    @current_tags
+  end
+
+  def self.related_tags=(ids)
+    @related_tags = ids
+  end
+
+  def self.related_tags
+    @related_tags
+  end
+
+  def stream
+    @tags = Tag.all
+  end
+
   def index
     @tags = Tag.all.order(name: desc)
     respond_to do |format|
@@ -14,7 +34,6 @@ class TagsController < ApplicationController
       format.json { render :json => @tag}
     end
   end
-
 
   private
 

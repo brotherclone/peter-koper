@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :guest_book_entries
   resources :memories
   resources :categories
+  resources :tags
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'back-stage', to: 'backstage#index'
@@ -9,5 +10,7 @@ Rails.application.routes.draw do
   get 'back-stage/dev-info', to: 'backstage#dev'
   get 'home', to:'home#index'
   get 'soon', to:'soon#index'
+  get 'stream', to:'memories#stream'
+  get 'tags/stream', to:'tags#stream'
   root 'soon#index'
 end

@@ -4,4 +4,6 @@ class HomeController < ApplicationController
     @show_navigation = true
     @show_breadcrumbs = true
   end
+
+
 end

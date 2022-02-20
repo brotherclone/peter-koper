@@ -1,6 +1,6 @@
 ActiveAdmin.register Category do
 
-  permit_params :name
+  permit_params :name, tag_ids:[]
 
   form do |f|
     f.inputs do
