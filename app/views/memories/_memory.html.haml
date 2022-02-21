@@ -1,11 +1,16 @@
 -@memory = memory
 -@tags = tags
 
-.memory-container
-  = @memory.title
-  = @memory.body
-  %img{:src=> @memory.image}
-  = @memory.occurrence.to_s
-  = @memory.fuzzy_date
-  - @tags.each do |t|
-    = t.name
+.memory-container.col-12-sm.col-8{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+  .memory-label
+    %h2
+      = @memory.title
+    %hr
+    %h3
+      = @memory.occurrence.to_s
+    %p
+      = @memory.body
+    %ul
+      - @tags.each do |t|
+        %li
+          = t.name

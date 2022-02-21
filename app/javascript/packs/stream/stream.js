@@ -6,17 +6,17 @@ window.onload = function(){
     lax.addDriver('scrollY', function () {
         return window.scrollY
     })
-    lax.addElements('.memory-container', {
-        scrollY: {
-            translateX: [
-                ["elInY", "elCenterY", "elOutY"],
-                [0, 'screenWidth/2', 'screenWidth'],
-                {
-                    easing: 'easeInOutQuart'
-                }
-            ]
-        }
-    })
+    // lax.addElements('.memory-container', {
+    //     scrollY: {
+    //         translateX: [
+    //             ["elInY", "elCenterY", "elOutY"],
+    //             [0, 'screenWidth/2', 'screenWidth'],
+    //             {
+    //                 easing: 'easeInOutQuart'
+    //             }
+    //         ]
+    //     }
+    // })
 
 }
 

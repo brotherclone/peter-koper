@@ -33,9 +33,11 @@ class MemoriesController < ApplicationController
     if params[:select_id]
       @current_memory = Memory.find(params[:select_id])
     end
+
     if params[:relevant_ids]
       @relevant_memories = Memory.where(id: params[:relevant_ids])
     end
+
   end
 
   def index
