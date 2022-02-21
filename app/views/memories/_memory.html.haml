@@ -1,11 +1,11 @@
 -@memory = memory
 -@tags = tags
-.memory-frame
-  .memory-frame-inner
-    = @memory.title
-    = @memory.body
-    %img{:src=> @memory.image}
-    = @memory.occurrence.to_s
-    = @memory.fuzzy_date
-    - @tags.each do |t|
-      = t.name
+
+.memory-container
+  = @memory.title
+  = @memory.body
+  %img{:src=> @memory.image}
+  = @memory.occurrence.to_s
+  = @memory.fuzzy_date
+  - @tags.each do |t|
+    = t.name
