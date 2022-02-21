@@ -23,23 +23,33 @@ class MemoriesController < ApplicationController
   end
 
   def stream
-
-    @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
-
-    if TagsController.related_tags
-      @tags = TagsController.related_tags
-    else
-      @tags = Tag.all
+    if params[:remembering]
+      remembering = params[:remembering]
+      remembering_memories = MemoryCategory.where(category_id: remembering)
+      if remembering_memories
+        stream_category = Category.find(remembering)
+        @stream_name = stream_category.name
+        remembering_ids = []
+        remembering_memories.each do |r|
+          remembering_ids << r.memory_id
+        end
+      end
+    elsif params[:pondering]
+      pondering = params[:pondering]
+      pondering_memories = TagMemory.where(tag_id: pondering)
+      if pondering_memories
+        stream_tag = Tag.find(pondering)
+        @stream_name = stream_tag.name
+        pondering_ids = []
+        pondering_memories.each do |p|
+          pondering_ids << p.memory_id
+        end
+        @memories = Memory.where(id: pondering_ids)
+      end
     end
-
-    if params[:select_id]
-      @current_memory = Memory.find(params[:select_id])
+    unless @memories
+      @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
     end
-
-    if params[:relevant_ids]
-      @relevant_memories = Memory.where(id: params[:relevant_ids])
-    end
-
   end
 
   def index

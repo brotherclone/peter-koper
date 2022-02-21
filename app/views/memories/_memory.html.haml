@@ -13,4 +13,4 @@
     %ul
       - @tags.each do |t|
         %li
-          = t.name
+          = link_to t.name, stream_path(:pondering=> t.id)

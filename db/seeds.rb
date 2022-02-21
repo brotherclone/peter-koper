@@ -1,4 +1,4 @@
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 upbringing_category = Category.create(name:"Upbringing")
 around_the_world_category = Category.create(name:"Two Years Around the World")
@@ -22,12 +22,12 @@ TagCategory.create!([
                       {tag_id: la_tag.id, category_id: upbringing_category.id},
                     ])
 
-drift_wood_lamp_memory = Memory.create(is_live: false,
-                                       body: "driftwood lamp made by Peter's father in Pacific Grove, CA during his childhood",
+drift_wood_lamp_memory = Memory.create(is_live: true,
+                                       body: "Driftwood lamp made by Peter's father in Pacific Grove, CA during his childhood",
                                        title: "Driftwood Lamp",
                                        occurrence: Date.parse("Jan 1 1955"),
                                        image:'https://via.placeholder.com/1920',
-                                       fuzzy_date: decade)
+                                       fuzzy_date: :decade)
 
 TagMemory.create!([
                     tag_id: father_tag.id, memory_id: drift_wood_lamp_memory.id
@@ -35,6 +35,6 @@ TagMemory.create!([
 
 
 MemoryCategory.create!([
-                         memory_id: drift_wood_lamp_memory.id, category_id: upbringing_category.id,
-                         memory_id: drift_wood_lamp_memory.id, category_id: things_category.id
+                         {memory_id: drift_wood_lamp_memory.id, category_id: upbringing_category.id},
+                         {memory_id: drift_wood_lamp_memory.id, category_id: things_category.id}
                        ])
