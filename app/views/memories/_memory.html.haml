@@ -7,7 +7,7 @@
       = @memory.title
     %hr
     %h3
-      = @memory.occurrence.to_s
+      = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
     %p
       = @memory.body
     %ul

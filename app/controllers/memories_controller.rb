@@ -23,7 +23,9 @@ class MemoriesController < ApplicationController
   end
 
   def stream
-    @memories = Memory.all
+
+    @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
+
     if TagsController.related_tags
       @tags = TagsController.related_tags
     else
