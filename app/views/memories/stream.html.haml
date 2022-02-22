@@ -3,5 +3,7 @@
     - if @stream_name
       %h1
         = @stream_name
+      %a{:href=> stream_path}
+        All
     - @memories.each do |memory|
       = render :partial => "memories/memory", :locals=> {:memory => memory, :tags => memory.tags }
