@@ -51,36 +51,45 @@ TagCategory.create!([
                     ])
 
 #Memories
-drift_wood_lamp_memory =                Memory.create(is_live: true,
-                                         body: "Driftwood lamp made by Peter's father in Pacific Grove, CA during his childhood",
-                                         title: "Driftwood Lamp",
-                                         occurrence: Date.parse("Jan 1 1955"),
-                                         fuzzy_date: :decade)
-swimming_with_salties_memory =          Memory.create(is_live: true,
-                                           body: "Saltwater Crocodiles inhabit a special place of fear and awe in the Australian psyche, where they are affectionately known as “Salties”. In the animal kingdom, they are the largest and most dangerous creature to humans.  They have the strongest bite of any animal, able to crush a full-grown cow’s skull between its jaws.  Flaneur was primevally attracted to the huge killer crocs.",
-                                           title: "Flaneur Swims with Killer Croc!!!!!",
-                                           occurrence: Date.parse("Apr 7 2015"),
-                                           fuzzy_date: :regular)
-zazu_in_mortville_memory =              Memory.create(is_live: true,
+drift_wood_lamp_memory = Memory.create(is_live: true,
+                                       body: "Driftwood lamp made by Peter's father in Pacific Grove, CA during his childhood",
+                                       title: "Driftwood Lamp",
+                                       image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645547923/Driftwood_lamp_w0t53e.jpg",
+                                       occurrence: Date.parse("Jan 1 1955"),
+                                       fuzzy_date: :decade)
+
+
+swimming_with_salties_memory = Memory.create(is_live: true,
+                                             body: "Saltwater Crocodiles inhabit a special place of fear and awe in the Australian psyche, where they are affectionately known as “Salties”. In the animal kingdom, they are the largest and most dangerous creature to humans.  They have the strongest bite of any animal, able to crush a full-grown cow’s skull between its jaws.  Flaneur was primevally attracted to the huge killer crocs.",
+                                             title: "Flaneur Swims with Killer Croc!!!!!",
+                                             occurrence: Date.parse("Apr 7 2015"),
+                                             fuzzy_date: :regular)
+zazu_in_mortville_memory = Memory.create(is_live: true,
                                          body: "A dejected Zazu wondering why her bucolic farm has been transformed into Mortville for Desperate Living.",
                                          title: "Zazu in Mortville",
+                                         image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548635/Zazu_in_Mortville_taai9x.jpg",
                                          occurrence: Date.parse("Jan 1 1970"),
                                          fuzzy_date: :decade)
-carriage_return_memory =                Memory.create(is_live: true,
-                                         occurrence: Date.parse("May 1 1971"),
-                                         fuzzy_date: :month)
-shift_lock_memory =                     Memory.create(is_live: true,
-                                          occurrence: Date.parse("Jan 1 1980"),
-                                          fuzzy_date: :decade)
-always_be_typing_memory =               Memory.create(is_live: true,
-                                          occurrence: Date.parse("Jan 1 1950"),
-                                          fuzzy_date: :decade)
-no_one_knew_jimmy_memory =              Memory.create(is_live: true,
-                                           occurrence: Date.parse("Jan 1 1980"),
-                                           fuzzy_date: :decade)
-sombrero_memory =                       Memory.create(is_live: true,
-                                          occurrence: Date.parse("Jan 1 1980"),
-                                          fuzzy_date: :decade)
+carriage_return_memory = Memory.create(is_live: true,
+                                       image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549001/00000003_rrl7d0.jpg",
+                                       occurrence: Date.parse("May 1 1971"),
+                                       fuzzy_date: :month)
+shift_lock_memory = Memory.create(is_live: true,
+                                  image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549071/Friends_02_006_vxpj0r.jpg",
+                                  occurrence: Date.parse("Jan 1 1980"),
+                                  fuzzy_date: :decade)
+always_be_typing_memory = Memory.create(is_live: true,
+                                        occurrence: Date.parse("Jan 1 1950"),
+                                        image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548761/Tiny_PK_typing_punh6e.jpg",
+                                        fuzzy_date: :decade)
+no_one_knew_jimmy_memory = Memory.create(is_live: true,
+                                         image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549165/1980s_California_02_021_lvdsfy.jpg",
+                                         occurrence: Date.parse("Jan 1 1980"),
+                                         fuzzy_date: :decade)
+sombrero_memory = Memory.create(is_live: true,
+                                image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549157/1980s_California_01_032_nat1iy.jpg",
+                                occurrence: Date.parse("Jan 1 1980"),
+                                fuzzy_date: :decade)
 
 TagMemory.create!([
                     { tag_id: father_tag.id, memory_id: drift_wood_lamp_memory.id },

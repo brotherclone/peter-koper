@@ -12,5 +12,5 @@
       = @memory.body
     %ul
       - @tags.each do |t|
-        %li
-          = link_to t.name, stream_path(:pondering=> t.id)
+        %li{:data=>{:controller=>"reset"}}
+          = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
