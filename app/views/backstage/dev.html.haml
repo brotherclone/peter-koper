@@ -1,25 +1,30 @@
-.back-stage
-  .heading.row
-    %h1
-      Back Stage
-    %h2
-      Developer Information
-  .dev-info.row
-    %h3
-      Entity Relationship Diagram
-    %p
-      %a{:href=> asset_path("model.pdf")}
-        View the Diagram
-    %h3
-      Source Code Repository
-    %p
-      %a{:href=> 'https://github.com/brotherclone/peter-koper'}
-        Get the source code to make changes, log bugs.
-    %p
-      %a{:href=> 'https://github.com/brotherclone/peter-koper/projects/1'}
-        Check the status of the project here.
-    %h3
-      Admin
-    %p
-      %a{:href=> '/admin'}
-        Log in to manage your memories
+.container
+  .main-wrapper
+    .back-stage
+      .heading.row
+        %h1
+          Back Stage
+        %h2
+          Developer Information
+      .dev-info.row
+        %h3
+          Entity Relationship Diagram
+        %p
+          %a{:href=> asset_path("model.pdf")}
+            View the Diagram
+        %h3
+          Source Code Repository
+        %p
+          %a{:href=> 'https://github.com/brotherclone/peter-koper'}
+            Get the source code to make changes, log bugs.
+        %p
+          %a{:href=> 'https://github.com/brotherclone/peter-koper/projects/1'}
+            Check the status of the project here.
+        %h3
+          Admin
+        %p
+          %a{:href=> '/admin'}
+            Log in to manage your memories
+        %p
+          %a{:href=> 'https://www.heroku.com'}
+            Hosted at Heroku

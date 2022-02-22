@@ -57,20 +57,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_134629) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories_memories", force: :cascade do |t|
-    t.bigint "memory_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_categories_memories_on_category_id"
-    t.index ["memory_id"], name: "index_categories_memories_on_memory_id"
-  end
-
-  create_table "categories_tags", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_categories_tags_on_category_id"
-    t.index ["tag_id"], name: "index_categories_tags_on_tag_id"
-  end
-
   create_table "guest_book_entries", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -94,13 +80,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_134629) do
     t.integer "fuzzy_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "memories_tags", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "memory_id"
-    t.index ["memory_id"], name: "index_memories_tags_on_memory_id"
-    t.index ["tag_id"], name: "index_memories_tags_on_tag_id"
   end
 
   create_table "memory_categories", force: :cascade do |t|

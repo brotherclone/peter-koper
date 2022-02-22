@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "@hotwired/turbo-rails"
 require('packs/navigation/navigation')
 import "@fortawesome/fontawesome-free/css/all"
+require('packs/stream/stream')
 import "channels"
 import "controllers"
 
