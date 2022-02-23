@@ -45,3 +45,5 @@ yarn-debug.log*
 cheat-sheet.txt
 
 public/uploads/tmp/
+
+config/cloudinary.yml
