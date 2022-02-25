@@ -1,6 +1,9 @@
-
-%h1 New guest_book_entry
-
-= render 'form'
-
-= link_to 'Back', guest_book_entries_path
+.container
+  .main-wrapper
+    .guest-book
+      .guest-book-heading
+        %h1
+          Guest Book
+        = link_to 'Back', guest_book_entries_path
+      .guest-book-entry-authoring-container
+        = render 'form'
