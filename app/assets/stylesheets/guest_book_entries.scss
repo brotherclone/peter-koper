@@ -1,3 +1,63 @@
-// Place all the styles related to the GuestBookEntries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "utility/pallete";
+@import "utility/buttons";
+
+.guest-book{
+
+}
+
+.guest-book-entries-container{
+  border: 1px solid gray;
+  .guest-book-entry-heading{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .title{
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      color: $palette_grey_darker;
+      text-decoration: overline dotted $palette_grey;
+    }
+    .name{
+      font-size: 1rem;
+      text-transform: capitalize;
+      letter-spacing: 0.001rem;
+      color: $palette_black;
+    }
+  }
+}
+
+.guest-book-form-container{
+  .guest-book-form{
+    list-style: none;
+    li{
+      margin: 1rem 0 1rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+      label{
+        abbr{
+          margin-left: 1rem;
+        }
+      }
+      input[type=text]{
+
+      }
+      input[type=email]{
+
+      }
+      textarea{
+
+      }
+      input[type=submit]{
+        @include button-bg();
+        font-size: 1rem;
+        text-transform: capitalize;
+        letter-spacing: 0.001rem;
+        color: $palette_black;
+        font-weight: normal;
+      }
+  }
+}

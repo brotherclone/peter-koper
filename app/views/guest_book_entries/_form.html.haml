@@ -1,20 +1,9 @@
-= form_for @guest_book_entry do |f|
 
-  -f.label :title
-  -f.text_field :title
-  -f.label :body
-  -f.text_field :body
-  -f.label :guest_name
-  -f.text_field :guest_name
-  -f.label :guest_email
-  -f.text_field :guest_email
-
-  - if @guest_book_entry.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@guest_book_entry.errors.count, "error")} prohibited this guest_book_entry from being saved:"
-      %ul
-        - @guest_book_entry.errors.full_messages.each do |message|
-          %li= message
-
-  .actions
-    = f.submit 'Save'
+.guest-book-form-container
+  .guest-book-form
+    = semantic_form_for @guest_book_entry do |f|
+      = f.input :title
+      = f.input :body
+      = f.input :guest_name
+      = f.input :guest_email, :label=> "Your email won't be displayed. Just in case we want to get in touch with friends of Peter."
+      = f.actions
