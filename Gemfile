@@ -21,6 +21,7 @@ gem 'shoulda-matchers'
 gem 'breadcrumbs_on_rails'
 gem 'turbo-rails'
 gem 'stimulus-rails'
+gem 'activeadmin_quill_editor'
 
 
 group :development, :test do
