@@ -1,8 +1,31 @@
 @import "utility/pallete";
 @import "utility/buttons";
-
+@import "utility/pallete";
 .guest-book{
-
+  .hidden{
+    display: none !important;
+  }
+  .guest-book-entry-authoring-container{
+    .challenge-wrapper{
+      display: flex;
+      flex-direction: column;
+      .challenge-heading{
+        display: flex;
+      }
+      .challenge-wrapper-form{
+        .challenge-label{
+          margin: 0.5rem;
+        }
+        .warning{
+          display: initial;
+          color: $palette_off_red;
+        }
+      }
+    }
+    .show-hide-form-wrapper{
+      display: initial;
+    }
+  }
 }
 
 .guest-book-entries-container{

@@ -7,7 +7,7 @@ ActiveAdmin.register GuestBookEntry do
   form(:html => {:multipart => true}) do |f|
     f.inputs do
       f.input :title
-      f.input :body
+      f.input :body, as: :quill_editor
       f.input :guest_name
       f.input :guest_email
       f.input :challenge_passed

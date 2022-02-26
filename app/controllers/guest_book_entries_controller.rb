@@ -25,6 +25,7 @@ class GuestBookEntriesController < ApplicationController
 
   def new
     @guest_book_entry = GuestBookEntry.new
+    @display_challenge_failed = false
   end
 
   def edit
@@ -79,7 +80,8 @@ class GuestBookEntriesController < ApplicationController
                                              :image_three_url_cache,
                                              :guest_email, :guest_name,
                                              :challenge_passed,
-                                             :admin_state)
+                                             :admin_state,
+                                             :challenge_text)
   end
 
 end
