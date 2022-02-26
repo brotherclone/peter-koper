@@ -48,6 +48,10 @@
       letter-spacing: 0.001rem;
       color: $palette_black;
     }
+    .entry{
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+    }
   }
 }
 

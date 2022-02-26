@@ -10,7 +10,6 @@ ActiveAdmin.register GuestBookEntry do
       f.input :body, as: :quill_editor
       f.input :guest_name
       f.input :guest_email
-      f.input :challenge_passed
       f.input :admin_state
       f.input :image_one_url, :as => :file
       f.input :image_one_url_cache, :as => :hidden

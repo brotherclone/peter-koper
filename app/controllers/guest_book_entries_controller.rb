@@ -7,7 +7,7 @@ class GuestBookEntriesController < ApplicationController
 
   def index
     @show_breadcrumbs = true
-    @guest_book_entries = GuestBookEntry.all
+    @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
     respond_to do |format|
       format.html { render :index}
       format.json { render :json => @guest_book_entries}
@@ -78,10 +78,10 @@ class GuestBookEntriesController < ApplicationController
                                              :image_two_url_cache,
                                              :image_three_url,
                                              :image_three_url_cache,
-                                             :guest_email, :guest_name,
+                                             :guest_email,
+                                             :guest_name,
                                              :challenge_passed,
-                                             :admin_state,
-                                             :challenge_text)
+                                             :admin_state)
   end
 
 end

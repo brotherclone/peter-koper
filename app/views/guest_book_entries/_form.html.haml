@@ -5,4 +5,5 @@
       = f.input :body
       = f.input :guest_name
       = f.input :guest_email, :label=> "Your email won't be displayed. Just in case we want to get in touch with friends of Peter."
+      = f.input :admin_state, as: :hidden, :value => :submitted
       = f.actions
