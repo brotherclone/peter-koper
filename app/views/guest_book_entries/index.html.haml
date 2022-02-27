@@ -7,11 +7,4 @@
         = link_to 'Sign the guest book', new_guest_book_entry_path
       .guest-book-entries-container
         - @guest_book_entries.each do |guest_book_entry|
-          .guest-book-entries-container
-            .guest-book-entry-heading
-              .title
-                =guest_book_entry.title
-              .name
-                =guest_book_entry.guest_name
-            %p.entry
-              =guest_book_entry.body.html_safe
+          = render :partial => 'entry', :locals => {:entry=> guest_book_entry}

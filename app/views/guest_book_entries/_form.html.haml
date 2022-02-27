@@ -6,4 +6,10 @@
       = f.input :guest_name
       = f.input :guest_email, :label=> "Your email won't be displayed. Just in case we want to get in touch with friends of Peter."
       = f.input :admin_state, as: :hidden, :value => :submitted
+      = f.input :image_one_url, as: :file, :label=> 'Upload up to three images to your entry'
+      = f.input :image_two_url, as: :file
+      = f.input :image_three_url, as: :file
+      = f.input :image_one_url_cache, :as => :hidden
+      = f.input :image_two_url_cache, :as => :hidden
+      = f.input :image_three_url_cache, :as => :hidden
       = f.actions

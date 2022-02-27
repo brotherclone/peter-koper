@@ -21,4 +21,23 @@ ActiveAdmin.register GuestBookEntry do
     f.actions
   end
 
+  show do
+    attributes_table do
+      row :guest_name
+      row :guest_email
+      row :title
+      row :body
+      row :admin_state
+      row :image_one_url do |a|
+        image_tag a.image_one_url.to_s, :style => "max-width:200px; height:auto"
+      end
+      row :image_two_url do |b|
+        image_tag b.image_two_url.to_s, :style => "max-width:200px; height:auto"
+      end
+      row :image_three_url do |c|
+        image_tag c.image_three_url.to_s, :style => "max-width:200px; height:auto"
+      end
+    end
+  end
+
 end

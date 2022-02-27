@@ -1,0 +1,20 @@
+-@entry = entry
+
+.guest-book-entry-container
+  .guest-book-entry-heading
+    .title
+      =@entry.title
+    .name
+      =@entry.guest_name
+  %p.entry
+    = @entry.body.html_safe
+  .guest-book-entry-photos
+    - if @entry.image_one_url
+      .guest-book-entry-photo
+        %img{:src => @entry.image_one_url}
+    - if @entry.image_two_url
+      .guest-book-entry-photo
+        %img{:src => @entry.image_two_url}
+    - if @entry.image_two_url
+      .guest-book-entry-photo
+        %img{:src => @entry.image_two_url}

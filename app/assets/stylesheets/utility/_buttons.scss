@@ -19,3 +19,7 @@
   }
   @include box-shadower();
 }
+
+button{
+  @include button-bg();
+}
