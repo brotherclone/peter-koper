@@ -9,6 +9,7 @@
   font-size: 1rem;
   color: $col;
   border: 1px soild transparentize($palette_black, .5);
+  font-family: aw-conqueror-didot, serif;
   &:hover {
     background:darken($bg,8%);
     transition: all 0.3s ease;
@@ -17,4 +18,8 @@
     background:darken($bg,25%);
   }
   @include box-shadower();
+}
+
+button{
+  @include button-bg();
 }

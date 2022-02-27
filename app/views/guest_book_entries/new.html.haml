@@ -5,5 +5,20 @@
         %h1
           Guest Book
         = link_to 'Back', guest_book_entries_path
-      .guest-book-entry-authoring-container
-        = render 'form'
+      .guest-book-entry-authoring-container{:data=>{:controller=>'challenge', :challenge_peters_last_name_value=>'koper', :challenge_hide_class=>'hidden'}}
+        .challenge-wrapper{:data=>{:challenge=>{:target=>'question'}}}
+          .challenge-wrapper-header
+            %h3
+              Would you be so kind as to prove your sentience?
+            %p
+              This does a bit to help with bots, spam, and other annoyances. Thanks!
+          .challenge-wrapper-form
+            %label.challenge-label{:for=>'challenge'}
+              Enter Peter's last name.
+            %input.challenge-input{:type=>'text', :name=> 'challenge', :data=>{:challenge=>{:target=>'lastname'}}}
+            %button.challenge-submit{:data=>{:action=>'click->challenge#check'}}
+              Submit
+            .warning.hidden{:data=>{:challenge=>{:target=>'warning'}}}
+              Please check your spelling, that's incorrect.
+        .show-hide-form-wrapper.hidden{:data=>{:challenge=>{:target=>'form'}}}
+          = render 'form'

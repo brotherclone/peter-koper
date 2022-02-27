@@ -7,7 +7,6 @@ FactoryBot.define do
     image_three_url {Faker::Internet.url}
     guest_name { Faker::Name.name}
     guest_email {Faker::Internet.email}
-    challenge_passed { true }
     admin_state { "submitted" }
   end
 end

@@ -6,6 +6,7 @@ RSpec.describe GuestBookEntry, type: :model do
     it{ expect(build(:guest_book_entry)).to be_valid }
   end
 
+
   describe 'Must have a title' do
     it { should validate_presence_of(:title) }
   end

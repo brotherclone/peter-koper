@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_134629) do
     t.string "image_three_url"
     t.string "guest_name"
     t.string "guest_email"
-    t.boolean "challenge_passed", default: false
     t.integer "admin_state", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -9,7 +9,6 @@ class CreateGuestBookEntries < ActiveRecord::Migration[6.1]
       t.string :image_three_url
       t.string :guest_name
       t.string :guest_email
-      t.boolean :challenge_passed, :default => false
       t.integer :admin_state, :default=> 0
       t.timestamps
     end

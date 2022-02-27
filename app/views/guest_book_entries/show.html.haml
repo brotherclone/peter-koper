@@ -7,10 +7,4 @@
         = link_to 'Edit', edit_guest_book_entry_path(@guest_book_entry)
         = link_to 'Back', guest_book_entries_path
       .guest-book-entries-container
-        .guest-book-entry-heading
-          .title
-            =@guest_book_entry.title
-          .name
-            =@guest_book_entry.guest_name
-        %p.entry
-          =@guest_book_entry.body
+        = render :partial => 'entry', :locals => {:entry=> @guest_book_entry}
