@@ -1,3 +1,15 @@
+def cloudinary(img, format, version)
+  resource_type = "image"
+  type = "upload"
+  public_id =img
+  signature = Cloudinary::Utils.api_sign_request({:public_id=>public_id,
+                                                  :version=>version}, ENV['CLOUDINARY_API_SECRET'])
+  "#{resource_type}/#{type}/v#{version}/#{public_id}.#{format}##{signature}"
+end
+
+
+
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # Categories
@@ -54,7 +66,8 @@ TagCategory.create!([
 drift_wood_lamp_memory = Memory.create(is_live: true,
                                        body: "Driftwood lamp made by Peter's father in Pacific Grove, CA during his childhood",
                                        title: "Driftwood Lamp",
-                                       image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645547923/Driftwood_lamp_w0t53e.jpg",
+                                       image: cloudinary('Driftwood_lamp_w0t53e', 'jpg', '1645547923'),
+                                       # image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645547923/Driftwood_lamp_w0t53e.jpg",
                                        occurrence: Date.parse("Jan 1 1955"),
                                        fuzzy_date: :decade)
 
@@ -64,30 +77,37 @@ swimming_with_salties_memory = Memory.create(is_live: true,
                                              title: "Flaneur Swims with Killer Croc!!!!!",
                                              occurrence: Date.parse("Apr 7 2015"),
                                              fuzzy_date: :regular)
+
 zazu_in_mortville_memory = Memory.create(is_live: true,
                                          body: "A dejected Zazu wondering why her bucolic farm has been transformed into Mortville for Desperate Living.",
                                          title: "Zazu in Mortville",
-                                         image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548635/Zazu_in_Mortville_taai9x.jpg",
+                                         image: cloudinary('Zazu_in_Mortville_taai9x', 'jpg', '1645548635'),
+                                         #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548635/Zazu_in_Mortville_taai9x.jpg",
                                          occurrence: Date.parse("Jan 1 1970"),
                                          fuzzy_date: :decade)
 carriage_return_memory = Memory.create(is_live: true,
-                                       image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549001/00000003_rrl7d0.jpg",
+                                       image: cloudinary('00000003_rrl7d0', 'jpg', '1645549001'),
+                                       #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549001/00000003_rrl7d0.jpg",
                                        occurrence: Date.parse("May 1 1971"),
                                        fuzzy_date: :month)
 shift_lock_memory = Memory.create(is_live: true,
-                                  image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549071/Friends_02_006_vxpj0r.jpg",
+                                  image: cloudinary('Friends_02_006_vxpj0r', 'jpg', '1645549071'),
+                                  #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549071/Friends_02_006_vxpj0r.jpg",
                                   occurrence: Date.parse("Jan 1 1980"),
                                   fuzzy_date: :decade)
 always_be_typing_memory = Memory.create(is_live: true,
                                         occurrence: Date.parse("Jan 1 1950"),
-                                        image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548761/Tiny_PK_typing_punh6e.jpg",
+                                        image: cloudinary('Tiny_PK_typing_punh6e', 'jpg', '1645548761'),
+                                        #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645548761/Tiny_PK_typing_punh6e.jpg",
                                         fuzzy_date: :decade)
 no_one_knew_jimmy_memory = Memory.create(is_live: true,
-                                         image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549165/1980s_California_02_021_lvdsfy.jpg",
+                                         image: cloudinary('Tiny_PK_typing_punh6e', 'jpg', '1645548761'),
+                                         #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549165/1980s_California_02_021_lvdsfy.jpg",
                                          occurrence: Date.parse("Jan 1 1980"),
                                          fuzzy_date: :decade)
 sombrero_memory = Memory.create(is_live: true,
-                                image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549157/1980s_California_01_032_nat1iy.jpg",
+                                image: cloudinary('1980s_California_01_032_nat1iy', 'jpg', '1645549157'),
+                                #image: "https://res.cloudinary.com/hodsx14x9/image/upload/v1645549157/1980s_California_01_032_nat1iy.jpg",
                                 occurrence: Date.parse("Jan 1 1980"),
                                 fuzzy_date: :decade)
 

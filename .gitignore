@@ -46,4 +46,4 @@ cheat-sheet.txt
 
 public/uploads/tmp/
 
-config/cloudinary.yml
+/config/cloudinary.yml
