@@ -1,7 +1,7 @@
 ActiveAdmin.register GuestBookEntry do
 
   permit_params :title, :body, :image_one_url, :image_one_url_cache, :image_two_url, :image_two_url_cache,
-                :image_three_url, :image_three_url_cache, :guest_email, :guest_name, :challenge_passed, :admin_state
+                :image_three_url, :image_three_url_cache, :guest_email, :guest_name, :admin_state
 
 
   form(:html => {:multipart => true}) do |f|

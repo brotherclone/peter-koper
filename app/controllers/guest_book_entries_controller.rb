@@ -80,7 +80,6 @@ class GuestBookEntriesController < ApplicationController
                                              :image_three_url_cache,
                                              :guest_email,
                                              :guest_name,
-                                             :challenge_passed,
                                              :admin_state)
   end
 
