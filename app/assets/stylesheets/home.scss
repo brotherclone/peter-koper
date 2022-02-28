@@ -1,17 +1,4 @@
-.outer{
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
+@import "vendor/simplegrid/simple-grid";
+@import "utility/pallete";
 
-.inner{
-  align-self: center;
-  width: 100vw;
-  text-align: center;
-}
 
-.soon{
-  text-transform: uppercase;
-  //ToDo: use palette
-  color: #999999;
-}

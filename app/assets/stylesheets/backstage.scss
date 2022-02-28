@@ -48,15 +48,9 @@
           flex-direction: column;
           justify-content: center;
           &.red{
-            background-color: $palette_red;
+            background-color: $palette_flaneur_red;
             &::after{
-              @include color-name($palette_red, "Bacchus Red", true);
-            }
-          }
-          &.off-red{
-            background-color: $palette_off_red;
-            &::after {
-              @include color-name($palette_off_red, "Blood Stain Red", true);
+              @include color-name($palette_flaneur_red, "Flaneur Red", true);
             }
           }
           &.blue{
@@ -74,13 +68,13 @@
           &.white{
             background-color: $palette_white;
             &::after {
-              @include color-name($palette_white, "Starlight White");
+              @include color-name($palette_white, "White");
             }
           }
           &.off-white{
             background-color: $palette_off_white;
             &::after {
-              @include color-name($palette_off_white, "Faded Frog White");
+              @include color-name($palette_off_white, "Starlight White");
             }
           }
           &.black{
@@ -90,15 +84,9 @@
             }
           }
           &.yellow{
-            background-color: $palette_yellow;
+            background-color: $palette_flaneur_yellow;
             &::after {
-              @include color-name($palette_yellow, "Sol Yellow");
-            }
-          }
-          &.off-yellow{
-            background-color: $palette_off_yellow;
-            &::after {
-              @include color-name($palette_off_yellow, "Summer Dress Yellow");
+              @include color-name($palette_flaneur_yellow, "Flaneur Yellow");
             }
           }
           &.grey{
