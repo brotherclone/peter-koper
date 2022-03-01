@@ -1,0 +1,14 @@
+@import "../vendor/kitty_giraudel/breakpoints";
+
+@mixin responsive-outliner(){
+  border: 2px dashed grey;
+  @include respond-to('small') {
+    border: 2px dashed red;
+  }
+  @include respond-to('medium') {
+    border: 2px dashed orange;
+  }
+  @include respond-to('large') {
+    border: 2px dashed green;
+  }
+}

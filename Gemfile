@@ -22,6 +22,7 @@ gem 'breadcrumbs_on_rails'
 gem 'turbo-rails'
 gem 'stimulus-rails'
 gem 'activeadmin_quill_editor'
+gem 'inline_svg'
 
 
 group :development, :test do

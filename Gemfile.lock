@@ -173,6 +173,9 @@ GEM
       has_scope (~> 0.6)
       railties (>= 5.2, < 7.1)
       responders (>= 2, < 4)
+    inline_svg (1.8.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -397,6 +400,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   haml-rails (~> 2.0)
+  inline_svg
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg
