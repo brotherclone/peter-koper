@@ -1,0 +1,13 @@
+.home
+  .headings{:data=>{:controller=>'headings'}}
+    .peter-heading{:data=>{:headings=>{:target=>'peter'}}}
+      .peter-heading-wide
+        = image_tag("peterH.png", alt: "Peter Koper")
+      .peter-heading-tall
+        = image_tag("peterV.png", alt: "Peter Koper")
+    .logo{:id=>"logo"}
+      .logo-wrapper
+        =inline_svg_tag("logo.svg", options={})
+    .guest-book-button
+      %a{:href=> guest_book_entries_path, :tab=>{:index=>0}}
+        Guest Book
