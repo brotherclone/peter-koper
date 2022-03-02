@@ -33,6 +33,7 @@ class MemoriesController < ApplicationController
         remembering_memories.each do |r|
           remembering_ids << r.memory_id
         end
+        @memories = Memory.where(id: remembering_ids)
       end
     elsif params[:pondering]
       pondering = params[:pondering]

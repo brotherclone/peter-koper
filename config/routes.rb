@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   get 'home', to:'home#index'
   get 'soon', to:'soon#index'
   get 'stream', to:'memories#stream'
-  get 'tags/stream', to:'tags#stream'
   root 'soon#index'
 end
