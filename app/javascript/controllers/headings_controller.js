@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import lax from 'lax.js'
-import {dom} from "../../../public/assets/tinymce-213f84c2ea0b76dbe066217672caec97a8f3e296895064f010ae89541df69849";
 
 export default class extends Controller {
     static targets = [ "peter" ]
