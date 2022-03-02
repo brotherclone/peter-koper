@@ -9,13 +9,18 @@
   align-items: center;
 }
 .memory-container{
-  //position: relative;
   margin-top: 2rem;
   .memory-image-container {
-    //position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 40rem;
+    height: 40rem;
+    @include box-shadower();
+    border-radius: 0.25rem;
+  }
+  .memory-video-container{
+    background-color: $palette_flaneur_yellow;
     width: 40rem;
     height: 40rem;
     @include box-shadower();
@@ -36,9 +41,10 @@
     .memory-date{
       @include base-type();
       font-style: italic;
+      margin: 0;
     }
     .memory-categories{
-      @include responsive-outliner();
+      margin: 0;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -48,17 +54,31 @@
       color: $palette_blue;
       font-style: normal;
       text-transform: capitalize;
-      .category{
-        margin-left: 1rem;
-        &:after{
-          content:', ';
-        }
-        &:last-of-type{
-          &:after{
-            content:'';
-            margin-left: initial;
-          }
-        }
+      max-width: 34rem;
+    }
+    .memory-category ~ .memory-category::before{
+      content:', ';
+    }
+    .memory-body{
+      width: 100%;
+      font-size: 0.875rem;
+      color: $palette_grey;
+      margin: 0;
+      max-width: 34rem;
+      padding: 1rem;
+    }
+    .memory-tags{
+      width: 100%;
+      max-width: 34rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .memory-tag{
+        margin:0;
+      }
+      .memory-tag ~ .memory-tag::before{
+        margin-left: -0.1rem;
+        content:', ';
       }
     }
   }

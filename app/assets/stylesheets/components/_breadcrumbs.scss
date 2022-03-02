@@ -1,0 +1,15 @@
+.you{
+  width: 100%;
+  .are{
+    nav{
+      ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        li{
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}

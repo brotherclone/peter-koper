@@ -3,7 +3,6 @@ import lax from 'lax.js'
 
 export default class extends Controller {
     static targets = [ "peter" ]
-
     connect(){
         lax.init();
         lax.addDriver('scrollY', function(){

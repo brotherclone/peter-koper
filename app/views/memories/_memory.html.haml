@@ -2,19 +2,22 @@
 -@tags = tags
 -@categories = categories
 
-.memory-container
-  - if !@memory.video
-    .memory-image-container{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+.memory-container{:data=>{:controller=>"stream"}}
+  %div{:id=> "memory-card"+@memory.id.to_s, :data=>{:stream=>{:target=>"id"}}}
+    - if !@memory.video
+      .memory-image-container{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+    -else
+      .memory-video-container
     .memory-text-container
       %h2.memory-date
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
       %h3.memory-categories
         -@categories.each do |c|
-          %span.category
-            =c.name
-      %p
+          %span.memory-category{:data=>{:controller=>"reset"}}
+            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+      %p.memory-body
         = @memory.body
-      %ul
+      %ul.memory-tags
         - @tags.each do |t|
-          %li{:data=>{:controller=>"reset"}}
+          %span.memory-tag{:data=>{:controller=>"reset"}}
             = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
