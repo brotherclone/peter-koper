@@ -24,18 +24,4 @@ export default class extends Controller {
             }
         })
     }
-    focus(){
-        let id = this.idTarget.id;
-        id = id.split("_");
-        id = id[1];
-        if(this.urlTarget.dataset.url && id){
-            const url = this.urlTarget.dataset.url+"?viewing="+id+"&"
-            fetch(url).then((r)=>{
-               if(r.status===200){
-                   console.log("yes");
-               }
-            })
-        }
-
-    }
 }
