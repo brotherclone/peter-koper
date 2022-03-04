@@ -9,7 +9,6 @@ export default class extends Controller {
             return window.scrollY;
         })
         lax.addElements('.peter-heading',{
-
             scrollY:{
                 scale: [
                     ["elCenterY", "elOutY"],

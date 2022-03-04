@@ -12,7 +12,6 @@
     justify-content: space-between;
   }
   justify-content: center;
-  @include responsive-outliner();
   .stream-nav-container{
     margin: 2rem 1rem 0 0;
     display: none;
@@ -31,7 +30,6 @@
     .stream-nav-container-inner{
       padding: .5rem;
       width: 100%;
-      @include responsive-outliner();
     }
   }
 }
