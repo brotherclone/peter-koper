@@ -2,11 +2,11 @@
   - if @category_stream
     .categories-nav
       - @category_stream.each do |c|
-        .category-nav
-          =c.name
+        .category-nav{:data=>{:controller=>"reset"}}
+          = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
   - if @tag_stream
     %hr
     .tags-nav
       - @tag_stream.each do |t|
-        .tag-nav
-          =t.name
+        .tag-nav{:data=>{:controller=>"reset"}}
+          = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
