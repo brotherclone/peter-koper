@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'soon', to:'soon#index'
   get 'stream', to:'memories#stream'
   get 'stream-nav', to:'memories#stream_nav'
+  post 'stream-nav', to:'memories#stream_nav'
   root 'soon#index'
 end

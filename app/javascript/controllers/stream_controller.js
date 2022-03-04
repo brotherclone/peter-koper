@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import lax from 'lax.js'
 
+
 export default class extends Controller {
 
     static targets =["id", "url"]
@@ -11,17 +12,38 @@ export default class extends Controller {
         lax.addDriver('scrollY', function () {
             return window.scrollY;
         })
-
         lax.addElements('.memory-container',{
             scrollY:{
                 scale: [
                     ["elInY","elCenterY", "elOutY"],
-                    [0.85, 1, 0.85],   // Animation value map
+                    [0.85, 1, 0.85],
                     {
-                        inertia: 20        // Options
+                        inertia: 20
                     }
                 ]
             }
         })
+    }
+    set(){
+        let id = this.idTarget.id;
+        id = id.split("_");
+        id = id[1];
+        if(this.urlTarget.dataset.url && id){
+            const url = this.urlTarget.dataset.url
+            let csrfToken = document.head.querySelector("[name='csrf-token']")
+            csrfToken = csrfToken["content"]
+            const headers = {
+                'Content-Type': 'application/json',
+                'Accept': 'application/html',
+                'X-CSRF-Token': csrfToken
+            }
+            const body = JSON.stringify({viewing: id})
+            fetch(url, {
+                method: 'POST',
+                body: body,
+                headers: headers
+            }).then((r) => r.text()).then((html)=> html)
+        }
+
     }
 }

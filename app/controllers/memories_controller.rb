@@ -5,6 +5,7 @@ class MemoriesController < ApplicationController
 
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
+
   def stream_nav
     if params[:viewing]
       viewing = params[:viewing]
@@ -20,8 +21,11 @@ class MemoriesController < ApplicationController
       end
       @category_stream = Category.where(id: viewing_categories_ids)
       @tag_stream = Tag.where(id: viewing_tags_ids)
-    else
+    end
+    unless @category_stream
       @category_stream = Category.all
+    end
+    unless @tag_stream
       @tag_stream = []
     end
   end
@@ -126,7 +130,8 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date)
+    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
   end
+
 
 end
