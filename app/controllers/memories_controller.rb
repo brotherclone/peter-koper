@@ -8,6 +8,7 @@ class MemoriesController < ApplicationController
   def stream_nav
     if params[:viewing]
       viewing = params[:viewing]
+      @current_memory = viewing
       viewing_categories = MemoryCategory.where(memory_id: viewing)
       viewing_tags = TagMemory.where(memory_id: viewing)
       viewing_categories_ids = []
@@ -27,6 +28,7 @@ class MemoriesController < ApplicationController
   end
 
   def stream
+    @current_memory = 1
     if params[:remembering]
       remembering = params[:remembering]
       remembering_memories = MemoryCategory.where(category_id: remembering)
@@ -124,5 +126,8 @@ class MemoriesController < ApplicationController
     params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date)
   end
 
+  def current_memory
+    @current_memory
+  end
 
 end

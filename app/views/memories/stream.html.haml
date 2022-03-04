@@ -15,10 +15,12 @@
     .stream-and-nav-wrapper
       .stream-nav-container
         .stream-nav-container-inner
-        = turbo_frame_tag "stream_nav", src: stream_nav_path, loading:"lazy" do
-          .loading-frame
+        = turbo_frame_tag "stream_nav", src: '/stream-nav'
       .stream-container{:id=>"streamContainerMain"}
       = turbo_frame_tag "memory_stream" do
+        %h1
+          current mem
+          = @current_memory
         - if @stream_name
           %h1
             = @stream_name

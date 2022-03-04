@@ -1,16 +1,12 @@
-= turbo_frame_tag "stream_nav"
-.stream-nav-container
-  .stream-nav-container-inner
-    %h1
-      Categories
-    - if @category_stream
-      .categories-nav
-        - @category_stream.each do |c|
-          .category-nav
-            =c.name
-    - if @tag_stream
-      %hr
-      .tags-nav
-        - @tag_stream.each do |t|
-          .tag-nav
-            =t.name
+= turbo_frame_tag "stream_nav" do
+  - if @category_stream
+    .categories-nav
+      - @category_stream.each do |c|
+        .category-nav
+          =c.name
+  - if @tag_stream
+    %hr
+    .tags-nav
+      - @tag_stream.each do |t|
+        .tag-nav
+          =t.name
