@@ -5,6 +5,22 @@ class MemoriesController < ApplicationController
 
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
+  def self.category_stream=(categories)
+    @category_stream = categories
+  end
+
+  def self.category_stream
+    @category_stream
+  end
+
+  def self.tag_stream=(tags)
+    @category_stream = tags
+  end
+
+  def self.tag_stream
+    @tag_stream
+  end
+
 
   def stream_nav
     if params[:viewing]
@@ -19,23 +35,12 @@ class MemoriesController < ApplicationController
       viewing_tags.each do |t|
         viewing_tags_ids << t.tag_id
       end
-      @category_stream = Category.where(id: viewing_categories_ids)
-      @tag_stream = Tag.where(id: viewing_tags_ids)
-    end
-    unless @category_stream
-      @category_stream = Category.all
-    end
-    unless @tag_stream
-      @tag_stream = []
+      MemoriesController.category_stream = Category.where(id: viewing_categories_ids)
+      MemoriesController.tag_stream = Tag.where(id: viewing_tags_ids)
     end
   end
 
   def stream
-    if params[:viewing]
-      @test = "yes"
-    else
-      @test = "no"
-    end
     if params[:remembering]
       remembering = params[:remembering]
       remembering_memories = MemoryCategory.where(category_id: remembering)
@@ -64,6 +69,20 @@ class MemoriesController < ApplicationController
     unless @memories
       @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
     end
+    @tag_stream = MemoriesController.tag_stream
+    @category_stream = MemoriesController.category_stream
+    unless @tag_stream
+      @tag_stream = []
+    end
+    unless @category_stream
+      @category_stream = Category.all
+    end
+    # respond_to do |format|
+    #   format.turbo_stream do
+    #     render turbo_stream: turbo_stream.replace(:stream_nav, partial: 'stream_nav', locals:{category_stream: MemoriesController.category_stream, tag_stream: MemoriesController.tag_stream})
+    #   end
+    #   format.html { render :stream_nav}
+    # end
   end
 
   def index
