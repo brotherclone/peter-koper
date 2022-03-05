@@ -38,11 +38,14 @@ export default class extends Controller {
                 'X-CSRF-Token': csrfToken
             }
             const body = JSON.stringify({viewing: id})
+
+            // ToDo: Pass in ref
             fetch(url, {
                 method: 'POST',
                 body: body,
                 headers: headers
-            }).then((r) => r.text()).then((html)=> html)
+            }) .then(response => response.text())
+                .then(html => document.getElementById("stream_nav").innerHTML = html)
         }
 
     }

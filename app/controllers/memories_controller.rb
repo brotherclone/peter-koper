@@ -14,7 +14,7 @@ class MemoriesController < ApplicationController
   end
 
   def self.tag_stream=(tags)
-    @category_stream = tags
+    @tag_stream = tags
   end
 
   def self.tag_stream
@@ -27,6 +27,7 @@ class MemoriesController < ApplicationController
       viewing = params[:viewing]
       viewing_categories = MemoryCategory.where(memory_id: viewing)
       viewing_tags = TagMemory.where(memory_id: viewing)
+      tag_categories = TagCategory.where(category_id: viewing_categories)
       viewing_categories_ids = []
       viewing_tags_ids =[]
       viewing_categories.each do |c|
@@ -34,6 +35,9 @@ class MemoriesController < ApplicationController
       end
       viewing_tags.each do |t|
         viewing_tags_ids << t.tag_id
+      end
+      tag_categories.each do |tc|
+        viewing_tags_ids << tc.tag_id
       end
       MemoriesController.category_stream = Category.where(id: viewing_categories_ids)
       MemoriesController.tag_stream = Tag.where(id: viewing_tags_ids)
@@ -68,14 +72,6 @@ class MemoriesController < ApplicationController
     end
     unless @memories
       @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
-    end
-    @tag_stream = MemoriesController.tag_stream
-    @category_stream = MemoriesController.category_stream
-    unless @tag_stream
-      @tag_stream = []
-    end
-    unless @category_stream
-      @category_stream = Category.all
     end
   end
 
