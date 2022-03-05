@@ -77,12 +77,6 @@ class MemoriesController < ApplicationController
     unless @category_stream
       @category_stream = Category.all
     end
-    # respond_to do |format|
-    #   format.turbo_stream do
-    #     render turbo_stream: turbo_stream.replace(:stream_nav, partial: 'stream_nav', locals:{category_stream: MemoriesController.category_stream, tag_stream: MemoriesController.tag_stream})
-    #   end
-    #   format.html { render :stream_nav}
-    # end
   end
 
   def index
