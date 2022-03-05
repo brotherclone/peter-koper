@@ -1,0 +1,36 @@
+@import "../vendor/kitty_giraudel/breakpoints";
+@import "../utility/pallete";
+@import "../utility/lighting";
+@import "../dev/responsive-outliner";
+@import "../utility/layout";
+
+.stream-and-nav-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  @include respond-to('medium') {
+    justify-content: space-between;
+  }
+  justify-content: center;
+  .stream-nav-container{
+    margin: 2rem 1rem 0 0;
+    display: none;
+    background-color: $palette_light_blue;
+    border-radius: .5rem;
+    border: 1px solid transparentize($palette_blue,.8);
+    width: 12.5rem;
+    height: auto;
+    min-height: 28.125rem;
+    max-height: 90vh;
+    @include box-shadower();
+    @include respond-to('medium') {
+      display: inline-flex;
+    }
+    @include sticky();
+    .stream-nav-container-inner{
+      padding: .5rem;
+      width: 100%;
+    }
+  }
+}
+
