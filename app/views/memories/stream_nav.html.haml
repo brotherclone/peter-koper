@@ -1,0 +1,12 @@
+= turbo_frame_tag "stream_nav" do
+  - if MemoriesController.category_stream
+    .categories-nav
+      - MemoriesController.category_stream.each do |c|
+        .category-nav{:data=>{:controller=>"reset"}}
+          = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+  - if MemoriesController.tag_stream
+    %hr
+    .tags-nav
+      - MemoriesController.tag_stream.each do |t|
+        .tag-nav{:data=>{:controller=>"reset"}}
+          = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}

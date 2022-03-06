@@ -5,21 +5,43 @@ class MemoriesController < ApplicationController
 
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
-
-  def self.relevant_memories=(ids)
-    @relevant_memories = ids
+  def self.category_stream=(categories)
+    @category_stream = categories
   end
 
-  def self.relevant_memories
-    @relevant_memories
+  def self.category_stream
+    @category_stream
   end
 
-  def self.current_memory=(id)
-    @current_memory = id
+  def self.tag_stream=(tags)
+    @tag_stream = tags
   end
 
-  def self.current_memory
-    @current_memory
+  def self.tag_stream
+    @tag_stream
+  end
+
+
+  def stream_nav
+    if params[:viewing]
+      viewing = params[:viewing]
+      viewing_categories = MemoryCategory.where(memory_id: viewing)
+      viewing_tags = TagMemory.where(memory_id: viewing)
+      tag_categories = TagCategory.where(category_id: viewing_categories)
+      viewing_categories_ids = []
+      viewing_tags_ids =[]
+      viewing_categories.each do |c|
+        viewing_categories_ids << c.category_id
+      end
+      viewing_tags.each do |t|
+        viewing_tags_ids << t.tag_id
+      end
+      tag_categories.each do |tc|
+        viewing_tags_ids << tc.tag_id
+      end
+      MemoriesController.category_stream = Category.where(id: viewing_categories_ids)
+      MemoriesController.tag_stream = Tag.where(id: viewing_tags_ids)
+    end
   end
 
   def stream
@@ -33,6 +55,7 @@ class MemoriesController < ApplicationController
         remembering_memories.each do |r|
           remembering_ids << r.memory_id
         end
+        @memories = Memory.where(id: remembering_ids)
       end
     elsif params[:pondering]
       pondering = params[:pondering]
@@ -116,7 +139,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date)
+    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
   end
 
 

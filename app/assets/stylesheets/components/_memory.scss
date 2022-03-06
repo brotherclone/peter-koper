@@ -1,34 +1,85 @@
 @import "../utility/pallete";
 @import "../utility/lighting";
+@import "../dev/responsive-outliner";
+@import "../utility/typography";
 
+.stream-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .memory-container{
-    position: relative;
+  margin-top: 2rem;
+  .memory-image-container {
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: $palette_black;
-    min-height: 90vh;
-    height: 90vh;
-    margin: 5rem 0 5rem 0;
+    width: 40rem;
+    height: 40rem;
     @include box-shadower();
     border-radius: 0.25rem;
-    .memory-label{
+  }
+  .memory-video-container{
+    background-color: $palette_flaneur_yellow;
+    width: 40rem;
+    height: 40rem;
+    @include box-shadower();
+    border-radius: 0.25rem;
+  }
+  .memory-text-container{
+    margin-top: 0.75rem;
+    max-width: 40rem;
+    height: auto;
+    padding: 1rem;
+    background-color: $palette_white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include box-shadower();
+    border-radius: 0.25rem;
+    border:1px solid $palette_grey_lighter;
+    .memory-date{
+      @include base-type();
+      font-style: italic;
+      margin: 0;
+    }
+    .memory-categories{
+      margin: 0;
       width: 100%;
-      background-color: $palette_white;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      @include sub-header();
+      font-size: 1rem;
+      color: $palette_blue;
+      font-style: normal;
+      text-transform: capitalize;
+      max-width: 34rem;
+    }
+    .memory-category ~ .memory-category::before{
+      content:', ';
+    }
+    .memory-body{
+      width: 100%;
+      font-size: 0.875rem;
+      color: $palette_grey;
+      margin: 0;
+      max-width: 34rem;
       padding: 1rem;
-      max-height: 30%;
-      overflow: hidden;
-      border-radius: 0.05rem;
-      @include box-shadower();
-      position: absolute;
-      bottom:0;
-      margin: 0 1rem 1rem 1rem;
-      h2, h3{
-        margin: 0;
+    }
+    .memory-tags{
+      width: 100%;
+      max-width: 34rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .memory-tag{
+        margin:0;
       }
-      ul{
-        list-style: none;
+      .memory-tag ~ .memory-tag::before{
+        margin-left: -0.1rem;
+        content:', ';
       }
     }
+  }
 }
-
