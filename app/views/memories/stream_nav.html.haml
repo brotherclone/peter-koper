@@ -1,7 +1,7 @@
 = turbo_frame_tag "stream_nav" do
   - if MemoriesController.category_stream
     .categories-nav
-      - if !MemoriesController.current_category_id
+      - if !MemoriesController.current_category_id and !@stream_name
         .category-nav.on
           All
       - else

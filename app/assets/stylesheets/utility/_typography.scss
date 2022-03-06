@@ -52,7 +52,6 @@
 }
 
 @mixin sub-header(){
-  @include base-header();
   font-family: linotype-didot-headline, serif;;
   font-weight: 400;
   font-style: normal;

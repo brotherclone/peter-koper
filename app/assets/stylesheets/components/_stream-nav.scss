@@ -3,6 +3,7 @@
 @import "../utility/lighting";
 @import "../dev/responsive-outliner";
 @import "../utility/layout";
+@import "../utility/typography";
 
 .stream-and-nav-wrapper{
   display: flex;
@@ -30,34 +31,51 @@
     .stream-nav-container-inner{
       padding: .5rem;
       width: 100%;
+      transition: color 1s ease-in-out;
       .categories-nav{
+        @include sub-header();
         .category-nav{
+          margin: 0 0 .5rem .25rem;
           &.on{
-            color: red;
+            color: $palette_flaneur_red;
           }
           &.hinted{
             a{
-              color: blue;
+              color: $palette_blue;
+              &:hover{
+                color: $palette_grey;
+              }
             }
           }
           a{
-            color: black;
+            color: $palette_grey_darker;
+            &:hover{
+              color: $palette_grey;
+            }
           }
         }
       }
       .tags-nav{
+        @include base-type();
+        font-style: italic;
         .tag-nav{
           &.selected{
-            color: red;
+            color: $palette_flaneur_red;
           }
           &.hinted{
             a{
-              color: blue;
+              color: $palette_off_white;
+              &:hover{
+                color: $palette_grey_lighter;
+              }
             }
           }
           &.on{
             a{
-              color: purple;
+              color: $palette_grey_lighter;
+              &:hover{
+                color: $palette_off_white;
+              }
             }
           }
         }
