@@ -30,6 +30,38 @@
     .stream-nav-container-inner{
       padding: .5rem;
       width: 100%;
+      .categories-nav{
+        .category-nav{
+          &.on{
+            color: red;
+          }
+          &.hinted{
+            a{
+              color: blue;
+            }
+          }
+          a{
+            color: black;
+          }
+        }
+      }
+      .tags-nav{
+        .tag-nav{
+          &.selected{
+            color: red;
+          }
+          &.hinted{
+            a{
+              color: blue;
+            }
+          }
+          &.on{
+            a{
+              color: purple;
+            }
+          }
+        }
+      }
     }
   }
 }
