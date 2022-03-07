@@ -10,9 +10,17 @@
   %p.entry
     = @entry.body.html_safe
   .guest-book-entry-photos
-    - if @entry.image_one_url.to_s.length >= 1
-      .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_one_url.to_s+');'}
-    - if @entry.image_two_url.to_s.length >= 1
-      .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_two_url.to_s+');'}
-    - if @entry.image_three_url.to_s.length >= 1
-      .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_three_url.to_s+');'}
+    - layout = which_layout(@entry.image_one_url.to_s, @entry.image_two_url.to_s, @entry.image_three_url.to_s)
+    - if layout.length === 1
+      .guest-book-entry-photo-row
+        .guest-book-entry-photo.large.loading{:style=> 'background-image: url('+ layout[0] +');'}
+    - elsif layout.length == 2
+      .guest-book-entry-photo-row
+        .guest-book-entry-photo.small.loading{:style=> 'background-image: url('+ layout[0] +');'}
+        .guest-book-entry-photo.small.loading{:style=> 'background-image: url('+ layout[1] +');'}
+    - elsif layout.length == 3
+      .guest-book-entry-photo-row
+        .guest-book-entry-photo.large.loading{:style=> 'background-image: url('+ layout[0] +');'}
+      .guest-book-entry-photo-row
+        .guest-book-entry-photo.small.loading{:style=> 'background-image: url('+ layout[1] +');'}
+        .guest-book-entry-photo.small.loading{:style=> 'background-image: url('+ layout[2] +');'}

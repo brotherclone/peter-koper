@@ -1,7 +1,7 @@
 -@link_types = link_types
 
 .headings-guest-book
-  .logo{:id=>"logo"}
+  .guest-book-logo
     .logo-wrapper
       =inline_svg_tag("logo.svg", options={:alt=>"Peter Koper, Flaneur, Strolls Along Life's Boulevard"})
   .guest-book-back-button
@@ -15,8 +15,12 @@
       .sign-link
         = link_to 'Sign the guest book', new_guest_book_entry_path
     - elsif @link_types === "authoring"
-      = link_to 'Cancel and discard changes',  @guest_book_entry
-      = link_to 'Return to all entries', guest_book_entries_path
+      .show-link
+        = link_to 'Cancel and discard changes',  @guest_book_entry
+      .index-link
+        = link_to 'Return to all entries', guest_book_entries_path
     - elsif @link_types === "display"
-      = link_to 'Edit your guest book entry.', edit_guest_book_entry_path(@guest_book_entry)
-      = link_to 'Return to all entries', guest_book_entries_path
+      .edit-link
+        = link_to 'Edit your guest book entry.', edit_guest_book_entry_path(@guest_book_entry)
+      .index-link
+        = link_to 'Return to all entries', guest_book_entries_path

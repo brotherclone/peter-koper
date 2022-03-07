@@ -3,4 +3,7 @@
     .guest-book{:data=>{:controller=>'guest'}}
       = render :partial => "components/guest_book_header", :locals=>{:link_types=>"display"}
       .guest-book-entries-container
+        -if @guest_book_entry.admin_state === "submitted"
+          %p.warning
+            This entry is pending approval by our gracious moderator.
         = render :partial => 'entry', :locals => {:entry=> @guest_book_entry}

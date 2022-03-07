@@ -12,11 +12,11 @@
           .challenge-wrapper-form
             %form{:id=> 'challengeForm'}
               %label.challenge-label{:for=>'challenge'}
-                Enter Peter's last name.
+                Enter Peter's last name:
               %input.challenge-input.not-touched{:type=>'text', :name=> 'challenge', :data=>{:guest=>{:target=>'lastname'}}}
-              %a.challenge-submit{:id=>'challengeButton',:data=>{:action=>'click->guest#check'}}
+              %a.challenge-submit{:as=>'button',:id=>'challengeButton',:data=>{:action=>'click->guest#check'}}
                 Submit
-              .warning.hidden{:id=>'challengeWarning',:data=>{:guest=>{:target=>'warning'}}}
-                Please check your spelling, that's incorrect.
+          .warning.hidden{:id=>'challengeWarning',:data=>{:guest=>{:target=>'warning'}}}
+            Please check your spelling, that's incorrect.
         .show-hide-form-wrapper.hidden{:data=>{:guest=>{:target=>'form'}}}
           = render 'form'

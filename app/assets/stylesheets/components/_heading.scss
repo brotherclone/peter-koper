@@ -50,10 +50,9 @@
     .guest-book-heading-border{
       max-width: 12.5rem;
     }
-    .sign-link{
+    .sign-link, .show-link, .edit-link, .index-link{
       font-size: 1rem;
       font-style: italic;
-
       transition: color 1s ease-in-out;
       a{
         color: $palette_grey;
@@ -63,15 +62,9 @@
       }
     }
   }
-  .logo{
-    .logo-wrapper{
-      width: 20rem;
-      transition: none;
-    }
-  }
 }
 
-.logo{
+.logo, .guest-book-logo{
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
