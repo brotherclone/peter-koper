@@ -1,4 +1,6 @@
 .guest-book-form-container
+  %p{:id=>'formContainerText'}
+    Add an entry to Peter's Guest Book.
   .guest-book-form
     = semantic_form_for @guest_book_entry do |f|
       = f.input :title

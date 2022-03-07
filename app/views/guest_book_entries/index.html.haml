@@ -1,10 +1,10 @@
-= render :partial => "components/breadcrumbs"
 .container
   .main-wrapper
-    .guest-book
+    .guest-book{:data=>{:controller=>'guest'}}
       .guest-book-heading
         %h1
           Guest Book
+        = render :partial => "components/breadcrumbs"
         = link_to 'Sign the guest book', new_guest_book_entry_path
       .guest-book-entries-container
         - @guest_book_entries.each do |guest_book_entry|
