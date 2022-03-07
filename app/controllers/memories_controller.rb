@@ -46,10 +46,6 @@ class MemoriesController < ApplicationController
   end
 
   def stream_nav(viewing=nil, override=false)
-    puts ">>>>>>>>>>\n\n\n"
-    puts viewing
-    puts override
-    puts ">>>>>>>>>>\n\n\n"
     unless MemoriesController.all_categories
       MemoriesController.all_categories = Category.all.order(name: :desc)
     end

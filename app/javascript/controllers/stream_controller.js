@@ -5,9 +5,8 @@ import imageLoading from "../packs/image-loading";
 
 export default class extends Controller {
 
-    static targets =["id", "url"]
+    static targets =["id", "url", "peter"]
 
-    //ToDo: combine so there's only one driver when experimentation is over.
     connect() {
         imageLoading();
         lax.init();
@@ -22,7 +21,37 @@ export default class extends Controller {
                     {
                         inertia: 20
                     }
+                ],
+                opacity: [
+                    ["elInY","elCenterY", "elOutY"],
+                    [1, 1, 0],
+                    {
+                        inertia: 10
+                    }
                 ]
+            }
+        })
+        lax.addElements('.peter-heading',{
+            scrollY:{
+                scale: [
+                    ["elCenterY", "elOutY"],
+                    [1, .6],
+                    {
+                        inertia: 10
+                    }
+                ]
+            }
+        }, {
+            onUpdate: function (driverValues, domElement) {
+                const scrollY = driverValues.scrollY[0];
+                const logo = document.getElementById("logo")
+                if(Math.floor(scrollY) > Math.floor(domElement.offsetHeight)){
+                    domElement.classList.add('retract')
+                    logo.classList.add('retract')
+                }else{
+                    domElement.classList.remove('retract')
+                    logo.classList.remove('retract')
+                }
             }
         })
     }
@@ -50,5 +79,11 @@ export default class extends Controller {
                 .then(html => document.getElementById("stream_nav").innerHTML = html)
         }
 
+    }
+    rescroll(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 }

@@ -13,11 +13,11 @@
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
       %h3.memory-categories
         -@categories.each do |c|
-          %span.memory-category{:data=>{:controller=>"reset"}}
-            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+          %span.memory-category
+            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}
       %p.memory-body
         = @memory.body
       %ul.memory-tags
         - @tags.each do |t|
-          %span.memory-tag{:data=>{:controller=>"reset"}}
-            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
+          %span.memory-tag
+            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->stream#rescroll'}}
