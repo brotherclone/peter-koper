@@ -10,6 +10,9 @@
 }
 .memory-container{
   margin-top: 2rem;
+  &.loading{
+    background-image: none;
+  }
   .memory-image-container {
     overflow: hidden;
     background-repeat: no-repeat;

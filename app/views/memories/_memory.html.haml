@@ -2,7 +2,7 @@
 -@tags = tags
 -@categories = categories
 
-.memory-container{:data=>{:controller=>"stream", :stream=>{:target=>"url"}, :url=>stream_nav_path, :action=>"mouseover->stream#set"}}
+.memory-container.loading{:data=>{:controller=>"stream", :stream=>{:target=>"url"}, :url=>stream_nav_path, :action=>"mouseover->stream#set"}}
   %div{:id=> "memory-card_"+@memory.id.to_s, :data=>{:stream=>{:target=>"id"}}}
     - if !@memory.video
       .memory-image-container{:style=> 'background-image: url('+ @memory.image.to_s+');'}
