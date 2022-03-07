@@ -5,18 +5,18 @@
         .category-nav.on
           All
       - else
-        .category-nav{:data=>{:controller=>"reset"}}
-          = link_to "All", stream_path(:reset=> true), {:data=>{:action=>'click->reset#test'}}
+        .category-nav
+          = link_to "All", stream_path(:reset=> true), {:data=>{:action=>'click->stream#rescroll'}}
       - MemoriesController.category_stream.each do |c|
         - if c.display_state == :hinted
-          .category-nav.hinted{:data=>{:controller=>"reset"}}
-            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+          .category-nav.hinted
+            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}
         - elsif c.display_state == :on
           .category-nav.on
             =  c.name
         - else
-          .category-nav{:data=>{:controller=>"reset"}}
-            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+          .category-nav
+            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}
   - if MemoriesController.tag_stream
     %hr
     .tags-nav
@@ -25,8 +25,8 @@
           .tag-nav.selected
             = t.name
         - elsif t.display_state == :hinted
-          .tag-nav.hinted{:data=>{:controller=>"reset"}}
-            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
+          .tag-nav.hinted
+            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->stream#rescroll'}}
         - elsif t.display_state == :on
-          .tag-nav.on{:data=>{:controller=>"reset"}}
-          = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
+          .tag-nav.on
+          = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->stream#rescroll'}}

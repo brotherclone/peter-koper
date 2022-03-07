@@ -2,7 +2,7 @@
 -@tags = tags
 -@categories = categories
 
-.memory-container{:data=>{:controller=>"stream", :stream=>{:target=>"url"}, :url=>stream_nav_path, :action=>"mouseover->stream#set"}}
+.memory-container.loading{:data=>{:controller=>"stream", :stream=>{:target=>"url"}, :url=>stream_nav_path, :action=>"mouseover->stream#set"}}
   %div{:id=> "memory-card_"+@memory.id.to_s, :data=>{:stream=>{:target=>"id"}}}
     - if !@memory.video
       .memory-image-container{:style=> 'background-image: url('+ @memory.image.to_s+');'}
@@ -13,11 +13,11 @@
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
       %h3.memory-categories
         -@categories.each do |c|
-          %span.memory-category{:data=>{:controller=>"reset"}}
-            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->reset#test'}}
+          %span.memory-category
+            = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}
       %p.memory-body
         = @memory.body
       %ul.memory-tags
         - @tags.each do |t|
-          %span.memory-tag{:data=>{:controller=>"reset"}}
-            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->reset#test'}}
+          %span.memory-tag
+            = link_to t.name, stream_path(:pondering=> t.id), {:data=>{:action=>'click->stream#rescroll'}}

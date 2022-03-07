@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'back-stage', to: 'backstage#index'
   get 'back-stage/style-guide', to: 'backstage#style'
   get 'back-stage/dev-info', to: 'backstage#dev'
-  get 'home', to:'home#index'
   get 'soon', to:'soon#index'
   get 'stream', to:'memories#stream'
   get 'stream-nav', to:'memories#stream_nav'
