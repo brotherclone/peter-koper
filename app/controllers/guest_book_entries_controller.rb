@@ -10,7 +10,6 @@ class GuestBookEntriesController < ApplicationController
     @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
     respond_to do |format|
       format.html { render :index}
-      format.json { render :json => @guest_book_entries}
     end
   end
 
@@ -19,7 +18,6 @@ class GuestBookEntriesController < ApplicationController
     add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
     respond_to do |format|
       format.html { render :show}
-      format.json { render :json => @guest_book_entry}
     end
   end
 
@@ -37,7 +35,6 @@ class GuestBookEntriesController < ApplicationController
     else
       respond_to do |format|
         format.html { render :edit}
-        format.json { render :json => @guest_book_entry}
       end
     end
   end
@@ -47,10 +44,8 @@ class GuestBookEntriesController < ApplicationController
     respond_to do |format|
       if @guest_book_entry.save
         format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @guest_book_entry }
       else
         format.html { render :new }
-        format.json { render json: @guest_book_entry.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +54,6 @@ class GuestBookEntriesController < ApplicationController
     @guest_book_entry.destroy
     respond_to do |format|
       format.html { redirect_to guest_book_entries_url, notice: 'Entry was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

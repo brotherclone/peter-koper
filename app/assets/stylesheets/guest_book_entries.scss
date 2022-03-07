@@ -55,15 +55,6 @@
     overflow-wrap: break-word;
   }
   .guest-book-entry-photos{
-    background-color: $palette_flaneur_yellow;
-    background-image: asset_url("circles.png");
-    background-repeat: repeat;
-    &:nth-child(2){
-      background-color: $palette_light_blue;
-      background-image: asset_url("dark-dotted-2.png");
-    }
-    border-radius: 0.5rem;
-    @include box-shadower();
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

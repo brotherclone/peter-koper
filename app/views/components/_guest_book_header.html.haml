@@ -1,0 +1,21 @@
+-@link_types = link_types
+
+.headings-guest-book
+  .logo{:id=>"logo"}
+    .logo-wrapper
+      =inline_svg_tag("logo.svg", options={:alt=>"Peter Koper, Flaneur, Strolls Along Life's Boulevard"})
+  .guest-book-back-button
+    %a{:href=> root_path, :tab=>{:index=>0}}
+      Back
+  .guest-book-heading
+    %h1
+      Guest Book
+    =inline_svg_tag("border.svg", class:"guest-book-heading-border")
+    -if @link_types === "default" or !@link_types
+      .sign-link
+        = link_to 'Sign the guest book', new_guest_book_entry_path
+
+        -#
+        -#   = link_to 'Show', @guest_book_entry
+        -# = link_to 'Back', guest_book_entries_path
+                = link_to 'Edit', edit_guest_book_entry_path(@guest_book_entry)

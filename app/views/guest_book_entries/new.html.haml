@@ -1,11 +1,7 @@
 .container
   .main-wrapper
     .guest-book
-      .guest-book-heading
-        %h1
-          Guest Book
-        = render :partial => "components/breadcrumbs"
-        = link_to 'Back', guest_book_entries_path
+      = render :partial => "components/guest_book_header", :locals=>{:link_types=>"authoring"}
       .guest-book-entry-authoring-container{:data=>{:controller=>'guest', :guest_peters_last_name_value=>'koper', :guest_hide_class=>'hidden', :guest_touched_class=>'not-touched'}}
         .challenge-wrapper{:data=>{:guest=>{:target=>'question'}}}
           .challenge-wrapper-header
