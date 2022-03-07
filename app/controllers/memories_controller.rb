@@ -21,15 +21,44 @@ class MemoriesController < ApplicationController
     @tag_stream
   end
 
+  def self.current_category_id=(id)
+    @current_category_id = id
+  end
 
-  def stream_nav
-    if params[:viewing]
+  def self.current_category_id
+    @current_category_id
+  end
+
+  def self.current_tag_id=(id)
+    @current_tag_id = id
+  end
+
+  def self.current_tag_id
+    @current_tag_id
+  end
+
+  def self.all_categories=(categories)
+    @all_categories = categories
+  end
+
+  def self.all_categories
+    @all_categories
+  end
+
+  def stream_nav(viewing=nil, override=false)
+    unless MemoriesController.all_categories
+      MemoriesController.all_categories = Category.all.order(name: :desc)
+    end
+    unless override
       viewing = params[:viewing]
+    end
+    if viewing
       viewing_categories = MemoryCategory.where(memory_id: viewing)
       viewing_tags = TagMemory.where(memory_id: viewing)
       tag_categories = TagCategory.where(category_id: viewing_categories)
       viewing_categories_ids = []
       viewing_tags_ids =[]
+      hinted_tags_ids = []
       viewing_categories.each do |c|
         viewing_categories_ids << c.category_id
       end
@@ -37,20 +66,57 @@ class MemoriesController < ApplicationController
         viewing_tags_ids << t.tag_id
       end
       tag_categories.each do |tc|
-        viewing_tags_ids << tc.tag_id
+        unless viewing_tags_ids.include?(tc.tag_id)
+          hinted_tags_ids << tc.tag_id
+        end
       end
-      MemoriesController.category_stream = Category.where(id: viewing_categories_ids)
-      MemoriesController.tag_stream = Tag.where(id: viewing_tags_ids)
+      category_stream = Category.where(id: viewing_categories_ids)
+      tag_stream = Tag.where(id: viewing_tags_ids)
+      hinted_stream = Tag.where(id: hinted_tags_ids)
+      unless MemoriesController.all_categories
+        MemoriesController.all_categories = Category.all.order(name: :desc)
+      end
+      MemoriesController.all_categories.each do |category|
+        category.display_state = :off
+        if category.id == MemoriesController.current_category_id
+          category.display_state = :on
+        else
+          category_stream.each do |cs|
+            if category.id == cs.id
+              category.display_state = :hinted
+            end
+          end
+        end
+      end
+      MemoriesController.category_stream = MemoriesController.all_categories
+      MemoriesController.tag_stream = []
+      if MemoriesController.current_tag_id
+        current_tag =  Tag.find(MemoriesController.current_tag_id)
+        current_tag.display_state = :selected
+        MemoriesController.tag_stream  << current_tag
+        else
+        tag_stream.each do |t|
+          t.display_state = :on
+          MemoriesController.tag_stream  << t
+        end
+        hinted_stream.each do |h|
+          h.display_state = :hinted
+          MemoriesController.tag_stream  << h
+        end
+      end
     end
   end
 
   def stream
+    MemoriesController.current_category_id = nil
+    MemoriesController.current_tag_id = nil
     if params[:remembering]
       remembering = params[:remembering]
       remembering_memories = MemoryCategory.where(category_id: remembering)
       if remembering_memories
         stream_category = Category.find(remembering)
         @stream_name = stream_category.name
+        MemoriesController.current_category_id = stream_category.id
         remembering_ids = []
         remembering_memories.each do |r|
           remembering_ids << r.memory_id
@@ -63,6 +129,7 @@ class MemoriesController < ApplicationController
       if pondering_memories
         stream_tag = Tag.find(pondering)
         @stream_name = stream_tag.name
+        MemoriesController.current_tag_id = stream_tag.id
         pondering_ids = []
         pondering_memories.each do |p|
           pondering_ids << p.memory_id
@@ -71,8 +138,9 @@ class MemoriesController < ApplicationController
       end
     end
     unless @memories
-      @memories = Memory.all.order(occurrence: :desc).where(is_live:true)
+      @memories = Memory.all.order(occurrence: :asc).where(is_live:true)
     end
+    self.stream_nav(@memories.first.id, true)
   end
 
   def index

@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "@hotwired/turbo-rails"
 import "@fortawesome/fontawesome-free/css/all"
+import imageLoading from "./image-loading";
 import "channels"
 import "controllers"
 
