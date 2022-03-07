@@ -35,7 +35,36 @@
   }
 }
 
-.logo{
+.headings-guest-book{
+  margin-top: 1rem;
+  .guest-book-heading{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+      margin:0 0 1rem 0;
+      color: $palette_flaneur_red;
+      font-size: 3.125rem;
+    }
+    .guest-book-heading-border{
+      max-width: 12.5rem;
+    }
+    .sign-link, .show-link, .edit-link, .index-link{
+      font-size: 1rem;
+      font-style: italic;
+      transition: color 1s ease-in-out;
+      a{
+        color: $palette_grey;
+        &:hover{
+          color: $palette_grey_darker;
+        }
+      }
+    }
+  }
+}
+
+.logo, .guest-book-logo{
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -57,7 +86,7 @@
   }
 }
 
-.guest-book-button{
+.guest-book-button, .guest-book-back-button{
   position: fixed;
   top: 1.5rem;
   right: 5%;
