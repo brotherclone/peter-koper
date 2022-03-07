@@ -1,6 +1,8 @@
 @import "utility/pallete";
 @import "utility/buttons";
-@import "utility/pallete";
+@import "utility/lighting";
+@import "dev/responsive-outliner";
+
 .guest-book{
   .hidden{
     display: none !important;
@@ -29,7 +31,6 @@
 }
 
 .guest-book-entries-container{
-  border: 1px solid gray;
   .guest-book-entry-heading{
     display: flex;
     flex-direction: row;
@@ -48,9 +49,39 @@
       letter-spacing: 0.001rem;
       color: $palette_black;
     }
-    .entry{
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
+  }
+  .entry{
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  .guest-book-entry-photos{
+    background-color: $palette_flaneur_yellow;
+    background-image: asset_url("circles.png");
+    background-repeat: repeat;
+    &:nth-child(2){
+      background-color: $palette_light_blue;
+      background-image: asset_url("dark-dotted-2.png");
+    }
+    border-radius: 0.5rem;
+    @include box-shadower();
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    min-width: 40rem;
+    align-items: center;
+    .guest-book-entry-photo{
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 40rem;
+      height: 40rem;
+      margin: 1rem 0 1rem;
+      @include box-shadower();
+      border-radius: 0.25rem;
+      &.loading{
+        background-image: none;
+        background-color: $palette_black;
+      }
     }
   }
 }
@@ -67,6 +98,7 @@
       label{
         abbr{
           margin-left: 1rem;
+          color: $palette_flaneur_red;
         }
       }
       input[type=text]{
@@ -79,7 +111,6 @@
 
       }
       input[type=submit]{
-        @include button-bg();
         font-size: 1rem;
         text-transform: capitalize;
         letter-spacing: 0.001rem;

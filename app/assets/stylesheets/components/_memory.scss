@@ -12,6 +12,7 @@
   margin-top: 2rem;
   &.loading{
     background-image: none;
+    background-color: $palette_black;
   }
   .memory-image-container {
     overflow: hidden;
@@ -23,7 +24,6 @@
     border-radius: 0.25rem;
   }
   .memory-video-container{
-    background-color: $palette_flaneur_yellow;
     width: 40rem;
     height: 40rem;
     @include box-shadower();

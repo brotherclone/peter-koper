@@ -8,9 +8,10 @@
   %p.entry
     = @entry.body.html_safe
   .guest-book-entry-photos
-    - if @entry.image_one_url
+
+    - if @entry.image_one_url.to_s.length >= 1
       .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_one_url.to_s+');'}
-    - if @entry.image_two_url
+    - if @entry.image_two_url.to_s.length >= 1
       .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_two_url.to_s+');'}
-    - if @entry.image_two_url
+    - if @entry.image_three_url.to_s.length >= 1
       .guest-book-entry-photo.loading{:style=> 'background-image: url('+ @entry.image_three_url.to_s+');'}
