@@ -1,7 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 import lax from 'lax.js'
 import imageLoading from "../packs/image-loading";
-import { Cloudinary } from 'cloudinary-core'
+import cloudinary from 'cloudinary-core'
+import MicroModal from 'micromodal'
+
+// cloudinary.videoPlayer('example-player', {
+//     cloud_name: 'demo'
+// });
+
 
 export default class extends Controller {
 
@@ -9,6 +15,7 @@ export default class extends Controller {
 
     connect() {
         imageLoading();
+        MicroModal.init();
         lax.init();
         lax.addDriver('scrollY', function () {
             return window.scrollY;

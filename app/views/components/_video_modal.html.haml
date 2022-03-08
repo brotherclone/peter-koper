@@ -1,0 +1,16 @@
+-@modal_id = modal_id
+-@modal_title = modal_title
+-@video_player_id = video_player_id
+-@video_file_id = video_file
+
+.video-modal{:id=>@modal_id}
+  .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
+    %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"video-modal-#{@modal_id}-title"}}
+      %header
+        %h3.video-modal-title{:id=>"video-modal-#{@modal_id}-title"}
+          =@modal_title
+        %a{:as=>"button", :data=>{:micromodal=>{:close=>true}}, :aria=>{:label=>"Close"}}
+      %video.cld-video-player.cld-video-player-skin-dar{:id=>@video_player_id,
+              :controls=>true,
+              :autoplay=> true,
+              :data=>{:cld=>{:public=>{:id=> @video_file_id}}}}
