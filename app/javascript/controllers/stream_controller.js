@@ -4,7 +4,8 @@ import imageLoading from "../packs/image-loading";
 
 export default class extends Controller {
 
-    static targets =["id", "url", "peter"]
+    static targets =["id", "url", "peter", "video", "top"]
+    static classes = ["player", "over"]
 
     connect() {
         imageLoading();
@@ -84,5 +85,8 @@ export default class extends Controller {
             top: 0,
             behavior: 'smooth'
         });
+    }
+    playerToggle(){
+        console.log("video toggle")
     }
 }

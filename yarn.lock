@@ -2153,6 +2153,11 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+cloudinary-core@^2.12.3:
+  version "2.12.3"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.12.3.tgz#6482e472944214ff905c4852da0a4afce14dec2b"
+  integrity sha512-Ll4eDzcrIVn4zCttMh3Mdi+KNz07p5EEjBT2PQSRx8Eok1lKPt3uBBenOk/w88RKK3B8SFIWcEe/mN4BHQ0p8A==
+
 cloudinary-video-player@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/cloudinary-video-player/-/cloudinary-video-player-1.8.0.tgz#34aaaad18cce8ffbe3cdd1944692f774b7d90388"
