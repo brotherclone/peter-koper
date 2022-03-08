@@ -2,39 +2,10 @@
 
 @font-face {
   font-family: "Royal Signage", serif;
-  src: url("app/assets/fonts/Campanile.ttf");
+  src: asset_url("app/assets/fonts/Campanile.ttf");
 }
 
 @import url("https://use.typekit.net/lfp4fzo.css");
-
-//Didot LT Pro Bold
-//
-//font-family: linotype-didot, serif;
-//
-//font-weight: 700;
-//
-//font-style: normal;
-//
-//
-//Didot LT Pro Bold Italic
-//
-//font-family: linotype-didot, serif;
-//
-//font-weight: 700;
-//
-//font-style: italic;
-//
-//
-//Didot LT Pro Italic
-//
-//font-family: linotype-didot, serif;
-//
-//font-weight: 400;
-//
-//font-style: italic;
-//
-//
-
 
 @mixin base-type(){
   font-size: 1rem;

@@ -2,6 +2,7 @@
 @import "../utility/lighting";
 @import "../dev/responsive-outliner";
 @import "../utility/typography";
+@import "../utility/blur";
 
 .stream-container{
   display: flex;
@@ -43,24 +44,19 @@
         font-size: 4rem;
         color: $palette_flaneur_yellow;
         opacity: 40%;
+        &.overlay-hidden{
+          display: none;
+        }
         &:hover{
           opacity: 100%;
           cursor: pointer;
         }
       }
-      &.overlay-hidden{
-        display:none;
-      }
-    }
-    .memory-video-player{
-      &.player-hidden{
-        display: none;
-      }
     }
   }
   .memory-text-container{
     margin-top: 0.75rem;
-    max-width: 40rem;
+    width: 40rem;
     height: auto;
     padding: 1rem;
     background-color: $palette_white;

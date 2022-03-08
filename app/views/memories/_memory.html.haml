@@ -6,20 +6,16 @@
                                   :controller=>"stream",
                                   :stream=>{:target=>"url"},
                                   :url=>stream_nav_path,
-                                  :action=>"mouseover->stream#set",
-                                  :stream_player_class=>"player-hidden",
-                                  :stream_overlay_class=>"overlay-hidden",
+                                  :action=>"mouseover->stream#set"
                                   }}
   %div{:id=> "memory-card_"+@memory.id.to_s, :data=>{:stream=>{:target=>"id"}}}
     - if !@memory.video
       .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
     -else
-      .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
-        .memory-video-overlay{:data=>{:stream=>{:target=>"top"}, :action=>"click->stream#playerToggle"}}
-          %i
+      .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:stream=>{:target=>"poster"}}}
+        .memory-video-overlay
+          %i.overlay-hidden
             .fas.fa-circle-play
-        .memory-video-player.player-hidden{:data=>{:stream=>{:target=>"video"}, :video=> @memory.video.url}}
-          %video.cld-video-player.cld-video-player-skin-light{:id=>'', :controls=> true, :autoplay=>false, :data=>{:cld=>{:public=>{:id=>''}}}}
     .memory-text-container
       %h2.memory-date
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
@@ -28,7 +24,7 @@
           %span.memory-category
             = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}
       %p.memory-body
-        = @memory.body
+        = (@memory.body).try(:html_safe)
       %ul.memory-tags
         - @tags.each do |t|
           %span.memory-tag

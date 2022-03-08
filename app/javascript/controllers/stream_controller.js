@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import lax from 'lax.js'
 import imageLoading from "../packs/image-loading";
+import { Cloudinary } from 'cloudinary-core'
 
 export default class extends Controller {
 
-    static targets =["id", "url", "peter", "video", "top"]
-    static classes = ["player", "over"]
+    static targets =["id", "url", "peter"]
 
     connect() {
         imageLoading();
@@ -42,6 +42,7 @@ export default class extends Controller {
                 ]
             }
         }, {
+            // ToDo: Move to side? Remove?
             onUpdate: function (driverValues, domElement) {
                 const scrollY = driverValues.scrollY[0];
                 const logo = document.getElementById("logo")
@@ -81,12 +82,10 @@ export default class extends Controller {
 
     }
     rescroll(){
+        // ToDo: This should go to sub-nav/mobile nav
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-    }
-    playerToggle(){
-        console.log("video toggle")
     }
 }
