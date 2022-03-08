@@ -3,16 +3,16 @@
 -@categories = categories
 
 .memory-container{:data=>{
-                                  :controller=>"stream",
-                                  :stream=>{:target=>"url"},
-                                  :url=>stream_nav_path,
-                                  :action=>"mouseover->stream#set"
-                                  }}
+                          :controller=>"stream",
+                          :stream=>{:target=>"url"},
+                          :url=>stream_nav_path,
+                          :action=>"mouseover->stream#set"
+                        }}
   %div{:id=> "memory-card_"+@memory.id.to_s, :data=>{:stream=>{:target=>"id"}}}
     - if !@memory.video
       .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
     -else
-      .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:stream=>{:target=>"poster"}}}
+      .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
         .memory-video-overlay
           %i.overlay-hidden
             .fas.fa-circle-play
