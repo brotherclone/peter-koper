@@ -1,13 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
+import 'dotenv/config'
 import lax from 'lax.js'
 import imageLoading from "../packs/image-loading";
+import cloudinary from 'cloudinary-core'
+import MicroModal from 'micromodal'
 
 export default class extends Controller {
 
-    static targets =["id", "url", "peter"]
+    static targets =["id", "url", "peter", "videoPlayerInfo"]
 
     connect() {
         imageLoading();
+        MicroModal.init();
         lax.init();
         lax.addDriver('scrollY', function () {
             return window.scrollY;
@@ -41,6 +45,7 @@ export default class extends Controller {
                 ]
             }
         }, {
+            // ToDo: Move to side? Remove?
             onUpdate: function (driverValues, domElement) {
                 const scrollY = driverValues.scrollY[0];
                 const logo = document.getElementById("logo")
@@ -80,9 +85,24 @@ export default class extends Controller {
 
     }
     rescroll(){
+        // ToDo: This should go to sub-nav/mobile nav
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+    }
+
+    showplyr(){
+        console.log("video id", this.videoPlayerInfoTarget.dataset.videoId)
+        console.log("video file id", this.videoPlayerInfoTarget.dataset.videoFileId)
+        console.log("modal id", this.videoPlayerInfoTarget.dataset.modalId)
+        let videoPlayerId = "video_player_"+this.videoPlayerInfoTarget.dataset.videoId;
+        let cld = cloudinary.Cloudinary.new({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME })
+        document.player = cld.videoPlayer(videoPlayerId)
+        document.player.source(this.videoPlayerInfoTarget.dataset.videoFileId).play();
+    }
+
+    hideplyr(){
+        document.player.stop();
     }
 }

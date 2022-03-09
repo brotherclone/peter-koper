@@ -2,6 +2,8 @@
 @import "../utility/lighting";
 @import "../dev/responsive-outliner";
 @import "../utility/typography";
+@import "../utility/blur";
+@import "../vendor/micro-modal/modal";
 
 .stream-container{
   display: flex;
@@ -26,12 +28,72 @@
   .memory-video-container{
     width: 40rem;
     height: 40rem;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
     @include box-shadower();
     border-radius: 0.25rem;
+    .video-modal{
+      @include modal();
+      position: absolute;
+      top: 0;
+      width: 40rem;
+      height: 40rem;
+      background-color: $palette-black;
+      border-radius: 0.25rem;
+      .modal-close{
+        header{
+          width: 100%;
+          text-align: center;
+          margin-top: 6.5rem;
+          h3.video-modal-title{
+            font-family: "Campanile", serif;
+            color: $palette-off_white;
+          }
+          a.close-link{
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: $palette_off_white;
+            transition: color 1s ease-in-out;
+            &:hover{
+              color: $palette_flaneur_yellow;
+              cursor: pointer;
+            }
+          }
+        }
+        video, .cld-video-player, video.cld-video-player{
+          width: 100%;
+          max-width: 40rem;
+          max-height: 22.5rem;
+        }
+      }
+    }
+    .memory-video-overlay{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      i{
+        transition: opacity 500ms ease-in-out;
+        font-size: 4rem;
+        color: $palette_flaneur_yellow;
+        opacity: 40%;
+        &.overlay-hidden{
+          display: none;
+        }
+        &:hover{
+          opacity: 100%;
+          cursor: pointer;
+        }
+      }
+    }
   }
   .memory-text-container{
     margin-top: 0.75rem;
-    max-width: 40rem;
+    width: 40rem;
     height: auto;
     padding: 1rem;
     background-color: $palette_white;
