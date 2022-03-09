@@ -21,7 +21,8 @@ ActiveAdmin.register Memory do
     attributes_table do
       row :title
       row :body
-      row :category
+      row :categories
+      row :tags
       row :is_live
       row :image do |i|
         image_tag i.image.to_s, :style => "max-width:200px; height:auto"
