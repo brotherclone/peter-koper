@@ -12,10 +12,21 @@
     - if !@memory.video
       .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
     -else
-      .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+      .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');',
+                                                    :data=>{
+                                                      :action=>"click->stream#showplyr",
+                                                      :stream=>{:target=>"videoPlayerInfo"},
+                                                      :video=>{:file=>{:id=>video_id(@memory.video.file)},:id=> @memory.video.id.to_s},
+                                                      :modal=>{:id=>"modal_#{@memory.id.to_s}"},
+                                                      :micromodal=>{:trigger=>"modal_#{@memory.id.to_s}"}
+                                                    }}
         .memory-video-overlay
           %i.overlay-hidden
             .fas.fa-circle-play
+        = render :partial => "components/video_modal", :locals=>{:modal_id=> "modal_#{@memory.id.to_s}",
+                                                                 :modal_title=> @memory.title,
+                                                                 :video_player_id=>"video_player_#{@memory.video.id.to_s}",
+                                                                 :video_file_id=> video_id(@memory.video.file)}
     .memory-text-container
       %h2.memory-date
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)

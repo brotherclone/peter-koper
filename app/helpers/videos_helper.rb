@@ -1,6 +1,5 @@
 module VideosHelper
   def video_id(file_url)
-    split = file_url.split('/')
-    split.last
+    file_url.to_s.match /([^\/]+)(?=\.\w+$)/
   end
 end

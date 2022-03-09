@@ -1,7 +1,6 @@
-.modal {
+@mixin modal(){
   display: none;
-}
-
-.modal.is-open {
-  display: block;
+  &.is-open{
+    display: block;
+  }
 }

@@ -1,17 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
+import 'dotenv/config'
 import lax from 'lax.js'
 import imageLoading from "../packs/image-loading";
 import cloudinary from 'cloudinary-core'
 import MicroModal from 'micromodal'
 
-// cloudinary.videoPlayer('example-player', {
-//     cloud_name: 'demo'
-// });
-
-
 export default class extends Controller {
 
-    static targets =["id", "url", "peter"]
+    static targets =["id", "url", "peter", "videoPlayerInfo"]
 
     connect() {
         imageLoading();
@@ -94,5 +90,19 @@ export default class extends Controller {
             top: 0,
             behavior: 'smooth'
         });
+    }
+
+    showplyr(){
+        console.log("video id", this.videoPlayerInfoTarget.dataset.videoId)
+        console.log("video file id", this.videoPlayerInfoTarget.dataset.videoFileId)
+        console.log("modal id", this.videoPlayerInfoTarget.dataset.modalId)
+        let videoPlayerId = "video_player_"+this.videoPlayerInfoTarget.dataset.videoId;
+        let cld = cloudinary.Cloudinary.new({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME })
+        document.player = cld.videoPlayer(videoPlayerId)
+        document.player.source(this.videoPlayerInfoTarget.dataset.videoFileId).play();
+    }
+
+    hideplyr(){
+        document.player.stop();
     }
 }
