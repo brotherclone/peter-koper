@@ -28,9 +28,11 @@
                                                                  :video_player_id=>"video_player_#{@memory.video.id.to_s}",
                                                                  :video_file_id=> video_id(@memory.video.file)}
     .memory-text-container
-      %h2.memory-date
+      %h3.memory-date
         = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
-      %h3.memory-categories
+      %h2.memory-title
+        =@memory.title
+      %h4.memory-categories
         -@categories.each do |c|
           %span.memory-category
             = link_to c.name, stream_path(:remembering=> c.id), {:data=>{:action=>'click->stream#rescroll'}}

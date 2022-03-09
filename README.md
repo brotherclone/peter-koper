@@ -1,6 +1,5 @@
-# Project
-
-[project.com](https://project.com)
+# Peter Koper, Flaneur
+## A Stroll Along Life's Boulevard
 
 ## Install
 
