@@ -97,7 +97,7 @@ export default class extends Controller {
         console.log("video file id", this.videoPlayerInfoTarget.dataset.videoFileId)
         console.log("modal id", this.videoPlayerInfoTarget.dataset.modalId)
         let videoPlayerId = "video_player_"+this.videoPlayerInfoTarget.dataset.videoId;
-        let cld = cloudinary.Cloudinary.new({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME })
+        let cld = cloudinary.Cloudinary.new({ cloud_name: 'hodsx14x9' })
         document.player = cld.videoPlayer(videoPlayerId)
         document.player.source(this.videoPlayerInfoTarget.dataset.videoFileId).play();
     }
