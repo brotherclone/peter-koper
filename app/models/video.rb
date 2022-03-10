@@ -1,8 +1,5 @@
 class Video < ApplicationRecord
+  mount_uploader :file, VideoUploader
   belongs_to :memory
   accepts_nested_attributes_for :memory
-  enum video_service: [:youtube, :vimeo]
-  validates :url, presence: true
-  validates :video_service, presence: true
-  validates :video_id, presence: true
 end

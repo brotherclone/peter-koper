@@ -70,6 +70,7 @@ drift_wood_lamp_memory = Memory.create(is_live: true,
 swimming_with_salties_memory = Memory.create(is_live: true,
                                              body: "Saltwater Crocodiles inhabit a special place of fear and awe in the Australian psyche, where they are affectionately known as “Salties”. In the animal kingdom, they are the largest and most dangerous creature to humans.  They have the strongest bite of any animal, able to crush a full-grown cow’s skull between its jaws.  Flaneur was primevally attracted to the huge killer crocs.",
                                              title: "Flaneur Swims with Killer Croc!!!!!",
+                                             image: cloudinary('gev5irckiubkq9gikcpt', 'jpg', '1646747872'),
                                              occurrence: Date.parse("Apr 7 2015"),
                                              fuzzy_date: :regular)
 
