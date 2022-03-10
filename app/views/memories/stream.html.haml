@@ -1,6 +1,6 @@
 .stream
   .headings{:data=>{:controller=>'stream'}}
-    .peter-heading{:data=>{:headings=>{:target=>'peter'}}}
+    .peter-heading{:data=>{:stream=>{:target=>'peter'}}}
       .peter-heading-wide
         = image_tag("peterH.png", alt: "Peter Koper")
       .peter-heading-tall
@@ -9,8 +9,8 @@
       .logo-wrapper
         =inline_svg_tag("logo.svg", options={:alt=>"Peter Koper, Flaneur, Strolls Along Life's Boulevard"})
     .guest-book-button
-      %a{:href=> guest_book_entries_path, :tab=>{:index=>0}}
-        Guest Book
+      %a{:href=> guest_book_entries_path, :tab=>{:index=>0}, :alt=>"Leave your outrageous memories and photos of Peter"}
+        Drop your memory
   %main
     .stream-and-nav-wrapper
       .stream-nav-container
