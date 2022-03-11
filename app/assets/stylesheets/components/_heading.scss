@@ -47,6 +47,13 @@
       color: $palette_flaneur_red;
       font-size: 3.125rem;
     }
+    h2{
+      margin:0 0 1rem 0;
+      color: $palette_blue;
+      font-family: aw-conqueror-didot, serif;
+      font-size: 1.15rem;
+      font-weight: 200;
+    }
     .guest-book-heading-border{
       max-width: 12.5rem;
     }
@@ -90,13 +97,15 @@
   position: fixed;
   top: 1.5rem;
   right: 5%;
-  font-family: linotype-didot-headline, serif;;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: $palette_grey_darker;
-  transition: 300ms color ease-in-out;
-  &:hover{
-    color: $palette_flaneur_red;
+  a{
+    font-family: linotype-didot-headline, serif;;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: $palette_grey_darker;
+    transition: 300ms color ease-in-out;
+    &:hover{
+      color: $palette_flaneur_red;
+    }
   }
 }

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :guest_book_entries
+  resources :guest_book_entries, path: :dropped_memories
   resources :memories
   resources :categories
   resources :tags

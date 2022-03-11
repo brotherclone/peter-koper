@@ -105,4 +105,5 @@ export default class extends Controller {
     hideplyr(){
         document.player.stop();
     }
+
 }
