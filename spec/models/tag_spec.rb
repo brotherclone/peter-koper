@@ -15,9 +15,4 @@ RSpec.describe Tag, type: :model do
     should have_many(:memories).through(:tag_memories)
   end
 
-  it 'has many categories through tag categories' do
-    should have_many(:tag_categories)
-    should have_many(:categories).through(:tag_categories)
-  end
-
 end
