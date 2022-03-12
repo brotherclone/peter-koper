@@ -16,11 +16,6 @@ FactoryBot.define do
         create(:category, memory: memory)
       end
     end
-    factory :memory_with_audio_commentary do
-      after(:create) do |memory|
-        create(:audio_commentary, memory: memory)
-      end
-    end
     factory :memory_with_video do
       after(:create) do |memory|
         create(:video, memory: memory)
