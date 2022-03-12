@@ -23,4 +23,8 @@ RSpec.describe Category, type: :model do
     should have_many(:memories).through(:memory_categories)
   end
 
+  it 'has many sub-categories' do
+    should have_many(:sub_categories)
+  end
+
 end

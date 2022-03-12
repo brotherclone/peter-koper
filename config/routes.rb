@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :guest_book_entries, path: :dropped_memories
   resources :memories
-  resources :categories
+  resources :categories do
+    resources :sub_categories
+  end
   resources :tags
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

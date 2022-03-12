@@ -4,4 +4,5 @@ class Category < ApplicationRecord
   validates :name, presence: true
   enum display_state: [:on, :off, :hinted]
   attr_accessor :display_state
+  has_many :sub_categories
 end
