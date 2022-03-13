@@ -13,6 +13,7 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
+    @memory_sub_categories = MemorySubCategory.where(sub_category_id: @sub_category.id)
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @sub_category}
