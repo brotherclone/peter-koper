@@ -1,22 +1,26 @@
 class SubCategoriesController < ApplicationController
 
-  before_action :get_category,:set_sub_category, only: [:show, :edit, :update, :destroy]
+  before_action :get_category
+  before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @sub_categories = @category.sub_categories
     respond_to do |format|
+      format.html { render :index}
       format.json { render :json => @sub_categories}
     end
   end
 
   def show
     respond_to do |format|
+      format.html { render :show}
       format.json { render :json => @sub_category}
     end
   end
 
   def new
-    @sub_category = @category.sub_category.build
+    @sub_category = @category.sub_categories.build
   end
 
   def edit
@@ -24,7 +28,7 @@ class SubCategoriesController < ApplicationController
   end
 
   def create
-    @sub_category = @category.sub_category.build(sub_category_params)
+    @sub_category = @category.sub_categories.build(sub_category_params)
     respond_to do |format|
       if @sub_category.save
         format.html { redirect_to category_sub_categories_path(@category), notice: 'Sub-Category was successfully created.' }

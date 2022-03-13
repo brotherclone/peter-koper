@@ -11,5 +11,10 @@ FactoryBot.define do
         create(:tag, category: category)
       end
     end
+    factory :category_with_sub_categories do
+      after(:create) do |category|
+        create(:sub_category, category: category)
+      end
+    end
   end
 end

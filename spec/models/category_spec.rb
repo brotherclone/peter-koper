@@ -14,6 +14,10 @@ RSpec.describe Category, type: :model do
     it{ expect(build(:category_with_tags)).to be_valid }
   end
 
+  describe 'Factory with sub-categories'do
+    it{ expect(build(:category_with_sub_categories)).to be_valid }
+  end
+
   describe 'Must have a name' do
     it { should validate_presence_of(:name) }
   end

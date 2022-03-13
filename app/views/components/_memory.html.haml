@@ -1,0 +1,32 @@
+-@memory = memory
+-@categories = categories
+-@tags = tags
+
+.memory-container
+  - if !@memory.video
+    .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+  -else
+    .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+      .memory-video-overlay
+        %i.overlay-hidden
+          .fas.fa-circle-play
+      = render :partial => "components/video_modal", :locals=>{:modal_id=> "modal_#{@memory.id.to_s}",
+                                                             :modal_title=> @memory.title,
+                                                             :video_player_id=>"video_player_#{@memory.video.id.to_s}",
+                                                             :video_file_id=> video_id(@memory.video.file)}
+  .memory-text-container
+    %h3.memory-date
+      = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
+    %h2.memory-title
+      =@memory.title
+    %h4.memory-categories
+      -@categories.each do |c|
+        %span.memory-category
+          = c.name
+    %p.memory-body
+      = (@memory.body).try(:html_safe)
+    %ul.memory-tags
+      - @tags.each do |t|
+        %span.memory-tag
+          = t.name
+

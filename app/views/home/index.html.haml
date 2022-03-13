@@ -1,0 +1,4 @@
+.container
+  .main-wrapper
+    = render :partial=> "components/header", :locals=>{}
+    = turbo_frame_tag "categories", src:categories_path
