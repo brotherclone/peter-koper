@@ -1,4 +1,4 @@
-class SubCategory < ActiveRecord::Migration[6.1]
+class CreateSubCategory < ActiveRecord::Migration[6.1]
 
   def self.up
     create_table :sub_categories do |t|
@@ -12,4 +12,5 @@ class SubCategory < ActiveRecord::Migration[6.1]
     remove_reference :sub_categories, :category
     drop_table :sub_categories
   end
+
 end
