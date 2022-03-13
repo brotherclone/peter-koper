@@ -1,0 +1,3 @@
+= turbo_frame_tag "categories" do
+  -@categories.each do |c|
+    = link_to c.name, category_path(c), target:"_top"

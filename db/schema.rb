@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_133235) do
+ActiveRecord::Schema.define(version: 2022_03_12_215719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,16 +69,6 @@ ActiveRecord::Schema.define(version: 2022_03_12_133235) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "audio_commentaries", force: :cascade do |t|
-    t.string "title"
-    t.string "file"
-    t.boolean "is_live"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "memory_id"
-    t.index ["memory_id"], name: "index_audio_commentaries_on_memory_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -118,13 +108,12 @@ ActiveRecord::Schema.define(version: 2022_03_12_133235) do
     t.index ["memory_id"], name: "index_memory_categories_on_memory_id"
   end
 
-  create_table "tag_categories", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "category_id"
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_tag_categories_on_category_id"
-    t.index ["tag_id"], name: "index_tag_categories_on_tag_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "tag_memories", force: :cascade do |t|

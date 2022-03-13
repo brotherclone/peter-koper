@@ -388,7 +388,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activeadmin_quill_editor
-  bootsnap (>= 1.4.4)
+  bootsnap
   breadcrumbs_on_rails
   byebug
   capybara (>= 3.26)

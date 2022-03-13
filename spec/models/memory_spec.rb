@@ -14,10 +14,6 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_categories)).to be_valid }
   end
 
-  describe 'Factory with audio commentary 'do
-    it{ expect(build(:memory_with_audio_commentary)).to be_valid }
-  end
-
   describe 'Factory with video'do
     it{ expect(build(:memory_with_video)).to be_valid }
   end
@@ -28,10 +24,6 @@ RSpec.describe Memory, type: :model do
 
   it 'has one video' do
     should have_one(:video)
-  end
-
-  it 'has one audio commentaries' do
-    should have_one(:audio_commentary)
   end
 
   it 'has many tags through tag memories' do

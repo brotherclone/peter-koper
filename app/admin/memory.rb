@@ -9,7 +9,7 @@ ActiveAdmin.register Memory do
       f.input :is_live
       f.input :occurrence, :as=> :date_picker
       f.input :fuzzy_date
-      f.input :image, :as => :file, :label=> "Videos need an image too! The still frame will show prior to video player loading"
+      f.input :image, :as => :file, :label=> "Videos and PDF files need an image too."
       f.input :image_cache, :as => :hidden
       f.input :categories, as: :check_boxes, collection: Category.all.map { |t| [t.name, t.id] }
       f.input :tags, as: :check_boxes, collection: Tag.all.map { |t| [t.name, t.id] }
