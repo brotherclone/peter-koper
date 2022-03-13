@@ -48,3 +48,4 @@ public/uploads/tmp/
 
 /config/cloudinary.yml
 **/.DS_Store
+latest.dump
