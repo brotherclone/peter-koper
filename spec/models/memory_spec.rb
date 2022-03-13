@@ -14,6 +14,10 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_categories)).to be_valid }
   end
 
+  describe 'Factory with sub-categories 'do
+    it{ expect(build(:memory_with_sub_categories)).to be_valid }
+  end
+
   describe 'Factory with video'do
     it{ expect(build(:memory_with_video)).to be_valid }
   end
@@ -34,6 +38,11 @@ RSpec.describe Memory, type: :model do
   it 'has many categories through memory categories' do
     should have_many(:memory_categories)
     should have_many(:categories).through(:memory_categories)
+  end
+
+  it 'has many sub-categories through memory subcategories' do
+    should have_many(:memory_sub_categories)
+    should have_many(:sub_categories).through(:memory_sub_categories)
   end
 
 end

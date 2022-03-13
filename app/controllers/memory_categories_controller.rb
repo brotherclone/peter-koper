@@ -1,8 +1,5 @@
 class MemoryCategoriesController < ApplicationController
 
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :memory_categories_path
-
   before_action :set_memory_category, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +11,6 @@ class MemoryCategoriesController < ApplicationController
   end
 
   def show
-    add_breadcrumb @memory_category.title.to_s, memory_categories_path
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @memory_category}

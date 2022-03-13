@@ -11,7 +11,8 @@ ActiveAdmin.register Memory do
       f.input :fuzzy_date
       f.input :image, :as => :file, :label=> "Videos and PDF files need an image too."
       f.input :image_cache, :as => :hidden
-      f.input :categories, as: :check_boxes, collection: Category.all.map { |t| [t.name, t.id] }
+      f.input :categories, as: :check_boxes, collection: Category.all.map { |c| [c.name, c.id] }
+      f.input :sub_categories, as: :check_boxes, collection: SubCategory.all.map { |s| [s.name, s.id] }
       f.input :tags, as: :check_boxes, collection: Tag.all.map { |t| [t.name, t.id] }
     end
     f.actions
@@ -22,6 +23,7 @@ ActiveAdmin.register Memory do
       row :title
       row :body
       row :categories
+      row :sub_categories
       row :tags
       row :is_live
       row :image do |i|

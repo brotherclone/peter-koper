@@ -1,8 +1,5 @@
 class VideosController < ApplicationController
 
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :videos_path
-
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +11,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    add_breadcrumb @video.title.to_s, videos_path
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @video}
@@ -43,7 +39,7 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Entry was successfully created.' }
+        format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -55,7 +51,7 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

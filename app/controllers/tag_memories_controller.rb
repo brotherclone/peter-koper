@@ -14,7 +14,6 @@ class TagMemoriesController < ApplicationController
   end
 
   def show
-    add_breadcrumb @tag_memory.title.to_s, tag_memories_path
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @tag_memory}
