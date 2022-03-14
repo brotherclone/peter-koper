@@ -6,7 +6,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-
+require 'faker'
+Faker::Config.locale = 'en-US'
 
 
 ActiveRecord::Migration.maintain_test_schema!

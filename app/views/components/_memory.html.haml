@@ -3,17 +3,22 @@
 -@tags = tags
 
 .memory-container
-  - if !@memory.video
+  - if !@memory.video and !@memory.pdf
     .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
-  -else
+  -elsif @memory.video and !@memory.pdf
     .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
       .memory-video-overlay
-        %i.overlay-hidden
+        %i
           .fas.fa-circle-play
       = render :partial => "components/video_modal", :locals=>{:modal_id=> "modal_#{@memory.id.to_s}",
                                                              :modal_title=> @memory.title,
                                                              :video_player_id=>"video_player_#{@memory.video.id.to_s}",
                                                              :video_file_id=> video_id(@memory.video.file)}
+  -else
+    .memory-pdf-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+      .memory-pdf-overlay
+        %i
+          .fas.fa-file
   .memory-text-container
     %h3.memory-date
       = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)

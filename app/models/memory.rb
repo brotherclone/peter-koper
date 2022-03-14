@@ -9,4 +9,5 @@ class Memory < ApplicationRecord
   enum fuzzy_date: [:regular, :month, :year, :decade]
   validates :occurrence, presence: true
   has_one :video
+  has_one :pdf
 end

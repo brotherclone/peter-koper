@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :guest_book_entries, path: :dropped_memories
   resources :memories
+  resources :pdfs
   resources :categories do
     resources :sub_categories
   end

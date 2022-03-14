@@ -22,12 +22,20 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_video)).to be_valid }
   end
 
+  describe 'Factory with pdf'do
+    it{ expect(build(:memory_with_pdf)).to be_valid }
+  end
+
   describe 'Must have an occurrence' do
     it { should validate_presence_of(:occurrence) }
   end
 
   it 'has one video' do
     should have_one(:video)
+  end
+
+  it 'has one video' do
+    should have_one(:pdf)
   end
 
   it 'has many tags through tag memories' do
