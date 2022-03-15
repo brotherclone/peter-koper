@@ -2,11 +2,14 @@
 -@categories = categories
 -@tags = tags
 
+.modals
+  = render :partial => "components/movie_modal"
+  = render :partial => "components/document_modal"
 .memory-container
   - if !@memory.video and !@memory.pdf
     .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
   -elsif @memory.video and !@memory.pdf
-    .memory-video-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
       .memory-video-overlay
         %i
           .fas.fa-circle-play
@@ -15,7 +18,7 @@
                                                              :video_player_id=>"video_player_#{@memory.video.id.to_s}",
                                                              :video_file_id=> video_id(@memory.video.file)}
   -else
-    .memory-pdf-container.loading.still-dulled{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+    .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
       .memory-pdf-overlay
         %i
           .fas.fa-file

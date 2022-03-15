@@ -1,6 +1,15 @@
+@import "../../utility/pallete";
+
 @mixin modal(){
   display: none;
   &.is-open{
     display: block;
+    background: $palette_black;
+    height: 200vh;
+    width: 200vw;
+    position: absolute;
+    top: -10vh;
+    left: -10vw;
+    z-index: 100;
   }
 }
