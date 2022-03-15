@@ -17,6 +17,15 @@ class CategoriesController < ApplicationController
   def show
     add_breadcrumb @category.name.to_s, category_path
     @memory_categories = MemoryCategory.where(category_id: @category.id)
+    @memory_categories.each do |m|
+      if m.category and m.memory
+        puts m.memory.title
+      else
+        puts ">>>>"
+        puts m.id
+      end
+    end
+
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @category}
