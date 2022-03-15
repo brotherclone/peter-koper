@@ -2,4 +2,8 @@
 
 .modal{
   @include modal();
+  .adobe-dc-view{
+    height: 100vh;
+    width: 100vw;
+  }
 }

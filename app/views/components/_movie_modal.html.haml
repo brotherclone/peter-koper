@@ -1,7 +1,14 @@
 -@memory=memory
-
-.modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
-  .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
-    =@memory.video.file.to_s
-    =@memory.id
-    =@memory.title
+-if @memory and @memory.video
+  .modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
+    .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
+      %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"movie-modal-#{@memory.id.to_s}-title"}}
+        %header
+          %h3.video-modal-title{:id=>"movie-modal-#{@memory.id.to_s}-title"}
+            =@memory.title
+          %a.close-link{:as=>"button", :data=>{:micromodal=>{:close=>true}, :action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
+            %i.fas.fa-close
+        %video.cld-video-player.cld-video-player-skin-dark{:id=>"videoPlayer#{@memory.id.to_s}",
+                                                          :controls=>true,
+                                                          :autoplay=> true,
+                                                          :data=>{:cld=>{:public=>{:id=> @memory.video.file}}}}

@@ -12,7 +12,6 @@
     "cloudinary-core": "^2.12.3",
     "cloudinary-video-player": "^1.8.0",
     "dotenv": "^16.0.0",
-    "html-pdf-viewer": "^1.0.14",
     "lax.js": "^2.0.3",
     "micromodal": "^0.4.10",
     "turbolinks": "^5.2.0",
