@@ -33,42 +33,6 @@
     background-size: cover;
     @include box-shadower();
     border-radius: 0.25rem;
-    .video-modal{
-      @include modal();
-      position: absolute;
-      top: 0;
-      width: 40rem;
-      height: 40rem;
-      background-color: $palette-black;
-      border-radius: 0.25rem;
-      .modal-close{
-        header{
-          width: 100%;
-          text-align: center;
-          margin-top: 6.5rem;
-          h3.video-modal-title{
-            font-family: "Campanile", serif;
-            color: $palette-off_white;
-          }
-          a.close-link{
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: $palette_off_white;
-            transition: color 1s ease-in-out;
-            &:hover{
-              color: $palette_flaneur_yellow;
-              cursor: pointer;
-            }
-          }
-        }
-        video, .cld-video-player, video.cld-video-player{
-          width: 100%;
-          max-width: 40rem;
-          max-height: 22.5rem;
-        }
-      }
-    }
     .memory-video-overlay{
       display: flex;
       flex-direction: column;

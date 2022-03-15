@@ -7,3 +7,30 @@
     width: 100vw;
   }
 }
+
+.movie-modal, .document-modal {
+  .modal-close {
+    header {
+      width: 100%;
+      text-align: center;
+      margin-top: 6.5rem;
+
+      h3.video-modal-title {
+        font-family: "Campanile", serif;
+        color: $palette-off_white;
+      }
+      a.close-link {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $palette_off_white;
+        transition: color 1s ease-in-out;
+
+        &:hover {
+          color: $palette_flaneur_yellow;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
