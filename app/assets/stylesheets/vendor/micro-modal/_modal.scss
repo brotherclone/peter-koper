@@ -3,13 +3,16 @@
 @mixin modal(){
   display: none;
   &.is-open{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     background: $palette_black;
-    height: 200vh;
-    width: 200vw;
+    color: $palette_off_white;
+    height: 100.1vh;
+    width: 100.1vw;
     position: absolute;
-    top: -10vh;
-    left: -10vw;
+    top: 0.1vh;
+    left: 0.1vw;
     z-index: 100;
   }
 }

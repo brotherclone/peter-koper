@@ -1,3 +1,7 @@
-.modal.movie-modal{:data=>{
-                           :controller=>"media"
-                          }}
+-@memory=memory
+
+.modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
+  .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
+    =@memory.video.file.to_s
+    =@memory.id
+    =@memory.title
