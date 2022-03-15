@@ -1,0 +1,9 @@
+.container
+  .main-wrapper
+    = render :partial=> "components/header", :locals=>{}
+    %hi
+    = @sub_category.name
+    %main
+      .stream-container
+        - @memory_sub_categories.each do |m|
+          = render :partial=> "components/memory", :locals=> {:memory=> m.memory, :tags=> m.memory.tags, :categories=> m.memory.categories}

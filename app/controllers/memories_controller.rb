@@ -72,5 +72,4 @@ class MemoriesController < ApplicationController
     params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
   end
 
-
 end
