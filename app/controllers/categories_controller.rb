@@ -13,7 +13,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   def show
     add_breadcrumb @category.name.to_s, category_path
     @memory_categories = MemoryCategory.where(category_id: @category.id)
