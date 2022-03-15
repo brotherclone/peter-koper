@@ -5,6 +5,7 @@
       = @category.name
     =turbo_frame_tag "sub_categories", src: category_sub_categories_url(@category)
     %main
-      .stream-container
-        - @memory_categories.each do |m|
-          = render :partial=> "components/memory", :locals=> {:memory=> m.memory, :tags=> m.memory.tags ? m.memory.tags : [], :categories=> m.memory.categories ? m.memory.categories : []}
+      - if @memory_categories
+        .stream-container
+          - @memory_categories.each do |m|
+            = render :partial=> "components/memory", :locals=> {:memory=> m.memory, :tags=> m.memory.tags ? m.memory.tags : [], :categories=> m.memory.categories ? m.memory.categories : []}
