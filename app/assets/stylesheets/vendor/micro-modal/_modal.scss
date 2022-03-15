@@ -1,6 +1,18 @@
+@import "../../utility/pallete";
+
 @mixin modal(){
   display: none;
   &.is-open{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background: $palette_black;
+    color: $palette_off_white;
+    height: 100.1vh;
+    width: 100.1vw;
+    position: absolute;
+    top: 0.1vh;
+    left: 0.1vw;
+    z-index: 100;
   }
 }

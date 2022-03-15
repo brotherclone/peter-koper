@@ -26,5 +26,10 @@ FactoryBot.define do
         create(:video, memory: memory)
       end
     end
+    factory :memory_with_pdf do
+      after(:create) do |memory|
+        create(:pdf, memory: memory)
+      end
+    end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_212821) do
+ActiveRecord::Schema.define(version: 2022_03_14_114249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(version: 2022_03_13_212821) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["memory_id"], name: "index_memory_sub_categories_on_memory_id"
     t.index ["sub_category_id"], name: "index_memory_sub_categories_on_sub_category_id"
+  end
+
+  create_table "pdfs", force: :cascade do |t|
+    t.string "file"
+    t.integer "page_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "memory_id"
+    t.index ["memory_id"], name: "index_pdfs_on_memory_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
