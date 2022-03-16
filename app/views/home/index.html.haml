@@ -1,4 +1,12 @@
 .container
   .main-wrapper
     = render :partial=> "components/header", :locals=>{}
-    = turbo_frame_tag "categories", src:categories_path
+  %main
+    .home-strolls
+      %h2.stroll-title
+        Select a stroll
+      %hr
+      .home-strolls-container
+        - @categories.each do |category|
+          = render :partial=> "components/category_card", :locals=>{:category=> category, :sub_categories=> category.sub_categories }
+

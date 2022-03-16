@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :category do
     name {Faker:: Lorem.word }
+    image { Faker::Internet.url }
     factory :category_with_memories do
       after(:create) do |category|
         create(:memory, category: category)

@@ -1,0 +1,50 @@
+@import "../utility/lighting";
+@import "../utility/pallete";
+@import "../dev/responsive-outliner";
+@import "../vendor/kitty_giraudel/breakpoints";
+
+@use "sass:map";
+
+$card-sizes: ("medium":18rem, "small":15rem);
+$card-margins: ("medium":0.5rem, "small":1rem);
+.category-card{
+  // ToDo: Card hover
+  margin: map-get($card-margins, "medium");
+  min-width: map-get($card-sizes, "medium");
+  .category-card-image{
+    background-color: $palette_black;
+    border:1px solid $palette_grey;
+    @include box-shadower();
+    @include respond-to('medium') {
+      min-height: map-get($card-sizes, "medium");
+      min-width: map-get($card-sizes, "medium");
+    }
+  }
+  //ToDo Better colors on hover
+  .category-card-text{
+    text-align: center;
+    h2{
+      margin:1rem 0 1rem;
+      a {
+        transition: color 1s ease-in-out;
+        font-size: 1.5rem;
+        color: $palette_flaneur_red;
+        &:hover{
+          color: $palette_blue;
+        }
+      }
+    }
+    h3{
+      margin:1rem 0 1rem;
+      a {
+        transition: color 1s ease-in-out;
+        color: $palette_blue;
+        font-size: 1rem;
+        text-transform: capitalize;
+        &:hover{
+          color: $palette_flaneur_red;
+        }
+      }
+    }
+  }
+}
