@@ -41,7 +41,6 @@ export default class extends Controller {
             clientId: clientID,
             divId: pdfView,
         });
-        console.log(pdfUrl,pdfFile);
         adobeDCView.previewFile(
             {
                 content: { promise: this.load() },
