@@ -5,6 +5,7 @@
 @import "../utility/blur";
 @import "../vendor/micro-modal/modal";
 
+// ToDo Responsive sizes
 .stream-container{
   display: flex;
   flex-direction: column;
@@ -131,7 +132,6 @@
       color: $palette_grey;
       margin: 0;
       max-width: 34rem;
-      padding: 1rem;
     }
     .memory-tags{
       width: 100%;

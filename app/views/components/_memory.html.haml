@@ -23,12 +23,12 @@
       = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
     %h2.memory-title
       =@memory.title
+    %p.memory-body
+      = (@memory.body).try(:html_safe)
     %h4.memory-categories
       -@categories.each do |c|
         %span.memory-category
           = c.name
-    %p.memory-body
-      = (@memory.body).try(:html_safe)
     %ul.memory-tags
       - @tags.each do |t|
         %span.memory-tag
