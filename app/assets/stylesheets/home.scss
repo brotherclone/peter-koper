@@ -1,0 +1,30 @@
+@import "dev/responsive-outliner";
+@import "utility/pallete";
+
+.home-strolls{
+
+  display: flex;
+  flex-direction: column;
+  .stroll-title{
+    font-family: aw-conqueror-didot, serif;
+    color: $palette_grey;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  hr{
+    color: $palette_grey;
+    opacity: 40%;
+    width: 100%;
+  }
+}
+
+.home-strolls-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-around;
+}
