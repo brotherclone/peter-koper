@@ -34,6 +34,7 @@ export default class extends Controller {
         };
         let clientID =  this.apisTarget.dataset.clientid;
         let pdfUrl = this.pdfTarget.dataset.pdfurl;
+        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://');
         let pdfFile = this.pdfTarget.dataset.pdffile;
         let pdfView = this.pdfTarget.dataset.pdfview;
         let adobeDCView = new AdobeDC.View({
@@ -49,8 +50,10 @@ export default class extends Controller {
     }
 
     load(){
+        let pdfUrl = this.pdfTarget.dataset.pdfurl;
+        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://');
         return new Promise((resolve) => {
-            fetch( this.pdfTarget.dataset.pdfurl)
+            fetch( pdfUrl)
                 .then((resolve) => resolve.blob())
                 .then((blob)=>{
                     resolve(blob.arrayBuffer())
