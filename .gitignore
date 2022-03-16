@@ -43,9 +43,6 @@ yarn-debug.log*
 .idea
 .env
 cheat-sheet.txt
-
 public/uploads/tmp/
-
-/config/cloudinary.yml
 **/.DS_Store
 latest.dump
