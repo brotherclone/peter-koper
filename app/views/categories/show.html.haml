@@ -1,9 +1,14 @@
 .container
   .main-wrapper
     = render :partial=> "components/header", :locals=>{}
-    %hi
-      = @category.name
-    =turbo_frame_tag "sub_categories", src: category_sub_categories_url(@category)
+    .stream-page-heading.category-header
+      .ornamental.ornamental-left
+      .heading-text.category-header-text
+        %h1
+          = @category.name
+        .sub-category-link-wrapper
+          =turbo_frame_tag "sub_categories", src: category_sub_categories_url(@category)
+      .ornamental.ornamental-right
     %main
       - if @memory_categories
         .stream-container

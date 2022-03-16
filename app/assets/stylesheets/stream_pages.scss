@@ -1,0 +1,26 @@
+@import "utility/typography";
+@import "utility/pallete";
+.stream-page-heading{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  .heading-text{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    h1{
+      color: $palette_flaneur_red;
+      font-size: 3.438rem;
+      margin: 0;
+    }
+  }
+  .ornamental{
+    background-color: gray;
+    width: 15%;
+  }
+}
