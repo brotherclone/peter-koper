@@ -1,15 +1,24 @@
-.you{
-  width: 100%;
-  .are{
-    nav{
-      ul{
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        li{
-          margin: 1rem;
-        }
+@import "../utility/pallete";
+.breadcrumb-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  nav{
+    ul{
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: center;
+      li{
+        margin: 1rem;
+      }
+      .breadcrumb-separator{
+        font-family: "Campanile", serif;
+        color: $palette_grey_lighter;
+        margin: auto 0.25rem auto  0.25rem;
       }
     }
   }
+
 }
