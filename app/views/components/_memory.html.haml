@@ -13,13 +13,11 @@
   -elsif @memory.video and !@memory.pdf
     .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:micromodal=>{:trigger=>"movie_modal_#{@memory.id.to_s}"}, :media=>{:target=>"videoPlayerId"}, :videplayerid=>"videoPlayer#{@memory.id.to_s}", :action=>"click->media#showplyr"}}
       .memory-video-overlay{:data=>{:videofileid=>video_id(@memory.video.file), :media=>{:target=>"videoFileId"}}}
-        %i
-          .fas.fa-circle-play
+        =fa_icon "play"
   -else
     .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=> {:micromodal=>{:trigger=>"document_modal_#{@memory.id.to_s}"}, :media=>{:target=>"pdf"}, :pdfurl=> @memory.pdf.file,:pdfview=>"pdf_view_#{@memory.id.to_s}", :pdffile=>show_pdf_file(@memory.pdf.file), :action=>"click->media#showrdr"}}
       .memory-pdf-overlay
-        %i
-          .fas.fa-file
+        =fa_icon "file"
   .memory-text-container
     %h3.memory-date
       = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)

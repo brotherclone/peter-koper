@@ -5,7 +5,7 @@ ActiveAdmin.register Memory do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :body, as: :quill_editor
+      f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
       f.input :is_live
       f.input :occurrence, :as=> :date_picker
       f.input :fuzzy_date

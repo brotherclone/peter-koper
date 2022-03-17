@@ -7,7 +7,7 @@ ActiveAdmin.register GuestBookEntry do
   form(:html => {:multipart => true}) do |f|
     f.inputs do
       f.input :title
-      f.input :body, as: :quill_editor
+      f.input :body, :input_html => { :class => 'tinymce' }
       f.input :guest_name
       f.input :guest_email
       f.input :admin_state
@@ -39,5 +39,4 @@ ActiveAdmin.register GuestBookEntry do
       end
     end
   end
-
 end
