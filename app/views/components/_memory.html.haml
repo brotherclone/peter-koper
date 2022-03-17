@@ -1,4 +1,6 @@
 -@memory = memory
+-@category_ref = category_ref
+-@sub_category_ref = sub_category_ref
 -@categories = categories
 -@tags = tags
 
@@ -28,9 +30,15 @@
     %h4.memory-categories
       -@categories.each do |c|
         %span.memory-category
-          = c.name
+          =link_to c.name, category_path(c)
     %ul.memory-tags
       - @tags.each do |t|
         %span.memory-tag
-          = t.name
+          -if @category_ref
+            -if @sub_category_ref
+              = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
+            -else
+              = link_to t.name, tag_path(t, :category_ref=> @category_ref)
+          -else
+            = link_to t.name, tag_path(t)
 

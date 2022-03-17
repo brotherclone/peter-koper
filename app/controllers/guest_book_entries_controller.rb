@@ -1,7 +1,7 @@
 class GuestBookEntriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :guest_book_entries_path
+  add_breadcrumb "Drop a Memory", :guest_book_entries_path
 
   before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 
@@ -14,8 +14,8 @@ class GuestBookEntriesController < ApplicationController
   end
 
   def show
-    @show_breadcrumbs = true
     add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
+    @show_breadcrumbs = true
     respond_to do |format|
       format.html { render :show}
     end

@@ -3,18 +3,18 @@
     = render :partial=> "components/header", :locals=>{}
     .breadcrumb-wrapper
       = render :partial => "components/breadcrumbs"
-    .stream-page-heading.sub-category-header
+    .stream-page-heading.tag-header
       .ornamental.ornamental-left
-      .heading-text.sub-category-header-text
+      .heading-text.tag-header-text
         %h1
-          = @sub_category.name
+          = @tag.name
       .ornamental.ornamental-right
     %main
-      - if @memory_sub_categories
+      - if @memory_tags
         .stream-container
-          - @memory_sub_categories.each do |m|
+          - @memory_tags.each do |m|
             = render :partial=> "components/memory", :locals=> {:memory=> m.memory,
                                                                 :tags=> m.memory.tags,
                                                                 :categories=> m.memory.categories,
-                                                                :category_ref=> @category,
-                                                                :sub_category_ref=> @sub_category}
+                                                                :category_ref=> @category_ref,
+                                                                :sub_category_ref=> @sub_category_ref}
