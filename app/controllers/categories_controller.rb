@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Categories", :categories_path
 
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @categories = Category.all
@@ -14,7 +14,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    add_breadcrumb @category.name.to_s, category_path
+    @show_breadcrumbs = true
+    add_breadcrumb @category.name.to_s, category_path(@category)
     @memory_categories = MemoryCategory.where(category_id: @category.id)
     respond_to do |format|
       format.html { render :show}

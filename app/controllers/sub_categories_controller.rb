@@ -1,8 +1,9 @@
 class SubCategoriesController < ApplicationController
 
+  add_breadcrumb "Home", :root_path
+
   before_action :get_category
   before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
-
 
   def index
     @sub_categories = @category.sub_categories
@@ -13,7 +14,10 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
+    @show_breadcrumbs = true
     @memory_sub_categories = MemorySubCategory.where(sub_category_id: @sub_category.id)
+    add_breadcrumb @category.name.to_s, category_path(@category)
+    add_breadcrumb  @sub_category.name.to_s, [@category, @sub_category]
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @sub_category}
