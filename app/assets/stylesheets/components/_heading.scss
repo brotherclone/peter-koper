@@ -4,6 +4,7 @@
 //ToDo Responsive
 
 .home-heading{
+  margin-bottom: 200vh;
   @include responsive-outliner();
   .home-heading-wrapper{
     @include responsive-outliner();
@@ -13,12 +14,13 @@
       flex-direction: row;
       justify-content: center;
       margin-top: 5vh;
+      position: fixed;
       img{
         height: 45vh;
         width: auto;
       }
       &.retract{
-
+        position: relative;
       }
     }
     .home-heading-logo{
@@ -27,12 +29,14 @@
       flex-direction: row;
       justify-content: center;
       margin-bottom: 5vh;
+      position: fixed;
       img{
         height: 45vh;
         width: auto;
+
       }
       &.retract{
-
+        position: relative;
       }
     }
   }
@@ -56,6 +60,13 @@
 .guest-book-button, .stroll-button {
   position: fixed;
   top: 1.5rem;
+  span{
+    font-family: linotype-didot-headline, serif;;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: $palette_grey_darker;
+  }
   a {
     font-family: linotype-didot-headline, serif;;
     font-weight: 400;
@@ -63,7 +74,6 @@
     font-size: 1.25rem;
     color: $palette_grey_darker;
     transition: 300ms color ease-in-out;
-
     &:hover {
       color: $palette_flaneur_red;
     }
