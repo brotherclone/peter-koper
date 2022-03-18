@@ -39,6 +39,7 @@
   overflow-y: scroll !important;
 }
 
+// Locks overflow when modals are open.
 #flanuerBody{
   &.modal-open{
     position: fixed;
