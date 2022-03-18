@@ -20,7 +20,19 @@
     }
   }
   .ornamental{
-    background-color: gray;
+    &.ornamental-right{
+      svg{
+        transform-origin: left bottom;
+        transform: rotate(-90deg) translate(-50%,0);
+      }
+    }
+    &.ornamental-left{
+      svg{
+        transform-origin: right bottom;
+        transform: rotate(90deg) translate(50%, 0);
+      }
+    }
     width: 15%;
+    height: auto;
   }
 }

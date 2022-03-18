@@ -5,8 +5,9 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:show]
 
   def index
-    @tags = Tag.all.order(name: desc)
+    @tags = Tag.all.order(name: :desc)
     respond_to do |format|
+      format.html { render :index}
       format.json { render :json => @tags}
     end
   end
