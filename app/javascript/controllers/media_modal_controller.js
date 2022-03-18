@@ -11,16 +11,18 @@ export default class extends Controller {
     }
 
     showplyr(){
-        let videoPlayerId = this.videoPlayerIdTarget.dataset.videplayerid;
-        let videoFile = this.videoFileIdTarget.dataset["videofileid"];
-        let cloudName = this.apisTarget.dataset.cloud;
+        let videoPlayerId = this.videoPlayerIdTarget.dataset.videplayerid
+        let videoFile = this.videoFileIdTarget.dataset["videofileid"]
+        let cloudName = this.apisTarget.dataset.cloud
         let cld = cloudinary.Cloudinary.new({ cloud_name: cloudName })
         document.player = cld.videoPlayer(videoPlayerId)
-        document.player.source(videoFile).play();
+        document.player.source(videoFile).play()
+        document.getElementById("flanuerBody").classList.add("modal-open")
     }
 
     hideplyr(){
-        document.player.stop();
+        document.player.stop()
+        document.getElementById("flanuerBody").classList.remove("modal-open")
     }
 
     showrdr(){
@@ -32,11 +34,11 @@ export default class extends Controller {
             showLeftHandPanel: true,
             showAnnotationTools: true
         };
-        let clientID =  this.apisTarget.dataset.clientid;
-        let pdfUrl = this.pdfTarget.dataset.pdfurl;
-        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://');
-        let pdfFile = this.pdfTarget.dataset.pdffile;
-        let pdfView = this.pdfTarget.dataset.pdfview;
+        let clientID =  this.apisTarget.dataset.clientid
+        let pdfUrl = this.pdfTarget.dataset.pdfurl
+        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://')
+        let pdfFile = this.pdfTarget.dataset.pdffile
+        let pdfView = this.pdfTarget.dataset.pdfview
         let adobeDCView = new AdobeDC.View({
             clientId: clientID,
             divId: pdfView,
@@ -46,11 +48,12 @@ export default class extends Controller {
                 content: { promise: this.load() },
                 metaData: { fileName: pdfFile}
             },viewerOptions);
+        document.getElementById("flanuerBody").classList.add("modal-open")
     }
 
     load(){
         let pdfUrl = this.pdfTarget.dataset.pdfurl;
-        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://');
+        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://')
         return new Promise((resolve) => {
             fetch( pdfUrl)
                 .then((resolve) => resolve.blob())
@@ -62,7 +65,7 @@ export default class extends Controller {
     }
 
     hiderdr(){
-        console.log("hiderdr")
+        document.getElementById("flanuerBody").classList.remove("modal-open")
     }
 
 }

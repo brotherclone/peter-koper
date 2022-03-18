@@ -1,16 +1,18 @@
 .container
   .main-wrapper
-    = render :partial=> "components/header", :locals=>{}
+    = render :partial=> "components/stream-heading", :locals=>{}
     .breadcrumb-wrapper
       = render :partial => "components/breadcrumbs"
     .stream-page-heading.category-header
       .ornamental.ornamental-left
+        =inline_svg("border.svg")
       .heading-text.category-header-text
         %h1
           = @category.name
         .sub-category-link-wrapper
           =turbo_frame_tag "sub_categories", src: category_sub_categories_url(@category)
       .ornamental.ornamental-right
+        =inline_svg("border.svg")
     %main
       - if @memory_categories
         .stream-container

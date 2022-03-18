@@ -2,54 +2,120 @@
 @import "utility/buttons";
 @import "utility/lighting";
 @import "utility/typography";
-@import "dev/responsive-outliner";
 
-.guest-book{
-  .hidden{
+.guest-book {
+
+  .hidden {
     display: none !important;
   }
-  .guest-book-entry-authoring-container{
-    .challenge-wrapper{
+
+  .headings-guest-book {
+    .guest-book-logo {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin-top: -1%;
+      .logo-wrapper {
+        img {
+          height: 13.75rem;
+          width: auto;
+        }
+      }
+    }
+
+    margin-top: 1rem;
+
+    .guest-book-heading {
+      margin-top: 1rem;
       display: flex;
       flex-direction: column;
-      .challenge-wrapper-header{
+      align-items: center;
+
+      h1 {
+        margin: 0 0 1rem 0;
+        color: $palette_flaneur_red;
+        font-size: 3.125rem;
+      }
+
+      h2 {
+        margin: 0 0 1rem 0;
+        color: $palette_blue;
+        font-family: aw-conqueror-didot, serif;
+        font-size: 1.15rem;
+        font-weight: 200;
+      }
+
+      .guest-book-heading-border {
+        max-width: 12.5rem;
+      }
+
+      .sign-link, .show-link, .edit-link, .index-link {
+        font-size: 1rem;
+        font-style: italic;
+        transition: color 1s ease-in-out;
+
+        a {
+          color: $palette_grey;
+
+          &:hover {
+            color: $palette_grey_darker;
+          }
+        }
+      }
+    }
+  }
+
+  .guest-book-entry-authoring-container {
+    .challenge-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .challenge-wrapper-header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        h3{
-          margin-bottom:0;
+
+        h3 {
+          margin-bottom: 0;
           color: $palette_blue;
         }
-        p{
+
+        p {
           font-size: 1rem;
           font-style: italic;
           color: $palette_grey;
           margin-bottom: 2rem;
         }
       }
-      .challenge-wrapper-form{
-        form{
+
+      .challenge-wrapper-form {
+        form {
           display: flex;
           flex-direction: row;
           justify-content: center;
-          .challenge-label{
+
+          .challenge-label {
             margin: 0.5rem 2rem 0.5rem 0.5rem;
           }
-          .challenge-input{
+
+          .challenge-input {
             max-width: 10rem;
             border-radius: 0.05rem;
             border-color: $palette_flaneur_red;
-            &.not-touched{
+
+            &.not-touched {
               border-color: $palette_grey_lighter;
             }
           }
-          .challenge-submit{
-           @include button-bg();
+
+          .challenge-submit {
+            @include button-bg();
             margin-left: 2rem;
           }
         }
       }
-      .warning{
+
+      .warning {
         padding: 2rem;
         text-align: center;
         width: 100%;
@@ -57,13 +123,14 @@
         color: $palette_flaneur_red;
       }
     }
-    .show-hide-form-wrapper{
+
+    .show-hide-form-wrapper {
       display: initial;
     }
   }
 }
 
-.guest-book-entries-container{
+.guest-book-entries-container {
   border: 1px solid $palette_grey_lighter;
   margin: 2rem 0 2rem 0;
   display: flex;
@@ -72,7 +139,8 @@
   max-width: 56.25rem;
   align-items: center;
   padding: 1rem 6.25rem 6.25rem 6.25rem;
-  p.warning{
+
+  p.warning {
     color: $palette_off_white;
     width: 100%;
     padding: 1rem;
@@ -80,23 +148,28 @@
     background-color: $palette_flaneur_red;
     margin-bottom: 2rem;
   }
+
   @include box-shadower();
-  .guest-book-entry-heading{
+
+  .guest-book-entry-heading {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    .attribution{
+
+    .attribution {
       font-style: italic;
       font-size: 0.75rem;
       color: $palette_grey_lighter;
     }
-    .title{
+
+    .title {
       font-size: 1.15rem;
       text-transform: capitalize;
       color: $palette_blue;
     }
-    .name{
+
+    .name {
       font-size: 1rem;
       text-transform: capitalize;
       color: $palette_grey;
@@ -104,44 +177,53 @@
       font-weight: 800;
     }
   }
-  .entry{
+
+  .entry {
     white-space: pre-wrap;
     overflow-wrap: break-word;
     color: $palette_grey;
   }
-  .guest-book-entry-photos{
+
+  .guest-book-entry-photos {
     display: flex;
     flex-direction: column;
     height: auto;
     min-width: 40rem;
     align-items: center;
-    .guest-book-entry-photo-row{
+
+    .guest-book-entry-photo-row {
       display: flex;
       flex-direction: row;
       height: auto;
       align-items: center;
       justify-content: space-around;
-      .guest-book-entry-photo{
+
+      .guest-book-entry-photo {
         background-repeat: no-repeat;
         background-size: cover;
         @include box-shadower();
         border-radius: 0.25rem;
-        &.loading{
+
+        &.loading {
           background-image: none;
           background-color: $palette_black;
         }
-        &.large{
+
+        &.large {
           width: 40rem;
           height: 40rem;
           margin: 1rem 0 4rem;
         }
-        &.small{
+
+        &.small {
           width: 19.813rem;
           height: 19.813rem;
-          &.left{
+
+          &.left {
             margin: 1rem 2rem 2rem;
           }
-          &.right{
+
+          &.right {
             margin: 1rem 0 2rem 2rem;
           }
         }
@@ -150,59 +232,70 @@
   }
 }
 
-.guest-book-form-container{
-  p{
+.guest-book-form-container {
+  p {
     font-size: 1rem;
     font-style: italic;
     color: $palette_grey;
     margin-bottom: 2rem;
     text-align: center;
   }
-  .guest-book-form{
+
+  .guest-book-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     list-style: none;
-    li{
+
+    li {
       margin: 1rem 0 1rem 0;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
     }
-      label{
-        @include sub-header();
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-        abbr{
-          margin-left: 1rem;
-          color: $palette_flaneur_red;
-        }
+
+    label {
+      @include sub-header();
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+
+      abbr {
+        margin-left: 1rem;
+        color: $palette_flaneur_red;
       }
-      p.form-inner-text{
-        font-size: 0.75rem;
-        font-family: aw-conqueror-didot, serif;
-        color: $palette_grey;
-        text-align: left;
+    }
+
+    p.form-inner-text {
+      font-size: 0.75rem;
+      font-family: aw-conqueror-didot, serif;
+      color: $palette_grey;
+      text-align: left;
+      width: 50%;
+    }
+
+    input[type=text] {
+      width: 100%;
+
+      &#guest_book_entry_guest_name {
         width: 50%;
       }
-      input[type=text]{
-        width: 100%;
-        &#guest_book_entry_guest_name{
-          width: 50%;
-        }
-      }
-      input[type=email]{
-        width: 50%;
-      }
-      textarea{
-        width: 100%;
-      }
-      input[type=submit]{
-        text-align: center;
-        @include button-bg();
-        text-shadow: none !important;
-      }
-    fieldset{
+    }
+
+    input[type=email] {
+      width: 50%;
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    input[type=submit] {
+      text-align: center;
+      @include button-bg();
+      text-shadow: none !important;
+    }
+
+    fieldset {
       display: flex;
       width: 100%;
       flex-direction: column;
