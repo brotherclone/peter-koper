@@ -5,10 +5,12 @@
       = render :partial => "components/breadcrumbs"
     .stream-page-heading.tag-header
       .ornamental.ornamental-left
+        =inline_svg("border.svg")
       .heading-text.tag-header-text
         %h1
           = @tag.name
       .ornamental.ornamental-right
+        =inline_svg("border.svg")
     %main
       - if @memory_tags
         .stream-container

@@ -1,10 +1,77 @@
-
-
+@import "../vendor/kitty_giraudel/breakpoints";
+@import "../utility/pallete";
+@import "../dev/responsive-outliner";
+//ToDo Responsive
 
 .home-heading{
+  @include responsive-outliner();
+  .home-heading-wrapper{
+    @include responsive-outliner();
+    .home-heading-peter{
+      @include responsive-outliner();
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 5vh;
+      img{
+        height: 45vh;
+        width: auto;
+      }
+      &.retract{
 
+      }
+    }
+    .home-heading-logo{
+      @include responsive-outliner();
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 5vh;
+      img{
+        height: 45vh;
+        width: auto;
+      }
+      &.retract{
+
+      }
+    }
+  }
 }
 
 .stream-heading{
+  .stream-heading-wrapper{
+    .stream-heading-logo{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin-top: -1%;
+      img{
+        height: 13.75rem;
+        width: auto;
+      }
+    }
+  }
+}
 
+.guest-book-button, .stroll-button {
+  position: fixed;
+  top: 1.5rem;
+  a {
+    font-family: linotype-didot-headline, serif;;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: $palette_grey_darker;
+    transition: 300ms color ease-in-out;
+
+    &:hover {
+      color: $palette_flaneur_red;
+    }
+  }
+}
+.guest-book-button{
+  right: 5%;
+}
+.stroll-button{
+  left: 5%;
 }

@@ -15,32 +15,10 @@
       flex-wrap: nowrap;
       justify-content: center;
       margin-top: -1%;
-
       .logo-wrapper {
-        transition: 300ms all ease-in-out;
-
         img {
           height: 13.75rem;
           width: auto;
-        }
-      }
-    }
-
-    .guest-book-button, .guest-book-back-button {
-      position: fixed;
-      top: 1.5rem;
-      right: 5%;
-
-      a {
-        font-family: linotype-didot-headline, serif;;
-        font-weight: 400;
-        font-style: italic;
-        font-size: 1.25rem;
-        color: $palette_grey_darker;
-        transition: 300ms color ease-in-out;
-
-        &:hover {
-          color: $palette_flaneur_red;
         }
       }
     }

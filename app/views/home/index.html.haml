@@ -1,9 +1,18 @@
 .container
   .main-wrapper
     .home-heading{:data=>{:controller=>"home"}}
-      = image_tag("peter.png", alt:"Peter Koper")
-      = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
-    %main
+      .home-heading-wrapper
+        .stroll-button{:id=>"scrollHelp",:data=>{:home=>{:target=>"help"}}}
+          %a{:href=> '#', :tab=>{:index=>0}}
+            Scroll to Stroll
+        .guest-book-button
+          %a{:href=> guest_book_entries_url, :tab=>{:index=>0}}
+            Drop a Memory
+        .home-heading-peter.loading{:id=>"peterHome",:data=>{:home=>{:target=>"peter"}}}
+          = image_tag("peter.png", alt:"Our Flaneur")
+        .home-heading-logo.loading{:id=>"logoHome",:data=>{:home=>{:target=>"logo"}}}
+          = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+    %main{:id=>"mainStart"}
       .home-strolls
         %h2.stroll-title
           Select a stroll
