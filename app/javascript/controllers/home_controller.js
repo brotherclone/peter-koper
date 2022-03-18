@@ -19,10 +19,10 @@ export default class extends Controller {
         lax.addElements("#peterHome",{
             scrollY:{
                 scale: [
-                    ["elInY","elCenterY", "elOutY"],
-                    [0.25, 0.7, 0.85],
+                    [0, "elOutY"],
+                    [1, 0.5],
                     {
-                        inertia: 20
+                        inertia: 100
                     }
                 ]
             }
@@ -31,9 +31,9 @@ export default class extends Controller {
             scrollY:{
                 scale: [
                     ["elInY","elCenterY", "elOutY"],
-                    [0.85, 1, 0.85],
+                    [1, 1.2, 1],
                     {
-                        inertia: 20
+                        inertia: 100
                     }
                 ]
             }

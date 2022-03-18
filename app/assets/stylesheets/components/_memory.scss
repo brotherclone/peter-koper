@@ -14,12 +14,15 @@
   background-size: 1rem;
   background-repeat: repeat-y;
   background-position: center;
+  margin-bottom: 2rem;
 }
 .memory-container{
-  margin-top: 2rem;
+  div ul:not(:first-child) {
+    margin-top: 2rem;
+  }
+  background-color: $palette_black;
   &.loading{
     background-image: none;
-    background-color: $palette_black;
   }
   .memory-image-container {
     overflow: hidden;
@@ -27,8 +30,8 @@
     background-size: cover;
     width: 40rem;
     height: 40rem;
-    @include box-shadower();
     border-radius: 0.25rem;
+    @include box-shadower();
   }
   .memory-video-container{
     width: 40rem;
@@ -36,8 +39,8 @@
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
-    @include box-shadower();
     border-radius: 0.25rem;
+    @include box-shadower();
     .memory-video-overlay{
       display: flex;
       flex-direction: column;
@@ -66,8 +69,8 @@
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
-    @include box-shadower();
     border-radius: 0.25rem;
+    @include box-shadower();
     .memory-pdf-overlay{
       display: flex;
       flex-direction: column;

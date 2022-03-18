@@ -34,3 +34,15 @@
     }
   }
 }
+
+.document-modal{
+  overflow-y: scroll !important;
+}
+
+#flanuerBody{
+  &.modal-open{
+    position: fixed;
+    height: 100vh;
+    overflow-y: hidden !important;
+  }
+}

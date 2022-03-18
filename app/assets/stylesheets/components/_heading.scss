@@ -4,39 +4,27 @@
 //ToDo Responsive
 
 .home-heading{
-  margin-bottom: 200vh;
-  @include responsive-outliner();
   .home-heading-wrapper{
-    @include responsive-outliner();
     .home-heading-peter{
-      @include responsive-outliner();
       display: flex;
       flex-direction: row;
       justify-content: center;
-      margin-top: 5vh;
-      position: fixed;
+      margin-top: 1vh;
+      position: relative;
       img{
         height: 45vh;
         width: auto;
       }
-      &.retract{
-        position: relative;
-      }
     }
     .home-heading-logo{
-      @include responsive-outliner();
       display: flex;
       flex-direction: row;
       justify-content: center;
       margin-bottom: 5vh;
-      position: fixed;
+      position: relative;
       img{
         height: 45vh;
         width: auto;
-
-      }
-      &.retract{
-        position: relative;
       }
     }
   }
