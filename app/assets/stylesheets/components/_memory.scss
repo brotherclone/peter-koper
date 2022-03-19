@@ -4,8 +4,33 @@
 @import "../utility/typography";
 @import "../utility/blur";
 @import "../vendor/micro-modal/modal";
+@import "../vendor/kitty_giraudel/breakpoints";
 
-// ToDo Responsive sizes
+@use "sass:map";
+
+$card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
+
+@mixin memory-card-sizes($height:true, $width:true){
+  @if $height{
+    height: map-get($card-sizes, "small");
+    @include respond-to('medium') {
+      height: map-get($card-sizes, "medium");
+    }
+    @include respond-to('large') {
+      height: map-get($card-sizes, "large");
+    }
+  }
+  @if $width{
+    width: map-get($card-sizes, "small");
+    @include respond-to('medium') {
+      width: map-get($card-sizes, "medium");
+    }
+    @include respond-to('large') {
+      width: map-get($card-sizes, "large");
+    }
+  }
+}
+
 .stream-container{
   display: flex;
   flex-direction: column;
@@ -25,23 +50,21 @@
     background-image: none;
   }
   .memory-image-container {
+    @include memory-card-sizes();
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 40rem;
-    height: 40rem;
     border-radius: 0.25rem;
     @include box-shadower();
   }
   .memory-video-container{
-    width: 40rem;
-    height: 40rem;
+    @include memory-card-sizes();
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0.25rem;
     @include box-shadower();
-    .memory-video-overlay{
+    .memory-video-overlay {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -64,8 +87,7 @@
     }
   }
   .memory-pdf-container {
-    width: 40rem;
-    height: 40rem;
+    @include memory-card-sizes();
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
@@ -95,7 +117,7 @@
   }
   .memory-text-container{
     margin-top: 0.75rem;
-    width: 40rem;
+    @include memory-card-sizes($height: false);
     height: auto;
     padding: 1rem;
     background-color: $palette_white;
@@ -108,50 +130,58 @@
     .memory-date{
       @include base-type();
       font-style: italic;
-      margin: 0;
+      margin:0 0 1rem 0;
     }
     .memory-title{
       @include base-header();
-      font-size: 1.375rem;
-      margin:1rem 0 1rem 0;
+      font-size: 1.75rem;
+      margin:0 0 1rem 0;
       color: $palette-flaneur_red;
     }
-    .memory-categories{
-      margin: 0;
+    .memory-body{
       width: 100%;
+      max-width: 80%;
+      font-size: 0.875rem;
+      color: $palette_grey_lighter;
+      margin:0 0 1rem 0;
+    }
+    .memory-categories{
+      margin:0 0 .5rem 0;
+      width: 100%;
+      max-width: 80%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       @include sub-header();
-      a{
-        font-size: 1rem;
-        color: $palette_blue;
-        font-style: normal;
-        text-transform: capitalize;
-
-      }
+      font-size: 1rem;
+      font-style: normal;
+      text-transform: capitalize;
       text-decoration: none;
-      max-width: 34rem;
+      font-weight: 600;
+      a{
+        color: $palette_blue;
+        &:hover{
+          color: lighten($palette_blue, 15%);
+        }
+      }
     }
     .memory-category ~ .memory-category::before{
       content:', ';
     }
-    .memory-body{
-      width: 100%;
-      font-size: 0.875rem;
-      color: $palette_grey;
-      margin: 0;
-      max-width: 34rem;
-    }
     .memory-tags{
       width: 100%;
-      max-width: 34rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+      max-width: 80%;
+      font-style: italic;
+      font-weight: 200;
+      text-transform: capitalize;
+      margin: 0;
+      padding: 0;
+      text-align: center;
       a{
-        color: $palette_grey_darker;
-        font-weight: 200;
+        color: $palette_grey;
+        &:hover{
+          color: $palette_grey_darker;
+        }
       }
       .memory-tag{
         margin:0;

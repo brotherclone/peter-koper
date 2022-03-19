@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
   nav{
     ul{
       list-style: none;
@@ -11,6 +12,7 @@
       justify-content: flex-start;
       align-content: center;
       li{
+        font-size: .85rem;
         margin: 1rem;
       }
       .breadcrumb-separator{
