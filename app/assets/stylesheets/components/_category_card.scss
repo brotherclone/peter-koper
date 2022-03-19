@@ -15,6 +15,7 @@ $card-margins: ("medium":0.5rem, "small":1rem);
   .category-card-image{
     background-color: $palette_black;
     border:1px solid $palette_grey;
+    background-size: contain;
     @include box-shadower();
     @include respond-to('medium') {
       min-height: map-get($card-sizes, "medium");
