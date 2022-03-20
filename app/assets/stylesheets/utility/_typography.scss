@@ -7,23 +7,27 @@
 
 @import url("https://use.typekit.net/lfp4fzo.css");
 
+$heading-font-name: "Royal Signage", serif;
+$sub-heading-font-name:  linotype-didot-headline, serif;
+$main-font-name: linotype-didot, serif;
+
 @mixin base-type(){
   font-size: 1rem;
   line-height: 1.25rem;
-  font-family: linotype-didot, serif;
+  font-family: $main-font-name;
   font-weight: 400;
   font-style: normal;
   color: $palette_black;
 }
 
 @mixin base-header(){
-  font-family: "Royal Signage", serif;
+  font-family: $heading-font-name;
   font-size: 2rem;
   color: $palette_black;
 }
 
 @mixin sub-header(){
-  font-family: linotype-didot-headline, serif;;
+  font-family: $sub-heading-font-name;
   font-weight: 400;
   font-style: normal;
 }

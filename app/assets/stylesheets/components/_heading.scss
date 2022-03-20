@@ -2,29 +2,38 @@
 @import "../utility/pallete";
 @import "../dev/responsive-outliner";
 
-//ToDo Responsive
-
 .home-heading{
   .home-heading-wrapper{
     .home-heading-peter{
       display: flex;
       flex-direction: row;
       justify-content: center;
-      margin-top: 1vh;
-      position: relative;
+      @include respond-to('large') {
+        margin-top: 1vh;
+        position: relative;
+      }
       img{
-        height: 45vh;
+        @include respond-to('large') {
+          height: 45vh;
+          width: auto;
+        }
+        height: 30vh;
         width: auto;
       }
+      margin-bottom: 1rem;
     }
     .home-heading-logo{
       display: flex;
       flex-direction: row;
       justify-content: center;
       margin-bottom: 5vh;
-      position: relative;
       img{
-        height: 45vh;
+        @include respond-to('large') {
+          position: relative;
+          height: 45vh;
+          width: auto;
+        }
+        height: 23vh;
         width: auto;
       }
     }
@@ -39,8 +48,11 @@
       justify-content: center;
       margin-top: -1%;
       img{
-        height: 13.75rem;
-        width: auto;
+        height: 8rem;
+        @include respond-to('large') {
+          height: 13.75rem;
+          width: auto;
+        }
       }
     }
   }
@@ -49,6 +61,10 @@
 .guest-book-button, .stroll-button {
   position: fixed;
   top: 1.5rem;
+  @include respond-to('medium') {
+    display: initial;
+  }
+  display: none;
   span{
     font-family: linotype-didot-headline, serif;;
     font-weight: 400;
@@ -74,3 +90,4 @@
 .stroll-button{
   left: 5%;
 }
+
