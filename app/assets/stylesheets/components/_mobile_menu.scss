@@ -35,18 +35,21 @@
   &.is-open {
     display: flex;
   }
-  .mobile-menu-heading{
+  .modal-close{
     width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    h1{
-      color: $palette_off_white;
-      margin: 0;
-    }
-    a{
-      color: $palette_off_white;
-      font-size: 2rem;
+    .mobile-menu-heading{
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      h1{
+        color: $palette_off_white;
+        margin: 0;
+      }
+      a{
+        color: $palette_off_white;
+        font-size: 2rem;
+      }
     }
   }
   .mobile-menu-body{

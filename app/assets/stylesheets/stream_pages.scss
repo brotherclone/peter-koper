@@ -1,7 +1,7 @@
 @import "utility/typography";
 @import "utility/pallete";
-
-// ToDo: Responsive
+@import "vendor/kitty_giraudel/breakpoints";
+@import "dev/responsive-outliner";
 
 .stream-page-heading{
   display: flex;
@@ -9,6 +9,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: stretch;
+  margin-top: 1rem;
   .heading-text{
     text-align: center;
     width: 100%;
@@ -18,7 +19,13 @@
     justify-content: space-around;
     h1{
       color: $palette_flaneur_red;
-      font-size: 3.438rem;
+      @include respond-to("large"){
+        font-size: 3.438rem;
+      }
+      @include respond-to("medium"){
+        font-size: 3rem;
+      }
+      font-size: 2rem;
       margin: 0;
     }
   }
