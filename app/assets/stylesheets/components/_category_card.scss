@@ -4,23 +4,41 @@
 @import "../vendor/kitty_giraudel/breakpoints";
 
 @use "sass:map";
+$card-sizes: ("large": 24rem, "medium":18rem, "small":22rem);
+$card-margins: ("large":1.5rem, "medium":0.5rem, "small":1rem);
 
-$card-sizes: ("medium":18rem, "small":15rem);
-$card-margins: ("medium":0.5rem, "small":1rem);
 .category-card{
-  // ToDo: Card hover
-  margin: map-get($card-margins, "medium");
-  min-width: map-get($card-sizes, "medium");
+  height: auto;
+  @include respond-to('medium') {
+    margin: map-get($card-margins, "medium");
+    min-width: map-get($card-sizes, "medium");
+  }
+  @include respond-to('large') {
+    margin: map-get($card-margins, "large");
+    min-width: map-get($card-sizes, "large");
+  }
+  margin: map-get($card-margins, "small");
+  min-width: map-get($card-sizes, "small");
   .category-card-image{
     background-color: $palette_black;
     border:1px solid $palette_grey;
+    background-size: contain;
+    background-repeat: no-repeat;
     @include box-shadower();
     @include respond-to('medium') {
-      min-height: map-get($card-sizes, "medium");
-      min-width: map-get($card-sizes, "medium");
+      height: map-get($card-sizes, "medium");
+      width: map-get($card-sizes, "medium");
+    }
+    @include respond-to('large') {
+      height: map-get($card-sizes, "large");
+      width: map-get($card-sizes, "large");
+    }
+    height: map-get($card-sizes, "small");
+    width: map-get($card-sizes, "small");
+    &:hover{
+      cursor: pointer;
     }
   }
-  //ToDo Better colors on hover
   .category-card-text{
     text-align: center;
     h2{

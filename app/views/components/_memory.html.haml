@@ -21,22 +21,26 @@
   .memory-text-container
     %h3.memory-date
       = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
-    %h2.memory-title
-      =@memory.title
-    %p.memory-body
-      = (@memory.body).try(:html_safe)
-    %h4.memory-categories
-      -@categories.each do |c|
-        %span.memory-category
-          =link_to c.name, category_path(c)
-    %ul.memory-tags
-      - @tags.each do |t|
-        %span.memory-tag
-          -if @category_ref
-            -if @sub_category_ref
-              = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
+    -if @memory.title.length >= 1
+      %h2.memory-title
+        =@memory.title
+    - if @memory.body.length >= 1
+      %p.memory-body
+        = (@memory.body).try(:html_safe)
+    -if @categories
+      %h4.memory-categories
+        -@categories.each do |c|
+          %span.memory-category
+            =link_to c.name, category_path(c)
+    - if @tags
+      %ul.memory-tags
+        - @tags.each do |t|
+          %span.memory-tag
+            -if @category_ref
+              -if @sub_category_ref
+                = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
+              -else
+                = link_to t.name, tag_path(t, :category_ref=> @category_ref)
             -else
-              = link_to t.name, tag_path(t, :category_ref=> @category_ref)
-          -else
-            = link_to t.name, tag_path(t)
+              = link_to t.name, tag_path(t)
 
