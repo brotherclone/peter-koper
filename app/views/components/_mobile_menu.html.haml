@@ -1,3 +1,5 @@
+-@current = current
+
 .mobile-menu-wrapper{:id=>"mobileMenu", :data=>{:controller=>"mobile"}}
   .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
     .mobile-menu-heading{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"mobile-modal-title"}}
@@ -7,11 +9,13 @@
         Menu
     .mobile-menu-body
       .main-mobile-menu
-        .main-mobile-menu-item
-          =link_to "Select a Stroll", root_path
-          %span
-            Memories from the life of our Flanuer
-        .main-mobile-menu-item
-          =link_to "Drop a Memory", guest_book_entries_path
-          %span
-            Leave Your Outrageous Memories And Photos Of Peter
+        - if @current != "home"
+          .main-mobile-menu-item
+            =link_to "Select a Stroll", root_path
+            %span
+              Memories from the life of our Flanuer
+        - if @current != "drop"
+          .main-mobile-menu-item
+            =link_to "Drop a Memory", guest_book_entries_path
+            %span
+              Leave Your Outrageous Memories And Photos Of Peter

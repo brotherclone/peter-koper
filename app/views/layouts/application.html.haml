@@ -11,5 +11,5 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %script{:src=>"https://documentcloud.adobe.com/view-sdk/main.js"}
   %body{:id=>"flanuerBody"}
-    = render :partial=> "components/mobile_menu"
+    = render :partial=> "components/mobile_menu", :locals=> {:current=> @current ? @current : nil}
     = yield

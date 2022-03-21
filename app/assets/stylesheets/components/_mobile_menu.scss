@@ -9,6 +9,7 @@
   top: 1.5rem;
   right: 1.5rem;
   font-size: 1.5rem;
+  z-index: 999;
   @include respond-to('medium') {
     display: none;
   }
