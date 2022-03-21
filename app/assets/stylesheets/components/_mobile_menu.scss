@@ -10,6 +10,11 @@
   right: 1.5rem;
   font-size: 1.5rem;
   z-index: 999;
+  border: 1px solid $palette_grey_lighter;
+  background-color: $palette_off_white;
+  padding: 0.313rem 0.438rem 0.313rem 0.438rem;
+  border-radius: 0.5rem;
+  opacity: 80%;
   @include respond-to('medium') {
     display: none;
   }
