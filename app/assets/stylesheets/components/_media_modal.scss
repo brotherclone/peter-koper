@@ -1,5 +1,7 @@
 @import "../vendor/micro-modal/modal";
 
+//ToDo: Responsive
+
 .modal{
   @include modal();
   .adobe-dc-view{

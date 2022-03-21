@@ -1,16 +1,23 @@
 @import "../utility/pallete";
+@import "../vendor/kitty_giraudel/breakpoints";
+
 .breadcrumb-wrapper{
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
   nav{
     ul{
       list-style: none;
-      display: flex;
+      display: none;
+      @include respond-to('medium') {
+        display: flex;
+      }
       flex-direction: row;
       justify-content: flex-start;
       align-content: center;
       li{
+        font-size: .85rem;
         margin: 1rem;
       }
       .breadcrumb-separator{
@@ -20,5 +27,4 @@
       }
     }
   }
-
 }

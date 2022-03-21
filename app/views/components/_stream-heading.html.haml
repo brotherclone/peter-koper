@@ -1,5 +1,8 @@
 .stream-heading{:data=>{:controller=>"stream"}}
   .stream-heading-wrapper
+    .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+      %a{:data=>{:action=>"click->mobile#show"}}
+        =fa_icon "bars"
     .stroll-button
       %a{:href=> root_path, :tab=>{:index=>0}}
         Select a Stroll

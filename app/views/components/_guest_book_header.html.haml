@@ -1,13 +1,17 @@
 -@link_types = link_types
 
 .headings-guest-book
-  .guest-book-logo
-    .logo-wrapper
-      = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
-  .guest-book-back-button
-    %a{:href=> root_path, :tab=>{:index=>0}}
-      Back
-  .guest-book-heading
+  .guest-book-heading-wrapper
+    .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+      %a{:data=>{:action=>"click->mobile#show"}}
+        =fa_icon "bars"
+    .stroll-button
+      %a{:href=> root_path, :tab=>{:index=>0}}
+        Back
+    .guest-book-logo
+      .logo-wrapper
+        = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+  .guest-book-sub-heading
     %h1
       Drop your memories
     =inline_svg_tag("border.svg", class:"guest-book-heading-border")

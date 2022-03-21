@@ -8,6 +8,7 @@ class GuestBookEntriesController < ApplicationController
   def index
     @show_breadcrumbs = true
     @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
+    @current = "drop"
     respond_to do |format|
       format.html { render :index}
     end
@@ -16,6 +17,7 @@ class GuestBookEntriesController < ApplicationController
   def show
     add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
     @show_breadcrumbs = true
+    @current = "drop"
     respond_to do |format|
       format.html { render :show}
     end

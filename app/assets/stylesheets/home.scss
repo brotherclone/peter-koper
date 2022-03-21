@@ -1,5 +1,6 @@
 @import "dev/responsive-outliner";
 @import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
 
 .home-strolls{
   display: flex;
@@ -10,7 +11,10 @@
     font-style: italic;
     font-weight: 400;
     font-size: 1.25rem;
-    margin: 0;
+    margin: 0 0 0 2rem;
+    @include respond-to("medium"){
+      margin: 0;
+    }
   }
   hr{
     color: $palette_grey;

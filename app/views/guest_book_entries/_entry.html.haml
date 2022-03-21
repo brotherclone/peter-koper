@@ -7,7 +7,7 @@
       =@entry.guest_name
     .title
       =@entry.title
-  %p.entry
+  .entry
     = @entry.body.html_safe
   .guest-book-entry-photos
     - layout = which_layout(@entry.image_one_url.to_s, @entry.image_two_url.to_s, @entry.image_three_url.to_s)
