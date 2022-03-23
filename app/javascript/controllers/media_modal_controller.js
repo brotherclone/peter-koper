@@ -21,7 +21,9 @@ export default class extends Controller {
     }
 
     hideplyr(){
-        document.player.stop()
+        document.player.stop();
+        MicroModal.close();
+        document.player.dispose();
         document.getElementById("flanuerBody").classList.remove("modal-open")
     }
 
