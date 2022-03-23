@@ -150,7 +150,6 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
   }
   margin: 1rem 0 1rem 0;
   max-width: map-get($entry-sizes, "small");
-
   @include box-shadower();
   p.warning {
     color: $palette_off_white;
@@ -160,96 +159,125 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
     background-color: $palette_flaneur_red;
     margin-bottom: 2rem;
   }
-  .guest-book-entry-heading {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    .attribution {
-      font-style: italic;
-      font-size: 0.75rem;
-      color: $palette_grey_lighter;
-    }
-    .title {
-      font-size: 1.15rem;
-      text-transform: capitalize;
-      color: $palette_blue;
-      max-width: map-get($entry-content-sizes, "small");
-    }
-    .name {
-      font-size: 1rem;
-      text-transform: capitalize;
-      color: $palette_grey;
-      margin: 0.25rem 0 1rem 0;
-      font-weight: 800;
-      max-width: map-get($entry-content-sizes, "small");
-    }
-  }
-  .entry {
-    padding: .5rem;
-    width: 100%;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    color: $palette_grey;
-    font-size: 1rem;
-    line-height: 1.6rem;
-    max-width: map-get($entry-content-sizes, "small");
-  }
-  .guest-book-entry-photos {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    @include respond-to("large"){
-      min-width: 40rem;
-    }
-    align-items: center;
-    .guest-book-entry-photo-row {
-      @include respond-to("large") {
-        display: flex;
-        flex-direction: row;
-        height: auto;
-        align-items: center;
-        justify-content: space-around;
+  .guest-book-entry-container{
+    .guest-book-entry-heading {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      .attribution {
+        font-style: italic;
+        font-size: 0.75rem;
+        color: $palette_grey_lighter;
+        margin:0;
       }
+      .title {
+        font-size: 1.15rem;
+        text-transform: capitalize;
+        color: $palette_blue;
+        margin: 1rem 0 0 0;
+        @include respond-to("large"){
+          max-width: map-get($entry-sizes, "large");
+        }
+        @include respond-to("medium"){
+          max-width: map-get($entry-sizes, "medium");
+        }
+        max-width: map-get($entry-sizes, "small");
+        width: 100%;
+        text-align: center;
+      }
+      .name {
+        font-size: 1rem;
+        text-transform: capitalize;
+        color: $palette_grey;
+        font-weight: 800;
+        margin:0;
+        @include respond-to("large"){
+          max-width: map-get($entry-sizes, "large");
+        }
+        @include respond-to("medium"){
+          max-width: map-get($entry-sizes, "medium");
+        }
+        max-width: map-get($entry-sizes, "small");
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .entry {
+      padding: 0 2rem 0 2rem;
+      width: 100%;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      color: $palette_grey;
+      font-size: 1rem;
+      line-height: 1.6rem;
+      @include respond-to("large"){
+        max-width: map-get($entry-sizes, "large");
+      }
+      @include respond-to("medium"){
+        max-width: map-get($entry-sizes, "medium");
+      }
+      max-width: map-get($entry-sizes, "small");
+      p{
+        margin: 0;
+      }
+    }
+    .guest-book-entry-photos {
       display: flex;
       flex-direction: column;
       height: auto;
-      justify-content: flex-start;
-      .guest-book-entry-photo {
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 0.25rem;
-        @include box-shadower();
-        &.loading {
-          background-image: none;
-          background-color: $palette_black;
+      @include respond-to("large"){
+        min-width: 40rem;
+      }
+      align-items: center;
+      .guest-book-entry-photo-row {
+        @include respond-to("large") {
+          display: flex;
+          flex-direction: row;
+          height: auto;
+          align-items: center;
+          justify-content: space-around;
         }
-        &.large {
-          @include respond-to("large"){
-            width: 40rem;
-            height: 40rem;
-            margin: 1rem 0 4rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: flex-start;
+        .guest-book-entry-photo {
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 0.25rem;
+          @include box-shadower();
+          &.loading {
+            background-image: none;
+            background-color: $palette_black;
           }
-          width: 21rem;
-          height: 21rem;
-          margin: 1rem 0 2rem;
-        }
-        &.small {
-          @include respond-to("large"){
-            width: 19.813rem;
-            height: 19.813rem;
-          }
-          width: 21rem;
-          height: 21rem;
-          margin: 1rem 0 2rem;
-          &.left {
-            @include respond-to("large") {
-              margin: 1rem 2rem 2rem;
+          &.large {
+            @include respond-to("large"){
+              width: 40rem;
+              height: 40rem;
+              margin: 1rem 0 4rem;
             }
+            width: 21rem;
+            height: 21rem;
+            margin: 1rem 0 2rem;
           }
-          &.right {
-            @include respond-to("large") {
-              margin: 1rem 0 2rem 2rem;
+          &.small {
+            @include respond-to("large"){
+              width: 19.813rem;
+              height: 19.813rem;
+            }
+            width: 21rem;
+            height: 21rem;
+            margin: 1rem 0 2rem;
+            &.left {
+              @include respond-to("large") {
+                margin: 1rem 2rem 2rem;
+              }
+            }
+            &.right {
+              @include respond-to("large") {
+                margin: 1rem 0 2rem 2rem;
+              }
             }
           }
         }
