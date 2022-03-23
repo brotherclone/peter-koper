@@ -130,6 +130,7 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       @include base-type();
       font-style: italic;
       margin:0 0 1rem 0;
+      text-transform: capitalize;
     }
     .memory-title{
       @include base-header();
