@@ -4,6 +4,7 @@ ActiveAdmin.register Category do
 
   form do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :name
       f.input :image, :as => :file, :label=> "1x1 Crop. Used on Home page category cards"
       f.input :image_cache, :as => :hidden

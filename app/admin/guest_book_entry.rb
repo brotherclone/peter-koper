@@ -6,6 +6,7 @@ ActiveAdmin.register GuestBookEntry do
 
   form(:html => {:multipart => true}) do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :title
       f.input :body, :input_html => { :class => 'tinymce' }
       f.input :guest_name

@@ -4,6 +4,7 @@ ActiveAdmin.register Memory do
 
   form do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :title
       f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
       f.input :is_live

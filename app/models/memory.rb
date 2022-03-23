@@ -10,4 +10,5 @@ class Memory < ApplicationRecord
   validates :occurrence, presence: true
   has_one :video
   has_one :pdf
+  validates_size_of :image, maximum: 10.megabytes, message: "should be less than 10MB"
 end
