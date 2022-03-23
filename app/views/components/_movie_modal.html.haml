@@ -6,7 +6,7 @@
         %header
           %h3.video-modal-title{:id=>"movie-modal-#{@memory.id.to_s}-title"}
             =@memory.title
-          %a.close-link{:as=>"button", :data=>{:micromodal=>{:close=>true}, :action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
+          %a.close-link{:as=>"button", :data=>{:action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
             = fa_icon "close"
         %video.cld-video-player.cld-video-player-skin-dark{:id=>"videoPlayer#{@memory.id.to_s}",
                                                           :controls=>true,

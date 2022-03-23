@@ -12,11 +12,11 @@
 
 .movie-modal, .document-modal {
   .modal-close {
+    width: 100%;
     header {
       width: 100%;
       text-align: center;
       margin-top: 6.5rem;
-
       h3.video-modal-title {
         font-family: "Campanile", serif;
         color: $palette-off_white;
@@ -33,6 +33,9 @@
           cursor: pointer;
         }
       }
+    }
+    .cld-video-player{
+      width: 100% !important;
     }
   }
 }
