@@ -4,6 +4,7 @@ ActiveAdmin.register Tag do
 
   form do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :name
     end
     f.actions

@@ -4,6 +4,7 @@ ActiveAdmin.register Video do
 
   form(:html => { :multipart => true }) do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :file, :as => :file
       f.input :file_cache, :as => :hidden
       f.input :is_live
