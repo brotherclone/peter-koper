@@ -1,0 +1,11 @@
+-@memory = memory
+-if @memory and @memory.pdf
+  .modal.document-modal{:id=>"document_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
+    .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
+      %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"document-modal-#{@memory.id.to_s}-title"}}
+        %header
+          %h3.video-modal-title{:id=>"documen-modal-#{@memory.id.to_s}-title"}
+            =@memory.title
+          %a.close-link{:as=>"button", :data=>{:micromodal=>{:close=>true}, :action=>'click->media#hiderdr', :aria=>{:label=>"close document reader"}}}
+            =fa_icon "close"
+        %div.adobe-dc-view{:id=>"pdf_view_#{@memory.id.to_s}"}

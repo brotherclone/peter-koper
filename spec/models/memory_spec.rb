@@ -14,12 +14,16 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_categories)).to be_valid }
   end
 
-  describe 'Factory with audio commentary 'do
-    it{ expect(build(:memory_with_audio_commentary)).to be_valid }
+  describe 'Factory with sub-categories 'do
+    it{ expect(build(:memory_with_sub_categories)).to be_valid }
   end
 
   describe 'Factory with video'do
     it{ expect(build(:memory_with_video)).to be_valid }
+  end
+
+  describe 'Factory with pdf'do
+    it{ expect(build(:memory_with_pdf)).to be_valid }
   end
 
   describe 'Must have an occurrence' do
@@ -30,8 +34,8 @@ RSpec.describe Memory, type: :model do
     should have_one(:video)
   end
 
-  it 'has one audio commentaries' do
-    should have_one(:audio_commentary)
+  it 'has one video' do
+    should have_one(:pdf)
   end
 
   it 'has many tags through tag memories' do
@@ -42,6 +46,11 @@ RSpec.describe Memory, type: :model do
   it 'has many categories through memory categories' do
     should have_many(:memory_categories)
     should have_many(:categories).through(:memory_categories)
+  end
+
+  it 'has many sub-categories through memory subcategories' do
+    should have_many(:memory_sub_categories)
+    should have_many(:sub_categories).through(:memory_sub_categories)
   end
 
 end

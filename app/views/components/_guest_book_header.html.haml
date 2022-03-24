@@ -1,0 +1,32 @@
+-@link_types = link_types
+
+.headings-guest-book
+  .guest-book-heading-wrapper
+    .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+      %a{:data=>{:action=>"click->mobile#show"}}
+        =fa_icon "bars"
+    .stroll-button
+      %a{:href=> root_path, :tab=>{:index=>0}}
+        Back
+    .guest-book-logo
+      .logo-wrapper
+        = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+  .guest-book-sub-heading
+    %h1
+      Drop your memories
+    =inline_svg_tag("border.svg", class:"guest-book-heading-border")
+    %h2
+      Leave your outrageous memories and photos of Peter
+    -if @link_types === "default" or !@link_types
+      .sign-link
+        = link_to 'Add your memory', new_guest_book_entry_path
+    - elsif @link_types === "authoring"
+      .show-link
+        = link_to 'Cancel and discard changes',  @guest_book_entry
+      .index-link
+        = link_to 'Return to all memories', guest_book_entries_path
+    - elsif @link_types === "display"
+      .edit-link
+        = link_to 'Edit your memory.', edit_guest_book_entry_path(@guest_book_entry)
+      .index-link
+        = link_to 'Return to all memories', guest_book_entries_path

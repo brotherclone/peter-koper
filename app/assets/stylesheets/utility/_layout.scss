@@ -1,3 +1,23 @@
 .main-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+}
+
+@mixin sticky(){
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }

@@ -1,0 +1,5 @@
+
+@mixin background-texture($image: "circles.png"){
+  background-image: asset_data_url($image);
+  background-repeat: repeat;
+}

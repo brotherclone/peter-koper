@@ -1,86 +1,67 @@
-= render :partial=> "components/breadcrumb"
-.back-stage
-  .heading.row
-    %h1
-      Back Stage
-    %h2
-      Style Guide
-  .style-guide.row
-    .row
-      %h3
-        Typography
-      %hr
-    .row
-      %p
-        Examples of the fonts used on this web site.
-      .typography.sample-holder
-        %h1.heroic Heroic
-        %h1 Heading 1 The quick brown fox
-        %h2 Heading 2 The quick brown fox jumps over the lazy dog
-        %h3 Heading 3 The quick brown fox jumps over the lazy dog
-        %h4 Heading 4 The quick brown fox jumps over the lazy dog
-        %h5 Heading 5 The quick brown fox jumps over the lazy dog
-        %p
-          A hexagon is a costly plough. The boxes could be said to resemble undone moons. The crural discovery reveals itself as a lathlike tune to those who look.
-        %p
-          Nowhere is it disputed that alert soybeans show us how cemeteries can be gorillas. We can assume that any instance of a judo can be construed as a cuter geology. A cardigan is the whale of a brandy.
-        %p
-          Extending this logic, the first tatty destruction is, in its own way, a front. A libra is the sturgeon of a cardboard. The mouth is a knowledge.
-        %a{:href=>"#"}
-          Hyperlinks
-    .row
-      %h3
-        Colors
-      %hr
-      .color
-        .sample-holder
-          .sample.white
-          .sample.off-white
-          .sample.black
-          .sample.grey
-          .sample.grey.light
-          .sample.grey.lighter
-          .sample.red
-          .sample.off-red
-          .sample.blue
-          .sample.light-blue
-          .sample.yellow
-          .sample.off-yellow
-    .row
-      %h3
-        Icons
-      %hr
-        .icons
-          .sample-holder
-            .sample
-              %i.fa-solid.fa-location-pin
-              %label
-                Locations
-            .sample
-              %i.fa-solid.fa-circle
-              %label
-                Event Node
-            .sample
-              %i.fa-solid.fa-close
-              %label
-                Close
-            .sample
-              %i.fa-solid.fa-play
-              %label
-                Audio
-            .sample
-              %i.fa-solid.fa-pause
-              %label
-                Pause
-            .sample
-              %i.fa-solid.fa-volume-mute
-              %label
-                Mute Audio
-            .sample
-              %i.fa-solid.fa-volume-down
-              %label
-                Volume Down
-            .sample
-              %i.fa-solid.fa-volume-up
-              %label
-                Volume Up
+.container
+  .main-wrapper
+    .breadcrumb-wrapper
+      = render :partial => "components/breadcrumbs"
+    .back-stage
+      .heading.row
+        %h1
+          Back Stage
+        %h2
+          Style Guide
+      .style-guide.row
+        .row
+          %h3
+            Typography
+          %hr
+        .row
+          %p
+            Examples of the fonts used on this web site.
+          .typography.sample-holder
+            %h1.heroic Heroic
+            %h1 Heading 1 The quick brown fox
+            %h2 Heading 2 The quick brown fox jumps over the lazy dog
+            %h3 Heading 3 The quick brown fox jumps over the lazy dog
+            %h4 Heading 4 The quick brown fox jumps over the lazy dog
+            %h5 Heading 5 The quick brown fox jumps over the lazy dog
+            %p
+              A hexagon is a costly plough. The boxes could be said to resemble undone moons. The crural discovery reveals itself as a lathlike tune to those who look.
+            %p
+              Nowhere is it disputed that alert soybeans show us how cemeteries can be gorillas. We can assume that any instance of a judo can be construed as a cuter geology. A cardigan is the whale of a brandy.
+            %p
+              Extending this logic, the first tatty destruction is, in its own way, a front. A libra is the sturgeon of a cardboard. The mouth is a knowledge.
+            %a{:href=>"#"}
+              Hyperlinks
+        .row
+          %h3
+            Colors
+          %hr
+          .color
+            .sample-holder
+              .sample.white
+              .sample.off-white
+              .sample.black
+              .sample.grey
+              .sample.grey.light
+              .sample.grey.lighter
+              .sample.red
+              .sample.blue
+              .sample.light-blue
+              .sample.yellow
+        .row
+          %h3
+            Icons
+          %hr
+            .icons
+              .sample-holder
+                .sample
+                  =fa_icon "close"
+                  %label
+                    Close
+                .sample
+                  =fa_icon "play-circle"
+                  %label
+                    Video
+                .sample
+                  =fa_icon "file"
+                  %label
+                    PDF

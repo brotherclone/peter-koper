@@ -1,33 +1,44 @@
-class GuestBookEntriesController < InheritedResources::Base
+class GuestBookEntriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :guest_book_entries_path
+  add_breadcrumb "Drop a Memory", :guest_book_entries_path
 
-  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
   before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @guest_book_entries = GuestBookEntry.all
+    @show_breadcrumbs = true
+    @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
+    @current = "drop"
     respond_to do |format|
       format.html { render :index}
-      format.json { render :json => @guest_book_entries}
     end
   end
 
   def show
     add_breadcrumb @guest_book_entry.title.to_s, guest_book_entries_path
+    @show_breadcrumbs = true
+    @current = "drop"
     respond_to do |format|
       format.html { render :show}
-      format.json { render :json => @guest_book_entry}
     end
   end
 
   def new
     @guest_book_entry = GuestBookEntry.new
+    @display_challenge_failed = false
   end
 
   def edit
+  end
 
+  def update
+    if @guest_book_entry.update(guest_book_entry_params)
+      redirect_to @guest_book_entry
+    else
+      respond_to do |format|
+        format.html { render :edit}
+      end
+    end
   end
 
   def create
@@ -35,10 +46,8 @@ class GuestBookEntriesController < InheritedResources::Base
     respond_to do |format|
       if @guest_book_entry.save
         format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
-        format.json { render :show, status: :created, location: @guest_book_entry }
       else
         format.html { render :new }
-        format.json { render json: @guest_book_entry.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +56,6 @@ class GuestBookEntriesController < InheritedResources::Base
     @guest_book_entry.destroy
     respond_to do |format|
       format.html { redirect_to guest_book_entries_url, notice: 'Entry was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -58,7 +66,17 @@ class GuestBookEntriesController < InheritedResources::Base
   end
 
   def guest_book_entry_params
-    params.require(:guest_book_entry).permit(:title, :body, :guest_name, :guest_email)
+    params.require(:guest_book_entry).permit(:title,
+                                             :body,
+                                             :image_one_url,
+                                             :image_one_url_cache,
+                                             :image_two_url,
+                                             :image_two_url_cache,
+                                             :image_three_url,
+                                             :image_three_url_cache,
+                                             :guest_email,
+                                             :guest_name,
+                                             :admin_state)
   end
 
 end

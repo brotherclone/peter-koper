@@ -1,0 +1,29 @@
+@import "pallete";
+@import "lighting";
+
+@mixin button-bg($col:$palette_grey_darker,$bg:$palette_white) {
+  background: $bg;
+  text-decoration:none;
+  padding:0.5rem 1rem;
+  border-radius:3px;
+  font-size: 1rem;
+  color: $col;
+  border: 1px soild transparentize($palette_black, .5);
+  font-family: aw-conqueror-didot, serif;
+  font-weight: 200;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    border: 1px soild transparentize($palette_black, .5);
+    background:darken($bg,0.12);
+  }
+  &:active {
+    background:darken($bg,0.25);
+  }
+  @include box-shadower();
+}
+
+button{
+  @include button-bg();
+}

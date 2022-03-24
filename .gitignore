@@ -43,5 +43,6 @@ yarn-debug.log*
 .idea
 .env
 cheat-sheet.txt
-
 public/uploads/tmp/
+**/.DS_Store
+latest.dump

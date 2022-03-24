@@ -1,7 +1,6 @@
 class Video < ApplicationRecord
+  mount_uploader :file, VideoUploader
   belongs_to :memory
-  enum video_service: [:youtube, :vimeo]
-  validates :url, presence: true
-  validates :video_service, presence: true
-  validates :video_id, presence: true
+  accepts_nested_attributes_for :memory
+  validates_size_of :file, maximum: 100.megabytes, message: "should be less than 100MB"
 end

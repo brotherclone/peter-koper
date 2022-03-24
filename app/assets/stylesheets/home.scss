@@ -1,17 +1,33 @@
-.outer{
+@import "dev/responsive-outliner";
+@import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
+
+.home-strolls{
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  .stroll-title{
+    font-family: aw-conqueror-didot, serif;
+    color: $palette_grey;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0 0 0 2rem;
+    @include respond-to("medium"){
+      margin: 0;
+    }
+  }
+  hr{
+    color: $palette_grey;
+    opacity: 40%;
+    width: 100%;
+  }
 }
 
-.inner{
-  align-self: center;
-  width: 100vw;
-  text-align: center;
-}
-
-.soon{
-  text-transform: uppercase;
-  //ToDo: use palette
-  color: #999999;
+.home-strolls-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-around;
 }

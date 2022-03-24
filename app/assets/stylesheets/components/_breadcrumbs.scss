@@ -1,0 +1,30 @@
+@import "../utility/pallete";
+@import "../vendor/kitty_giraudel/breakpoints";
+
+.breadcrumb-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  nav{
+    ul{
+      list-style: none;
+      display: none;
+      @include respond-to('medium') {
+        display: flex;
+      }
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: center;
+      li{
+        font-size: .85rem;
+        margin: 1rem;
+      }
+      .breadcrumb-separator{
+        font-family: "Campanile", serif;
+        color: $palette_grey_lighter;
+        margin: auto 0.25rem auto  0.25rem;
+      }
+    }
+  }
+}

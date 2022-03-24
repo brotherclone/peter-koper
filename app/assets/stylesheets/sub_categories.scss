@@ -1,0 +1,12 @@
+// ToDo: Responsive
+
+.sub-category-link-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1.25rem;
+  .sub-category-links{
+    font-size: 1.25rem;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}

@@ -1,0 +1,68 @@
+@import "../utility/lighting";
+@import "../utility/pallete";
+@import "../dev/responsive-outliner";
+@import "../vendor/kitty_giraudel/breakpoints";
+
+@use "sass:map";
+$card-sizes: ("large": 24rem, "medium":18rem, "small":22rem);
+$card-margins: ("large":1.5rem, "medium":0.5rem, "small":1rem);
+
+.category-card{
+  height: auto;
+  @include respond-to('medium') {
+    margin: map-get($card-margins, "medium");
+    min-width: map-get($card-sizes, "medium");
+  }
+  @include respond-to('large') {
+    margin: map-get($card-margins, "large");
+    min-width: map-get($card-sizes, "large");
+  }
+  margin: map-get($card-margins, "small");
+  min-width: map-get($card-sizes, "small");
+  .category-card-image{
+    background-color: $palette_black;
+    border:1px solid $palette_grey;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include box-shadower();
+    @include respond-to('medium') {
+      height: map-get($card-sizes, "medium");
+      width: map-get($card-sizes, "medium");
+    }
+    @include respond-to('large') {
+      height: map-get($card-sizes, "large");
+      width: map-get($card-sizes, "large");
+    }
+    height: map-get($card-sizes, "small");
+    width: map-get($card-sizes, "small");
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .category-card-text{
+    text-align: center;
+    h2{
+      margin:1rem 0 1rem;
+      a {
+        transition: color 1s ease-in-out;
+        font-size: 1.5rem;
+        color: $palette_flaneur_red;
+        &:hover{
+          color: $palette_blue;
+        }
+      }
+    }
+    h3{
+      margin:1rem 0 1rem;
+      a {
+        transition: color 1s ease-in-out;
+        color: $palette_blue;
+        font-size: 1rem;
+        text-transform: capitalize;
+        &:hover{
+          color: $palette_flaneur_red;
+        }
+      }
+    }
+  }
+}

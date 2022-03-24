@@ -1,8 +1,9 @@
-= render :partial=> "components/breadcrumb"
-
-%p#notice= notice
-
-
-= link_to 'Edit', edit_guest_book_entry_path(@guest_book_entry)
-\|
-= link_to 'Back', guest_book_entries_path
+.container
+  .main-wrapper
+    .guest-book{:data=>{:controller=>'guest'}}
+      = render :partial => "components/guest_book_header", :locals=>{:link_types=>"display"}
+      .guest-book-entries-container
+        -if @guest_book_entry.admin_state === "submitted"
+          %p.warning
+            This entry is pending approval by our gracious moderator.
+        = render :partial => 'entry', :locals => {:entry=> @guest_book_entry}

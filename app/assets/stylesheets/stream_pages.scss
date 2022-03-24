@@ -1,0 +1,48 @@
+@import "utility/typography";
+@import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
+@import "dev/responsive-outliner";
+
+.stream-page-heading{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 1rem;
+  .heading-text{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    h1{
+      color: $palette_flaneur_red;
+      @include respond-to("large"){
+        font-size: 3.438rem;
+      }
+      @include respond-to("medium"){
+        font-size: 3rem;
+      }
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+  .ornamental{
+    &.ornamental-right{
+      svg{
+        transform-origin: left bottom;
+        transform: rotate(-90deg) translate(-50%,0);
+      }
+    }
+    &.ornamental-left{
+      svg{
+        transform-origin: right bottom;
+        transform: rotate(90deg) translate(50%, 0);
+      }
+    }
+    width: 15%;
+    height: auto;
+  }
+}

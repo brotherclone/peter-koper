@@ -1,0 +1,26 @@
+.container
+  .main-wrapper
+    .home-heading{:data=>{:controller=>"home"}}
+      .home-heading-wrapper
+        .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+          %a{:data=>{:action=>"click->mobile#show"}}
+            =fa_icon "bars"
+        .stroll-button{:id=>"scrollHelp",:data=>{:home=>{:target=>"help"}}}
+          %span
+            Scroll to Stroll
+        .guest-book-button
+          %a{:href=> guest_book_entries_url, :tab=>{:index=>0}}
+            Drop a Memory
+        .home-heading-peter.loading{:id=>"peterHome",:data=>{:home=>{:target=>"peter"}}}
+          = image_tag("peter.png", alt:"Our Flaneur")
+        .home-heading-logo.loading{:id=>"logoHome",:data=>{:home=>{:target=>"logo"}}}
+          = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+    %main{:id=>"mainStart"}
+      .home-strolls
+        %h2.stroll-title
+          Select a stroll
+        %hr
+        .home-strolls-container
+          - @categories.each do |category|
+            = render :partial=> "components/category_card", :locals=>{:category=> category, :sub_categories=> category.sub_categories }
+

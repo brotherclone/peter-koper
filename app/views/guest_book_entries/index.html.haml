@@ -1,21 +1,11 @@
-= render :partial=> "components/breadcrumb"
-
-%h1 Listing guest_book_entries
-
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @guest_book_entries.each do |guest_book_entry|
-      %tr
-        %td= link_to 'Show', guest_book_entry
-        %td= link_to 'Edit', edit_guest_book_entry_path(guest_book_entry)
-        %td= link_to 'Destroy', guest_book_entry, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Guest book entry', new_guest_book_entry_path
+.container
+  .main-wrapper
+    .guest-book
+      = render :partial => "components/guest_book_header", :locals=>{:link_types=>"default"}
+      - if @guest_book_entries.length
+        - @guest_book_entries.each do |guest_book_entry|
+          .guest-book-entries-container{:data=>{:controller=>'guest'}}
+            = render :partial => 'entry', :locals => {:entry=> guest_book_entry}
+      -else
+        %p
+          There's nothing here at the moment. Please be a dear and add your memory of Peter!

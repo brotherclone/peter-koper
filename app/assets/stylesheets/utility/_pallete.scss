@@ -1,13 +1,14 @@
-$palette_white:#ebf5f0;
-$palette_off_white: #dde6de;
-$palette_yellow: #FFC52C;
-$palette_off_yellow: #dfdb67;
-$palette_red: #FB0C06;
-$palette_off_red:#ba1f1f;
+$palette_white:#FFFFFF;
+$palette_off_white:#FCFFFD;
+$palette_flaneur_yellow: #fbdc82;
+$palette_flaneur_red:#be1e2d;
 $palette_blue: #030D4F;
 $palette_light_blue:#CEECEF;
 $palette_grey: #8d928f;
 $palette_grey_darker: darken($palette_grey, 25%);
 $palette_grey_lighter: lighten($palette_grey, 25%);
 $palette_black: #1f2220;
+html, body{
+  background-color: $palette_off_white;
+}
 

@@ -1,0 +1,13 @@
+.stream-heading{:data=>{:controller=>"stream"}}
+  .stream-heading-wrapper
+    .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+      %a{:data=>{:action=>"click->mobile#show"}}
+        =fa_icon "bars"
+    .stroll-button
+      %a{:href=> root_path, :tab=>{:index=>0}}
+        Select a Stroll
+    .guest-book-button
+      %a{:href=> guest_book_entries_url, :tab=>{:index=>0}}
+        Drop a Memory
+    .stream-heading-logo.loading
+      = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")

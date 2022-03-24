@@ -6,12 +6,13 @@ class MemoriesController < ApplicationController
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
   def index
-    @memories = Memory.all.where(is_live: true)
+    @memories = Memory.all
     respond_to do |format|
       format.html { render :index}
       format.json { render :json => @memories}
     end
   end
+
 
   def show
     add_breadcrumb @memory.title.to_s, memory_path
@@ -68,8 +69,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date)
+    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
   end
-
 
 end

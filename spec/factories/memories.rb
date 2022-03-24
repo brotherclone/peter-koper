@@ -16,14 +16,19 @@ FactoryBot.define do
         create(:category, memory: memory)
       end
     end
-    factory :memory_with_audio_commentary do
+    factory :memory_with_sub_categories do
       after(:create) do |memory|
-        create(:audio_commentary, memory: memory)
+        create(:sub_category, memory: memory)
       end
     end
     factory :memory_with_video do
       after(:create) do |memory|
         create(:video, memory: memory)
+      end
+    end
+    factory :memory_with_pdf do
+      after(:create) do |memory|
+        create(:pdf, memory: memory)
       end
     end
   end
