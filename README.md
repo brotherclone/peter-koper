@@ -32,6 +32,15 @@ Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.co
 bundle && yarn
 ```
 
+### Set up Git Flow
+Install [Git Flow](https://skoch.github.io/Git-Workflow/)
+```
+brew install git-flow
+```
+
+Use Main/Develop/Feature Braching.
+
+
 ### Set environment variables
 
 Using [Dot Env Rails](https://github.com/bkeepers/dotenv):
@@ -40,14 +49,6 @@ Using [Dot Env Rails](https://github.com/bkeepers/dotenv):
 
 ```shell
 rails db:create db:migrate db:seed
-```
-
-### Add heroku remotes
-
-Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
-
-```shell
-heroku git:remote -a peter-koper
 ```
 
 ## Serve
@@ -63,5 +64,5 @@ rails s
 Push to Heroku staging remote:
 
 ```shell
-git push main
+git push develop
 ```
