@@ -30,6 +30,13 @@ class TagsController < ApplicationController
     add_breadcrumb @tag.name.to_s, tag_path(@tag)
     @show_breadcrumb = true
     @memory_tags = TagMemory.where(tag_id: @tag.id)
+
+    memory_ids = []
+    @memory_tags.each do |memory_tag|
+      memory_ids << memory_tag.memory_id
+    end
+    @memories = Memory.where(id: memory_ids, is_live: true).order(occurrence: :asc)
+
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @tag}

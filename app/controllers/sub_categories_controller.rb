@@ -16,6 +16,11 @@ class SubCategoriesController < ApplicationController
   def show
     @show_breadcrumbs = true
     @memory_sub_categories = MemorySubCategory.where(sub_category_id: @sub_category.id)
+    memory_ids = []
+    @memory_sub_categories.each do |memory_sub_cat|
+      memory_ids << memory_sub_cat.memory_id
+    end
+    @memories = Memory.where(id: memory_ids, is_live: true).order(occurrence: :asc)
     add_breadcrumb @category.name.to_s, category_path(@category)
     add_breadcrumb  @sub_category.name.to_s, [@category, @sub_category]
     respond_to do |format|
