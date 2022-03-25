@@ -3,3 +3,7 @@
 @mixin box-shadower($x-axis: 6px, $y-axis: 5px, $blur:9px, $color: transparentize($palette_black, 0.75)) {
   box-shadow: $x-axis $y-axis $blur $color;
 }
+
+@mixin text-shadower($h-shadow: 1px, $v-shadow: 5px, $blur-radius: 8px, $color:transparentize($palette_black, 0.75)){
+  text-shadow: $h-shadow $v-shadow $blur-radius $color;
+}
