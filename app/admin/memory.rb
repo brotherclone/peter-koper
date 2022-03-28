@@ -1,6 +1,6 @@
 ActiveAdmin.register Memory do
 
-  permit_params  :title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, category_ids:[], tag_ids:[], sub_category_ids:[]
+  permit_params  :title, :show_title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, category_ids:[], tag_ids:[], sub_category_ids:[]
 
   form do |f|
     f.inputs do
@@ -8,6 +8,7 @@ ActiveAdmin.register Memory do
       f.input :title
       f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
       f.input :is_live
+      f.input :show_title
       f.input :occurrence, :as=> :date_picker
       f.input :fuzzy_date
       f.input :image, :as => :file, :label=> "Videos and PDF files need an image too."
@@ -22,6 +23,7 @@ ActiveAdmin.register Memory do
   show do
     attributes_table do
       row :title
+      row :show_title
       row :body
       row :categories
       row :sub_categories

@@ -8,6 +8,7 @@ class Memory < ApplicationRecord
   mount_uploader :image, PhotosUploader
   enum fuzzy_date: [:regular, :month, :year, :decade]
   validates :occurrence, presence: true
+  validates :title, presence: true
   has_one :video
   has_one :pdf
   validates_size_of :image, maximum: 10.megabytes, message: "should be less than 10MB"

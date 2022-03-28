@@ -7,13 +7,18 @@ class MemoriesController < ApplicationController
 
   def index
     @memories = Memory.all
+    @memories.each do |memory|
+      if memory.show_title != true and memory.title.length > 1
+        memory.show_title = true
+        memory.save
+      end
+    end
     respond_to do |format|
       format.html { render :index}
       format.json { render :json => @memories}
     end
   end
-
-
+  
   def show
     add_breadcrumb @memory.title.to_s, memory_path
     respond_to do |format|
@@ -69,7 +74,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
+    params.require(:memory).permit(:title, :show_title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
   end
 
 end
