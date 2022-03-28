@@ -3,6 +3,7 @@ FactoryBot.define do
     is_live {true}
     body { Faker::Lorem.paragraph }
     title { Faker::Lorem.word }
+    show_title { true }
     image { Faker::Internet.url}
     occurrence { Faker::Date.backward(days: 1000) }
     fuzzy_date { 'regular' }

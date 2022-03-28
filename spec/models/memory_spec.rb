@@ -30,6 +30,10 @@ RSpec.describe Memory, type: :model do
     it { should validate_presence_of(:occurrence) }
   end
 
+  describe 'Must have a title' do
+    it { should validate_presence_of(:title) }
+  end
+
   it 'has one video' do
     should have_one(:video)
   end
