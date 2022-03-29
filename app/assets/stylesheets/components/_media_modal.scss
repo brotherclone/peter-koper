@@ -45,10 +45,13 @@
 }
 
 // Locks overflow when modals are open.
-#flanuerBody{
-  &.modal-open{
-    position: fixed;
-    height: 100vh;
-    overflow-y: hidden !important;
-  }
-}
+//#flanuerBody{
+//  &.modal-open{
+//    position: fixed;
+//    height: 100vh;
+//    overflow-y: hidden !important;
+//    .mobile-menu-button{
+//      display: none;
+//    }
+//  }
+//}

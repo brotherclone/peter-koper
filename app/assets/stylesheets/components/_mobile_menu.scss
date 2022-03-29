@@ -24,14 +24,13 @@
 }
 
 .mobile-menu-wrapper{
-  @include background-texture("billie.png");
-  background-color: $palette_flaneur_yellow;
   display: none;
   width: 100vw;
   height: 100vh;
   position: absolute;
   padding: 2rem;
   z-index: 1000;
+  @include modal();
   &.is-open {
     display: flex;
   }
