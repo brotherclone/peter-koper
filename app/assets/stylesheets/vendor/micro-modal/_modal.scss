@@ -14,5 +14,7 @@
     top: 0.1vh;
     left: 0.1vw;
     z-index: 100;
+    -webkit-transform: translate3d(0,0,1px);
+    transform: translate3d(0,0,1px);
   }
 }
