@@ -1,7 +1,5 @@
 @import "../vendor/micro-modal/modal";
 
-//ToDo: Responsive
-
 .modal{
   @include modal();
   .adobe-dc-view{
@@ -44,14 +42,14 @@
   overflow-y: scroll !important;
 }
 
-// Locks overflow when modals are open.
-//#flanuerBody{
-//  &.modal-open{
-//    position: fixed;
-//    height: 100vh;
-//    overflow-y: hidden !important;
-//    .mobile-menu-button{
-//      display: none;
-//    }
-//  }
-//}
+
+#flanuerBody{
+  &.modal-open{
+    position: fixed;
+    height: 100vh;
+    overflow-y: hidden !important;
+    .mobile-menu-button{
+      display: none;
+    }
+  }
+}
