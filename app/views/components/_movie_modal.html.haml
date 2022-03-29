@@ -1,7 +1,7 @@
 -@memory=memory
 -if @memory and @memory.video
   .modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
-    .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
+    .modal-close{:tabindex=>-1, :data=>{:media=>{:target=>"videoModalOpen"}, :modal=>"movie_modal_#{@memory.id.to_s}"}}
       %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"movie-modal-#{@memory.id.to_s}-title"}}
         %header
           %h3.video-modal-title{:id=>"movie-modal-#{@memory.id.to_s}-title"}

@@ -11,13 +11,13 @@
   - if !@memory.video and !@memory.pdf
     .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
   -elsif @memory.video and !@memory.pdf
-    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:micromodal=>{:trigger=>"movie_modal_#{@memory.id.to_s}"}, :media=>{:target=>"videoPlayerId"}, :videplayerid=>"videoPlayer#{@memory.id.to_s}", :action=>"click->media#showplyr"}}
+    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:modal=>"movie_modal_#{@memory.id.to_s}", :media=>{:target=>"videoPlayerId"}, :videplayerid=>"videoPlayer#{@memory.id.to_s}", :action=>"click->media#showplyr"}}
       .memory-video-overlay{:data=>{:videofileid=>video_id(@memory.video.file), :media=>{:target=>"videoFileId"}}}
         =fa_icon "play"
         .memory-video-overlay-cta
           Click to Watch
   -else
-    .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=> {:micromodal=>{:trigger=>"document_modal_#{@memory.id.to_s}"}, :media=>{:target=>"pdf"}, :pdfurl=> @memory.pdf.file,:pdfview=>"pdf_view_#{@memory.id.to_s}", :pdffile=>show_pdf_file(@memory.pdf.file), :action=>"click->media#showrdr"}}
+    .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:modal=>"document_modal_#{@memory.id.to_s}", :media=>{:target=>"pdf"}, :pdfurl=> @memory.pdf.file,:pdfview=>"pdf_view_#{@memory.id.to_s}", :pdffile=>show_pdf_file(@memory.pdf.file), :action=>"click->media#showrdr"}}
       .memory-pdf-overlay
         =fa_icon "file"
         .memory-pdf-overlay-cta
