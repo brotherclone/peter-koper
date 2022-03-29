@@ -3,14 +3,13 @@ import MicroModal from 'micromodal'
 export default class extends Controller {
     connect(){
         MicroModal.init();
-        console.log("mobile connect")
     }
     show(){
-        console.log("mobile show")
+        MicroModal.show('mobileMenu')
         document.getElementById("flanuerBody").classList.add("modal-open")
     }
     hide(){
-        console.log("mobile hide")
+        MicroModal.close('mobileMenu')
         document.getElementById("flanuerBody").classList.remove("modal-open")
     }
 }
