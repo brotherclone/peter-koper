@@ -5,12 +5,12 @@
       = render :partial => "components/breadcrumbs"
     .stream-page-heading.sub-category-header
       .ornamental.ornamental-left
-        =inline_svg("border.svg")
+        = image_tag "border_ornament-left.png", role: "presentation"
       .heading-text.sub-category-header-text
         %h1
           = @sub_category.name
       .ornamental.ornamental-right
-        =inline_svg("border.svg")
+        = image_tag "border_ornament-right.png", role: "presentation"
     %main
       - if @memories
         .stream-container

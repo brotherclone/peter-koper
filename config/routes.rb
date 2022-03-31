@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :guest_book_entries, path: :dropped_memories
+  resources :guest_book_entries, path: :dropped_stories
   resources :memories
   resources :pdfs
   resources :categories do

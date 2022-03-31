@@ -6,17 +6,22 @@
   text-decoration:none;
   padding:0.5rem 1rem;
   border-radius:3px;
-  font-size: 1rem;
+  -webkit-border-radius: 3px;
+  font-size: 1.25rem;
+  font-style: italic;
   color: $col;
-  border: 1px soild transparentize($palette_black, .5);
+  border: 1px solid $palette_grey;
   font-family: aw-conqueror-didot, serif;
   font-weight: 200;
   text-transform: capitalize;
   transition: all 0.3s ease;
+  box-sizing: border-box !important;
   &:hover {
     cursor: pointer;
-    border: 1px soild transparentize($palette_black, .5);
     background:darken($bg,0.12);
+    color:$palette_black !important;
+    border: 1px solid $palette_blue;
+    @include box-shadower($x-axis: 2px, $y-axis: 1px, $blur:8px, $color: transparentize($palette_black, 0.65))
   }
   &:active {
     background:darken($bg,0.25);

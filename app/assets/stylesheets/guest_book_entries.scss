@@ -66,14 +66,17 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         }
         max-width: 8rem;
       }
-      .sign-link, .show-link, .edit-link, .index-link {
+      .sign-link{
+        @include button-bg();
+      }
+      .show-link, .edit-link, .index-link {
         font-size: 1rem;
         font-style: italic;
         transition: color 1s ease-in-out;
         a {
-          color: $palette_grey;
+          color: $palette_grey_darker;
           &:hover {
-            color: $palette_grey_darker;
+            color: $palette_flaneur_red;
           }
         }
       }
@@ -87,14 +90,17 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         h3 {
+          font-size: 1rem;
+          font-weight: 700;
           margin-bottom: 0;
           color: $palette_blue;
         }
         p {
           font-size: 1rem;
           font-style: italic;
-          color: $palette_grey;
+          color: $palette_grey_darker;
           margin-bottom: 2rem;
         }
       }
