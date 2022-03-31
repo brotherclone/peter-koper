@@ -1,7 +1,7 @@
 class GuestBookEntriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Drop a Memory", :guest_book_entries_path
+  add_breadcrumb "Drop Your Stories", :guest_book_entries_path
 
   before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
 

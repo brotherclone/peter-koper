@@ -13,13 +13,13 @@
         = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
   .guest-book-sub-heading
     %h1
-      Drop your memories
+      Drop your stories
     = image_tag("border_ornament-horizontal.png", role: "presentation", class:"guest-book-heading-border")
     %h2
       Leave your outrageous memories and photos of Peter
     -if @link_types === "default" or !@link_types
       .sign-link
-        = link_to 'Add your memory', new_guest_book_entry_path
+        = link_to 'Drop your story here!', new_guest_book_entry_path, role: "button"
     - elsif @link_types === "authoring"
       .show-link
         = link_to 'Cancel and discard changes',  @guest_book_entry
