@@ -172,6 +172,7 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       max-width: 80%;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
       @include sub-header();
       font-size: 1rem;
@@ -186,9 +187,6 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
         }
       }
     }
-    .memory-category ~ .memory-category::before{
-      content:', ';
-    }
     .memory-tags{
       width: 100%;
       max-width: 80%;
@@ -197,7 +195,10 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       text-transform: capitalize;
       margin: 0;
       padding: 0;
-      text-align: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       a{
         color: $palette_grey;
         &:hover{
@@ -206,10 +207,6 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       }
       .memory-tag{
         margin:0;
-      }
-      .memory-tag ~ .memory-tag::before{
-        margin-left: -0.1rem;
-        content:', ';
       }
     }
   }

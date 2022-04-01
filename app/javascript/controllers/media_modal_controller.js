@@ -4,30 +4,40 @@ import MicroModal from 'micromodal'
 
 export default class extends Controller {
 
-    static targets = ["videoPlayerId", "documentReplaceId", "videoFileId", "apis", "pdf", "videoModalOpen", "documentModalOpen"]
+    static targets = ["memory", "mediaModal"]
 
-    connect() {
+    connect(){
         MicroModal.init();
     }
 
-    showplyr(){
-        let videoPlayerId = this.videoPlayerIdTarget.dataset.videplayerid
-        let modal = this.videoPlayerIdTarget.dataset.modal
-        let videoFile = this.videoFileIdTarget.dataset["videofileid"]
-        let cloudName = this.apisTarget.dataset.cloud
-        let cld = cloudinary.Cloudinary.new({ cloud_name: cloudName })
-        MicroModal.show(modal)
-        document.player = cld.videoPlayer(videoPlayerId)
-        document.player.source(videoFile).play()
+    openModal(modal){
         document.getElementById("flanuerBody").classList.add("modal-open")
+        MicroModal.show(modal)
+    }
+
+
+    showplyr(){
+        let modal = this.memoryTarget.dataset.modal
+        this.openModal(modal)
+        let videoPlayerId = this.memoryTarget.dataset.videoplayerid
+        let videoFile = this.memoryTarget.dataset.videofileid
+        let cloudName = this.memoryTarget.dataset.cloud
+        try{
+            let cld = cloudinary.Cloudinary.new({ cloud_name: cloudName })
+            document.player = cld.videoPlayer(videoPlayerId)
+            document.player.source(videoFile).play()
+        }catch (error){
+            console.log(error)
+        }
     }
 
     hideplyr(){
-        let modal = this.videoModalOpenTarget.dataset.modal
         document.player.stop();
-        MicroModal.close(modal);
-        document.player.dispose();
-        document.getElementById("flanuerBody").classList.remove("modal-open")
+        location.reload()
+    }
+
+    nowthatssecure(pdf){
+        return pdf.replace(/^http:\/\//i, 'https://')
     }
 
     showrdr(){
@@ -39,29 +49,24 @@ export default class extends Controller {
             showLeftHandPanel: true,
             showAnnotationTools: true
         };
-        let clientID =  this.apisTarget.dataset.clientid
-        let pdfUrl = this.pdfTarget.dataset.pdfurl
-        let modal = this.pdfTarget.dataset.modal
-        console.log("show",modal);
-        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://')
-        let pdfFile = this.pdfTarget.dataset.pdffile
-        let pdfView = this.pdfTarget.dataset.pdfview
+        let clientID =  this.memoryTarget.dataset.clientid
+        let pdfUrl = this.nowthatssecure(this.memoryTarget.dataset.pdfurl)
+        let modal = this.memoryTarget.dataset.modal
+        let pdfFile = this.memoryTarget.dataset.pdffile
+        let pdfView = this.memoryTarget.dataset.pdfview
         let adobeDCView = new AdobeDC.View({
             clientId: clientID,
             divId: pdfView,
         });
         try {
-            adobeDCView.previewFile({content: { promise: this.load() }, metaData: { fileName: pdfFile}},viewerOptions);
+            adobeDCView.previewFile({content: { promise: this.load(pdfUrl) }, metaData: { fileName: pdfFile}},viewerOptions);
         }catch (e) {
             console.log("Adobe PDF Error: "+e);
         }
-        MicroModal.show(modal);
-        document.getElementById("flanuerBody").classList.add("modal-open")
+       this.openModal(modal)
     }
 
-    load(){
-        let pdfUrl = this.pdfTarget.dataset.pdfurl;
-        pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://')
+    load(pdfUrl){
         return new Promise((resolve, reject) => {
             fetch(pdfUrl).then((response)=> {
                 if(response.ok && response.status === 200){
@@ -83,8 +88,6 @@ export default class extends Controller {
     }
 
     readerhide(){
-        let modal = this.documentModalOpenTarget.dataset.modal
-        document.getElementById("flanuerBody").classList.remove("modal-open")
-        MicroModal.close(modal)
+        location.reload()
     }
 }
