@@ -1,10 +1,14 @@
 -@memory = memory
+
 -if @memory and @memory.pdf
-  .modal.document-modal{:id=>"document_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
-    .modal-close{:tabindex=>-1, :data=>{:media=>{:target=>"documentModalOpen"}, :modal=>"document_modal_#{@memory.id.to_s}"}}
+  .modal.document-modal{:id=>"document_modal_#{@memory.id.to_s}",
+                        :data=>{:controller=>"media"},
+                        :parent=> "memory_"+@memory.id.to_s,
+                        :media=>{:target=>"mediaModal"}}
+    .modal-close{:tabindex=> -1 }
       %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"document-modal-#{@memory.id.to_s}-title"}}
         %header
-          %h3.video-modal-title{:id=>"documen-modal-#{@memory.id.to_s}-title"}
+          %h3.video-modal-title{:id=>"document-modal-#{@memory.id.to_s}-title"}
             =@memory.title
           %a.close-link{:as=>"button", :data=>{:action=>'click->media#readerhide', :aria=>{:label=>"close document reader"}}}
             =fa_icon "close"

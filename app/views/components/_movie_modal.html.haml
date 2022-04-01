@@ -1,14 +1,18 @@
 -@memory=memory
 -if @memory and @memory.video
-  .modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",:data=>{:controller=>"media"}}
-    .modal-close{:tabindex=>-1, :data=>{:media=>{:target=>"videoModalOpen"}, :modal=>"movie_modal_#{@memory.id.to_s}"}}
+  .modal.movie-modal{:id=>"movie_modal_#{@memory.id.to_s}",
+                     :data=>{:controller=>"media",
+                     :videoplayerid=>"videoPlayer#{@memory.id.to_s}",
+                     :parent=> "memory_"+@memory.id.to_s,
+                     :media=>{:target=>"mediaModal"}}}
+    .modal-close{:tabindex=>-1}
       %div{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"movie-modal-#{@memory.id.to_s}-title"}}
         %header
           %h3.video-modal-title{:id=>"movie-modal-#{@memory.id.to_s}-title"}
             =@memory.title
           %a.close-link{:as=>"button", :data=>{:action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
             = fa_icon "close"
-        %video.cld-video-player.cld-video-player-skin-dark{:id=>"videoPlayer#{@memory.id.to_s}",
+        %video.cld-video-player.cld-video-player-skin-dark.cld-fluid{:id=>"videoPlayer#{@memory.id.to_s}",
                                                           :controls=>true,
                                                           :autoplay=> true,
                                                           :data=>{:cld=>{:public=>{:id=> @memory.video.file}}}}

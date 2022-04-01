@@ -4,47 +4,50 @@
 -@categories = categories
 -@tags = tags
 
-.modals
-  = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}
-  = render :partial => "components/document_modal", :locals=>{:memory=> @memory}
-.memory-container{:data=>{:controller=>"media", :cloud=>show_cloud, :clientid=> show_adobe_id, :media=>{:target=>"apis"}}}
-  - if !@memory.video and !@memory.pdf
+- if !@memory.video and !@memory.pdf
+  .memory-container{:id=> "memory_"+@memory.id.to_s}
     .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
-  -elsif @memory.video and !@memory.pdf
-    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:modal=>"movie_modal_#{@memory.id.to_s}", :media=>{:target=>"videoPlayerId"}, :videplayerid=>"videoPlayer#{@memory.id.to_s}", :action=>"click->media#showplyr"}}
-      .memory-video-overlay{:data=>{:videofileid=>video_id(@memory.video.file), :media=>{:target=>"videoFileId"}}}
+    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
+                                                            :tags=> @memory.tags,
+                                                            :categories=> @memory.categories,
+                                                            :category_ref=> @category_ref,
+                                                            :sub_category_ref=> @sub_category_ref}
+- elsif @memory.video and !@memory.pdf
+  .modals
+    = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}
+  .memory-container{:id=> "memory_"+@memory.id.to_s, :data=>{:controller=>"media",
+                                                     :modal=>"movie_modal_#{@memory.id.to_s}",
+                                                     :videofileid=>video_id(@memory.video.file),
+                                                     :videoplayerid=>"videoPlayer#{@memory.id.to_s}",
+                                                     :cloud=>show_cloud,
+                                                     :media=>{:target=>"memory"}}}
+    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:action=>"click->media#showplyr"}}
+      .memory-video-overlay
         =fa_icon "play"
         .memory-video-overlay-cta
           Click to Watch
-  -else
+    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
+                                                            :tags=> @memory.tags,
+                                                            :categories=> @memory.categories,
+                                                            :category_ref=> @category_ref,
+                                                            :sub_category_ref=> @sub_category_ref}
+- else
+  .modals
+    = render :partial => "components/document_modal", :locals=>{:memory=> @memory}
+  .memory-container{:id=> "memory_"+@memory.id.to_s, :data=>{:controller=>"media",
+                                                     :modal=>"document_modal_#{@memory.id.to_s}",
+                                                     :clientid=> show_adobe_id,
+                                                     :pdfurl=> @memory.pdf.file,
+                                                     :pdfview=>"pdf_view_#{@memory.id.to_s}",
+                                                     :pdffile=>show_pdf_file(@memory.pdf.file),
+                                                     :media=>{:target=>"memory"}}}
     .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:modal=>"document_modal_#{@memory.id.to_s}", :media=>{:target=>"pdf"}, :pdfurl=> @memory.pdf.file,:pdfview=>"pdf_view_#{@memory.id.to_s}", :pdffile=>show_pdf_file(@memory.pdf.file), :action=>"click->media#showrdr"}}
       .memory-pdf-overlay
         =fa_icon "file"
         .memory-pdf-overlay-cta
           Click to Read
-  .memory-text-container
-    %h3.memory-date
-      = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
-    -if @memory.show_title
-      %h2.memory-title
-        =@memory.title
-    - if @memory.body.length >= 1
-      %p.memory-body
-        = (@memory.body).try(:html_safe)
-    -if @categories
-      %h4.memory-categories
-        -@categories.each do |c|
-          %span.memory-category
-            =link_to c.name, category_path(c)
-    - if @tags
-      %ul.memory-tags
-        - @tags.each do |t|
-          %span.memory-tag
-            -if @category_ref
-              -if @sub_category_ref
-                = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
-              -else
-                = link_to t.name, tag_path(t, :category_ref=> @category_ref)
-            -else
-              = link_to t.name, tag_path(t)
-
+    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
+                                                            :tags=> @memory.tags,
+                                                            :categories=> @memory.categories,
+                                                            :category_ref=> @category_ref,
+                                                            :sub_category_ref=> @sub_category_ref}
