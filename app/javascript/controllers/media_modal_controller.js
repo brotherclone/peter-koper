@@ -42,6 +42,7 @@ export default class extends Controller {
         let clientID =  this.apisTarget.dataset.clientid
         let pdfUrl = this.pdfTarget.dataset.pdfurl
         let modal = this.pdfTarget.dataset.modal
+        console.log("show",modal);
         pdfUrl = pdfUrl.replace(/^http:\/\//i, 'https://')
         let pdfFile = this.pdfTarget.dataset.pdffile
         let pdfView = this.pdfTarget.dataset.pdfview
@@ -49,12 +50,11 @@ export default class extends Controller {
             clientId: clientID,
             divId: pdfView,
         });
-
-        adobeDCView.previewFile(
-            {
-                content: { promise: this.load() },
-                metaData: { fileName: pdfFile}
-            },viewerOptions);
+        try {
+            adobeDCView.previewFile({content: { promise: this.load() }, metaData: { fileName: pdfFile}},viewerOptions);
+        }catch (e) {
+            console.log("Adobe PDF Error: "+e);
+        }
         MicroModal.show(modal);
         document.getElementById("flanuerBody").classList.add("modal-open")
     }
@@ -66,6 +66,8 @@ export default class extends Controller {
             fetch(pdfUrl).then((response)=> {
                 if(response.ok && response.status === 200){
                     return response
+                }else{
+                    reject("File not found")
                 }
             }).then((response) => response.blob())
             .then((blob)=>{
@@ -79,9 +81,10 @@ export default class extends Controller {
             })
         })
     }
-    hiderdr(){
+
+    readerhide(){
         let modal = this.documentModalOpenTarget.dataset.modal
         document.getElementById("flanuerBody").classList.remove("modal-open")
-        MicroModal.hide(modal);
+        MicroModal.close(modal)
     }
 }

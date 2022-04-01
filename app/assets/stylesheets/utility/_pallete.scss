@@ -8,6 +8,8 @@ $palette_grey: #8d928f;
 $palette_grey_darker: darken($palette_grey, 25%);
 $palette_grey_lighter: lighten($palette_grey, 25%);
 $palette_black: #1f2220;
+$palette_shadow: transparentize($palette_black, .4);
+
 html, body{
   background-color: $palette_off_white;
 }

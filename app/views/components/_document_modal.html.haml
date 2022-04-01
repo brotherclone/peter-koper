@@ -6,6 +6,6 @@
         %header
           %h3.video-modal-title{:id=>"documen-modal-#{@memory.id.to_s}-title"}
             =@memory.title
-          %a.close-link{:as=>"button", :data=>{:action=>'click->media#hiderdr', :aria=>{:label=>"close document reader"}}}
+          %a.close-link{:as=>"button", :data=>{:action=>'click->media#readerhide', :aria=>{:label=>"close document reader"}}}
             =fa_icon "close"
         %div.adobe-dc-view{:id=>"pdf_view_#{@memory.id.to_s}"}
