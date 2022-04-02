@@ -74,7 +74,7 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :show_title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing)
+    params.require(:memory).permit(:title, :show_title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing, :notes)
   end
 
 end
