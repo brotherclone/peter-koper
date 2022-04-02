@@ -25,8 +25,8 @@ ActiveAdmin.register Memory do
     attributes_table do
       row :title
       row :show_title
-      row :notes.html_safe
-      row :body.html_safe
+      row :notes
+      row :body
       row :categories
       row :sub_categories
       row :tags
