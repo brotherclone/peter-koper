@@ -1,0 +1,15 @@
+.container
+  .main-wrapper
+    = render :partial=> "components/stream-heading", :locals=>{}
+    .breadcrumb-wrapper
+      = render :partial => "components/breadcrumbs"
+  %main
+    .memory-layout
+      %image{:src=> @memory.image}
+        = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
+                                                              :tags=> @memory.tags,
+                                                              :categories=> @memory.categories,
+                                                              :category_ref=> @category_ref,
+                                                              :sub_category_ref=> @sub_category_ref,
+                                                              :show_link=> false}
+    .memory-story-layout
