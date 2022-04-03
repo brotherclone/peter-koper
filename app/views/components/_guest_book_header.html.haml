@@ -1,3 +1,4 @@
+
 -@link_types = link_types
 
 .headings-guest-book
@@ -5,8 +6,8 @@
     .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
       %a{:data=>{:action=>"click->mobile#show"}}
         =fa_icon "bars"
-    .stroll-button
-      %a{:href=> root_path, :tab=>{:index=>0}}
+    .stroll-button{:data=>{:controller=>"back"}}
+      %a{:href=> "#", :tab=>{:index=>0}, :data=>{:action=>"click->back#goback" }}
         Back
     .guest-book-logo
       .logo-wrapper

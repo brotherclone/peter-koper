@@ -35,7 +35,10 @@ class MemoriesController < ApplicationController
       end
     end
 
-    add_breadcrumb @memory.title.to_s, memory_path
+    if  @memory.title
+      add_breadcrumb @memory.title.to_s, memory_path
+    end
+    @stories = GuestBookEntry.where(memory_id: @memory.id)
 
     respond_to do |format|
       format.html { render :show}

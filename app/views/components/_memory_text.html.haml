@@ -39,8 +39,17 @@
     .memory-link
       -if @category_ref
         -if @sub_category_ref
-          = link_to "Memory Page", memory_path(@memory, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
+          %a{:href=> memory_path(@memory, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref), :tag_index=>"0"}
+            %span
+              Add your story
+            =fa_icon("comment-dots")
         -else
-          = link_to "Memory Page", memory_path(@memory, :category_ref=> @category_ref)
+          %a{:href=> memory_path(@memory, :category_ref=> @category_ref), :tag_index=>"0"}
+            %span
+              Add your story
+            =fa_icon("comment-dots")
       -else
-        = link_to "Memory Page", memory_path(@memory)
+        %a{:href=> memory_path(@memory), :tag_index=>"0"}
+          %span
+            Add your story
+          =fa_icon("comment-dots")

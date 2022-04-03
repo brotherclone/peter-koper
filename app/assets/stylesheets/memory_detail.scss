@@ -1,0 +1,15 @@
+@import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
+@import "components/memory";
+
+.memory-large-image{
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 0.25rem;
+  background-color: $palette_black;
+  @include box-shadower();
+  height: 60vh;
+  width: 100vw;
+}
