@@ -146,9 +146,11 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
     border-radius: 0.25rem;
     border:1px solid $palette_grey_lighter;
     .memory-date{
-      @include base-type();
+      margin-top: .5rem;
+      font-size: 0.875rem;
+      font-weight: 200;
       font-style: italic;
-      margin:0 0 1rem 0;
+      color: $palette_grey;
       text-transform: capitalize;
     }
     .memory-title{
@@ -167,23 +169,25 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       margin:0 0 1rem 0;
     }
     .memory-categories{
-      margin:0 0 .5rem 0;
       width: 100%;
       max-width: 80%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-      @include sub-header();
       font-size: 1rem;
       font-style: normal;
       text-transform: capitalize;
       text-decoration: none;
       font-weight: 600;
-      a{
-        color: $palette_blue;
-        &:hover{
-          color: lighten($palette_blue, 15%);
+      @include sub-header();
+      .memory-category{
+        padding-right: 0.5rem;
+        a{
+          color: $palette_blue;
+          &:hover{
+            color: lighten($palette_blue, 15%);
+          }
         }
       }
     }
@@ -199,14 +203,14 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-      a{
-        color: $palette_grey;
-        &:hover{
-          color: $palette_grey_darker;
-        }
-      }
       .memory-tag{
-        margin:0;
+        padding-right: 0.5rem;
+        a{
+          color: $palette_grey;
+          &:hover{
+            color: $palette_grey_darker;
+          }
+        }
       }
     }
   }
