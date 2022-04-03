@@ -2,8 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "/guest-book", type: :request do
 
+  before do
+    @memory = FactoryBot.create(:memory)
+  end
+
   let(:valid_attributes) {
-    FactoryBot.attributes_for(:guest_book_entry)
+    FactoryBot.attributes_for(:guest_book_entry, memory_id: @memory.id)
   }
 
   let(:invalid_attributes) {

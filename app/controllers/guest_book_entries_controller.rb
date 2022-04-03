@@ -76,7 +76,8 @@ class GuestBookEntriesController < ApplicationController
                                              :image_three_url_cache,
                                              :guest_email,
                                              :guest_name,
-                                             :admin_state)
+                                             :admin_state,
+                                             :memory_id)
   end
 
 end
