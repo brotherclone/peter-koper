@@ -1,5 +1,6 @@
 
 -@link_types = link_types
+-@thank_you = thank_you
 
 .headings-guest-book
   .guest-book-heading-wrapper
@@ -12,6 +13,12 @@
     .guest-book-logo
       .logo-wrapper
         = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+  -if @thank_you
+    .thank-you-container
+      %h2
+        Thank you!
+      %p
+        for submitting your story. It will be up as soon as we've had a chance to make sure it's obscene enough.
   .guest-book-sub-heading
     %h1
       Drop your stories
@@ -22,8 +29,6 @@
       .sign-link
         = link_to 'Drop your story here!', new_guest_book_entry_path, role: "button"
     - elsif @link_types === "authoring"
-      .show-link
-        = link_to 'Cancel and discard changes',  @guest_book_entry
       .index-link
         = link_to 'Return to all memories', guest_book_entries_path
     - elsif @link_types === "display"

@@ -1,10 +1,12 @@
 //= require tinymce
 
 const tinyInit = function(){
-    tinymce.init({
-        selector: 'textarea',
-        height: 400
-    })
+    document.addEventListener('DOMContentLoaded', function () {
+        tinymce.init({
+            selector: 'textarea',
+            height: 400
+        })
+    }, false)
 }
 
 export default tinyInit;

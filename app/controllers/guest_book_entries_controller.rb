@@ -9,6 +9,9 @@ class GuestBookEntriesController < ApplicationController
     @show_breadcrumbs = true
     @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
     @current = "drop"
+    if params[:thank_you]
+      @thank_you = true
+    end
     respond_to do |format|
       format.html { render :index}
     end
@@ -43,8 +46,8 @@ class GuestBookEntriesController < ApplicationController
     @guest_book_entry = GuestBookEntry.new(guest_book_entry_params)
     respond_to do |format|
       if @guest_book_entry.save
-        format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
-        format.turbo_stream
+        format.html { redirect_to guest_book_entries_url(:thank_you=> true) }
+        format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json:@guest_book_entry.errors, status: :unprocessable_entity }

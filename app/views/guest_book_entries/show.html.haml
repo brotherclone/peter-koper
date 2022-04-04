@@ -1,7 +1,7 @@
 .container
   .main-wrapper
     .guest-book{:data=>{:controller=>'guest'}}
-      = render :partial => "components/guest_book_header", :locals=>{:link_types=>"display"}
+      = render :partial => "components/guest_book_header", :locals=>{:link_types=>"display", :thank_you=> false}
       .guest-book-entries-container
         -if @guest_book_entry.admin_state === "submitted"
           %p.warning
