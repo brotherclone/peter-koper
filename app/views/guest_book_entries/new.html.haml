@@ -19,4 +19,5 @@
           .warning.hidden{:id=>'challengeWarning',:data=>{:guest=>{:target=>'warning'}}}
             Please check your spelling, that's incorrect.
         .show-hide-form-wrapper.hidden{:data=>{:guest=>{:target=>'form'}}}
-          = render 'form'
+          = turbo_frame_tag @guest_book_entry do
+            = render "form"

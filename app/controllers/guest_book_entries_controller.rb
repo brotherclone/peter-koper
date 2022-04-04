@@ -3,7 +3,7 @@ class GuestBookEntriesController < ApplicationController
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Drop Your Stories", :guest_book_entries_path
 
-  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest_book_entry, only: [:show, :update, :destroy]
 
   def index
     @show_breadcrumbs = true
@@ -28,8 +28,6 @@ class GuestBookEntriesController < ApplicationController
     @display_challenge_failed = false
   end
 
-  def edit
-  end
 
   def update
     if @guest_book_entry.update(guest_book_entry_params)
@@ -46,8 +44,10 @@ class GuestBookEntriesController < ApplicationController
     respond_to do |format|
       if @guest_book_entry.save
         format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
+        format.turbo_stream
       else
-        format.html { render :new, status: :unprocessable_entity}
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json:@guest_book_entry.errors, status: :unprocessable_entity }
       end
     end
   end

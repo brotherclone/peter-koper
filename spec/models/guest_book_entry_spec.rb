@@ -14,8 +14,4 @@ RSpec.describe GuestBookEntry, type: :model do
     it { should validate_presence_of(:body) }
   end
 
-  it 'belongs to a memory' do
-    should belong_to(:memory)
-  end
-
 end

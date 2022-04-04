@@ -6,4 +6,5 @@
         -if @guest_book_entry.admin_state === "submitted"
           %p.warning
             This entry is pending approval by our gracious moderator.
-        = render :partial => 'entry', :locals => {:entry=> @guest_book_entry}
+        = turbo_frame_tag @guest_book_entry do
+          = render :partial => 'entry', :locals => {:entry=> @guest_book_entry}
