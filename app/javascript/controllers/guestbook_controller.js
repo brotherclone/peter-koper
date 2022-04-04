@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import imageLoading from "../packs/image-loading";
+import tinyInit from "../packs/tinyInit";
 
 export default class extends Controller {
     static targets = [ "lastname", "form", "question", "warning" ]
@@ -9,6 +10,7 @@ export default class extends Controller {
     }
     connect(){
         imageLoading();
+        tinyInit();
     }
     check(){
         if (this.lastnameTarget.value.toLowerCase() === this.petersLastNameValue) {

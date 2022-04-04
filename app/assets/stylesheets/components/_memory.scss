@@ -44,7 +44,6 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
   div ul:not(:first-child) {
     margin-top: 2rem;
   }
-
   &.loading{
     background-image: none;
   }
@@ -158,7 +157,6 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
     }
     .memory-link{
       align-self: end;
-
       a{
         i{
           transition: color 2s ease-in-out;
