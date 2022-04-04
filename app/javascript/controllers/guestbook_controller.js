@@ -26,4 +26,13 @@ export default class extends Controller {
             this.formTarget.classList.add(this.hideClass)
         }
     }
+
+    checkKey(event){
+        if(event.keyCode){
+            if(event.keyCode === 13){
+                event.preventDefault();
+                this.check()
+            }
+        }
+    }
 }
