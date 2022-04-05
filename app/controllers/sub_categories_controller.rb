@@ -23,6 +23,8 @@ class SubCategoriesController < ApplicationController
     @memories = Memory.where(id: memory_ids, is_live: true).order(occurrence: :asc)
     add_breadcrumb @category.name.to_s, category_path(@category)
     add_breadcrumb  @sub_category.name.to_s, [@category, @sub_category]
+    @category_ref = @category
+    @sub_category_red = @sub_category
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @sub_category}

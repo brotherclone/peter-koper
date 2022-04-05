@@ -1,17 +1,18 @@
 ActiveAdmin.register GuestBookEntry do
 
   permit_params :title, :body, :image_one_url, :image_one_url_cache, :image_two_url, :image_two_url_cache,
-                :image_three_url, :image_three_url_cache, :guest_email, :guest_name, :admin_state
+                :image_three_url, :image_three_url_cache, :guest_email, :guest_name, :admin_state, :memory_id
 
 
   form(:html => {:multipart => true}) do |f|
     f.inputs do
-      f.semantic_errors *f.object.errors.keys
+      f.semantic_errors *f.object.errors.attribute_names
       f.input :title
       f.input :body, :input_html => { :class => 'tinymce' }
       f.input :guest_name
       f.input :guest_email
       f.input :admin_state
+      f.input :memory_id, :label => 'Memory', :as => :select, :collection => Memory.all.map{|a| ["#{a.title}", a.id]}
       f.input :image_one_url, :as => :file
       f.input :image_one_url_cache, :as => :hidden
       f.input :image_two_url, :as => :file

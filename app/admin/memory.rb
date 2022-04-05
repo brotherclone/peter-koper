@@ -4,13 +4,13 @@ ActiveAdmin.register Memory do
 
   form do |f|
     f.inputs do
-      f.semantic_errors *f.object.errors.keys
+      f.semantic_errors *f.object.errors.attribute_names
       f.input :title
       f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
       f.input :is_live
       f.input :show_title
       f.input :occurrence, :as=> :date_picker
-      f.input :fuzzy_date
+      f.input :fuzzy_date, :label=> "While all memories need dates you can use to fuzzy_date show only part of a date or no display no date at all"
       f.input :image, :as => :file, :label=> "Videos and PDF files need an image too."
       f.input :image_cache, :as => :hidden
       f.input :categories, as: :check_boxes, collection: Category.all.map { |c| [c.name, c.id] }

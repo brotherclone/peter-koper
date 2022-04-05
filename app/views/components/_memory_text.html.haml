@@ -3,10 +3,9 @@
 -@sub_category_ref = sub_category_ref
 -@categories = categories
 -@tags = tags
+-@show_link = show_link
 
 .memory-text-container
-  %h3.memory-date
-    = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date)
   -if @memory.show_title
     %h2.memory-title
       =@memory.title
@@ -14,36 +13,43 @@
     %p.memory-body
       = (@memory.body).try(:html_safe)
   -if @categories
+    - cat_index = 0
     %h4.memory-categories
-      - index = 0
       -@categories.each do |c|
+        - cat_index+=1
         %span.memory-category
-          - index += 1
-          - if index < @categories.length
-            = succeed ', ' do
-              = link_to c.name, category_path(c)
-          -else
-            = link_to c.name, category_path(c)
+          = link_to comma_pal(c.name, @categories.length, cat_index), category_path(c)
   - if @tags
+    - tag_index = 0
     %ul.memory-tags
-      - index = 0
       - @tags.each do |t|
+        - tag_index +=1
         %span.memory-tag
-          - index += 1
-          - if index < @tags.length
-            = succeed ', ' do
-              -if @category_ref
-                -if @sub_category_ref
-                  = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
-                -else
-                  = link_to t.name, tag_path(t, :category_ref=> @category_ref)
-              -else
-                = link_to t.name, tag_path(t)
-          - else
-            -if @category_ref
-              -if @sub_category_ref
-                = link_to t.name, tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
-              -else
-                = link_to t.name, tag_path(t, :category_ref=> @category_ref)
+          -if @category_ref
+            -if @sub_category_ref
+              = link_to comma_pal(t.name, @tags.length, tag_index), tag_path(t, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref)
             -else
-              = link_to t.name, tag_path(t)
+              = link_to comma_pal(t.name, @tags.length, tag_index), tag_path(t, :category_ref=> @category_ref)
+          -else
+            = link_to comma_pal(t.name, @tags.length, tag_index), tag_path(t)
+  - if @memory.fuzzy_date != :no_show
+    .memory-date
+      = display_fuzzy_date(@memory.occurrence, @memory.fuzzy_date, false)
+  - if @show_link
+    .memory-link
+      -if @category_ref
+        -if @sub_category_ref
+          %a{:href=> memory_path(@memory, :category_ref=> @category_ref, :sub_category_ref=> @sub_category_ref), :tag_index=>"0"}
+            %span
+              Add your story
+            =fa_icon("comment-dots")
+        -else
+          %a{:href=> memory_path(@memory, :category_ref=> @category_ref), :tag_index=>"0"}
+            %span
+              Add your story
+            =fa_icon("comment-dots")
+      -else
+        %a{:href=> memory_path(@memory), :tag_index=>"0"}
+          %span
+            Add your story
+          =fa_icon("comment-dots")

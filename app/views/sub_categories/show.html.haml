@@ -5,12 +5,12 @@
       = render :partial => "components/breadcrumbs"
     .stream-page-heading.sub-category-header
       .ornamental.ornamental-left
-        = image_tag "border_ornament-left.png", role: "presentation"
+        = image_tag "border_ornament-left.png", role: "presentation", class: "ornament"
       .heading-text.sub-category-header-text
         %h1
           = @sub_category.name
       .ornamental.ornamental-right
-        = image_tag "border_ornament-right.png", role: "presentation"
+        = image_tag "border_ornament-right.png", role: "presentation", class: "ornament"
     %main
       - if @memories
         .stream-container

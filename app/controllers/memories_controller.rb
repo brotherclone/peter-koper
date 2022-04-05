@@ -1,7 +1,6 @@
 class MemoriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Memories", :memories_path
 
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
@@ -20,7 +19,27 @@ class MemoriesController < ApplicationController
   end
   
   def show
-    add_breadcrumb @memory.title.to_s, memory_path
+
+    if params[:category_ref]
+      category = Category.find(params[:category_ref])
+      if category
+        add_breadcrumb  category.name.to_s, category_path(category)
+        @category_ref = category
+        if params[:sub_category_ref]
+          sub_category = SubCategory.find(params[:sub_category_ref])
+          if sub_category
+            @subcategory_ref = sub_category
+            add_breadcrumb  sub_category.name.to_s, [category, sub_category]
+          end
+        end
+      end
+    end
+
+    if  @memory.title
+      add_breadcrumb @memory.title.to_s, memory_path
+    end
+    @stories = GuestBookEntry.where(memory_id: @memory.id)
+
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @memory}

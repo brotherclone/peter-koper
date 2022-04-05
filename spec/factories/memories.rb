@@ -33,5 +33,10 @@ FactoryBot.define do
         create(:pdf, memory: memory)
       end
     end
+    factory :memory_with_stories do
+      after(:create) do |memory|
+        create(:guest_book_entry, memory: memory)
+      end
+    end
   end
 end
