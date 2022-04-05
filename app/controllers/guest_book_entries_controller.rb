@@ -46,8 +46,13 @@ class GuestBookEntriesController < ApplicationController
     @guest_book_entry = GuestBookEntry.new(guest_book_entry_params)
     respond_to do |format|
       if @guest_book_entry.save
-        format.html { redirect_to guest_book_entries_url(:thank_you=> true) }
-        format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true) }
+        if @guest_book_entry.memory_id
+          format.html { redirect_to guest_book_entries_url(:thank_you=> true, :memory_id=> @guest_book_entry.memory_id) }
+          format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true, :memory_id=> @guest_book_entry.memory_id) }
+        else
+          format.html { redirect_to guest_book_entries_url(:thank_you=> true) }
+          format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true) }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json:@guest_book_entry.errors, status: :unprocessable_entity }
