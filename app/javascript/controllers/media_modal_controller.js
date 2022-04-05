@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import cloudinary from 'cloudinary-core'
 import MicroModal from 'micromodal'
 
 export default class extends Controller {
@@ -21,18 +20,9 @@ export default class extends Controller {
         this.openModal(modal)
         let videoPlayerId = this.memoryTarget.dataset.videoplayerid
         let videoFile = this.memoryTarget.dataset.videofileid
-        let cloudName = this.memoryTarget.dataset.cloud
-        try{
-            let cld = cloudinary.Cloudinary.new({ cloud_name: cloudName })
-            document.player = cld.videoPlayer(videoPlayerId)
-            document.player.source(videoFile).play()
-        }catch (error){
-            console.log(error)
-        }
     }
 
     hideplyr(){
-        document.player.stop();
         location.reload()
     }
 

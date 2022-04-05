@@ -1,4 +1,6 @@
 @import "../vendor/micro-modal/modal";
+@import "../vendor/kitty_giraudel/breakpoints";
+
 
 .modal{
   @include modal();
@@ -29,6 +31,23 @@
         &:hover {
           color: $palette_flaneur_yellow;
           cursor: pointer;
+        }
+      }
+    }
+    .video-container{
+      iframe{
+        width: 100vw;
+        height: 100vw;
+        position: relative;
+        margin: -3.125rem 0 0 0;
+        @include respond-to("small"){
+          margin: -6rem 0 0 0;
+        }
+        @include respond-to("medium"){
+          margin: -8rem 0 0 0;
+        }
+        @include respond-to("large"){
+          margin: -12rem 0 0 0;
         }
       }
     }

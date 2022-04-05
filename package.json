@@ -9,8 +9,6 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
-    "cloudinary-core": "^2.12.3",
-    "cloudinary-video-player": "^1.8.0",
     "dotenv": "^16.0.0",
     "lax.js": "^2.0.3",
     "micromodal": "^0.4.10",
