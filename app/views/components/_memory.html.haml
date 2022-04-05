@@ -18,9 +18,7 @@
     = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}
   .memory-container{:id=> "memory_"+@memory.id.to_s, :data=>{:controller=>"media",
                                                      :modal=>"movie_modal_#{@memory.id.to_s}",
-                                                     :videofileid=>video_id(@memory.video.file),
                                                      :videoplayerid=>"videoPlayer#{@memory.id.to_s}",
-                                                     :cloud=>show_cloud,
                                                      :media=>{:target=>"memory"}}}
     .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:action=>"click->media#showplyr"}}
       .memory-video-overlay

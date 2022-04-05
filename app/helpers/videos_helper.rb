@@ -1,9 +1,12 @@
 module VideosHelper
-  def video_id(file_url)
-    file_url.to_s.match /([^\/]+)(?=\.\w+$)/
+
+  def get_id_from_link(link, video_service)
+    if video_service == "vimeo"
+      v = link.split("/")
+      puts v.to_s
+      puts v.last
+      v.last
+    end
   end
 
-  def show_cloud
-    ENV["CLOUDINARY_CLOUD_NAME"]
-  end
 end
