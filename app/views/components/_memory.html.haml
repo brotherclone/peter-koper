@@ -11,7 +11,8 @@
                                                             :tags=> @memory.tags,
                                                             :categories=> @memory.categories,
                                                             :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref}
+                                                            :sub_category_ref=> @sub_category_ref,
+                                                            :show_link=> true}
 - elsif @memory.video and !@memory.pdf
   .modals
     = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}
@@ -30,7 +31,8 @@
                                                             :tags=> @memory.tags,
                                                             :categories=> @memory.categories,
                                                             :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref}
+                                                            :sub_category_ref=> @sub_category_ref,
+                                                            :show_link=> true}
 - else
   .modals
     = render :partial => "components/document_modal", :locals=>{:memory=> @memory}
@@ -50,4 +52,5 @@
                                                             :tags=> @memory.tags,
                                                             :categories=> @memory.categories,
                                                             :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref}
+                                                            :sub_category_ref=> @sub_category_ref,
+                                                            :show_link=> true}

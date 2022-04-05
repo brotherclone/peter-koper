@@ -3,12 +3,15 @@ class GuestBookEntriesController < ApplicationController
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Drop Your Stories", :guest_book_entries_path
 
-  before_action :set_guest_book_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest_book_entry, only: [:show, :update, :destroy]
 
   def index
     @show_breadcrumbs = true
     @guest_book_entries = GuestBookEntry.all.where(admin_state: :accepted)
     @current = "drop"
+    if params[:thank_you]
+      @thank_you = true
+    end
     respond_to do |format|
       format.html { render :index}
     end
@@ -28,8 +31,6 @@ class GuestBookEntriesController < ApplicationController
     @display_challenge_failed = false
   end
 
-  def edit
-  end
 
   def update
     if @guest_book_entry.update(guest_book_entry_params)
@@ -45,9 +46,16 @@ class GuestBookEntriesController < ApplicationController
     @guest_book_entry = GuestBookEntry.new(guest_book_entry_params)
     respond_to do |format|
       if @guest_book_entry.save
-        format.html { redirect_to @guest_book_entry, notice: 'Entry was successfully created.' }
+        if @guest_book_entry.memory_id
+          format.html { redirect_to guest_book_entries_url(:thank_you=> true, :memory_id=> @guest_book_entry.memory_id) }
+          format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true, :memory_id=> @guest_book_entry.memory_id) }
+        else
+          format.html { redirect_to guest_book_entries_url(:thank_you=> true) }
+          format.turbo_stream { redirect_to guest_book_entries_url(:thank_you=> true) }
+        end
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json:@guest_book_entry.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -76,7 +84,8 @@ class GuestBookEntriesController < ApplicationController
                                              :image_three_url_cache,
                                              :guest_email,
                                              :guest_name,
-                                             :admin_state)
+                                             :admin_state,
+                                             :memory_id)
   end
 
 end

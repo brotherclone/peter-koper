@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_221141) do
+ActiveRecord::Schema.define(version: 2022_04_03_192948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,14 @@ ActiveRecord::Schema.define(version: 2022_04_01_221141) do
     t.string "image"
   end
 
+  create_table "category_sequences", force: :cascade do |t|
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_category_sequences_on_category_id"
+  end
+
   create_table "guest_book_entries", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -87,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_04_01_221141) do
     t.integer "admin_state", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "memory_id"
+    t.index ["memory_id"], name: "index_guest_book_entries_on_memory_id"
   end
 
   create_table "memories", force: :cascade do |t|
@@ -107,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_221141) do
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "memory_sequence_order"
     t.index ["category_id"], name: "index_memory_categories_on_category_id"
     t.index ["memory_id"], name: "index_memory_categories_on_memory_id"
   end

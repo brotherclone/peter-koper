@@ -1,0 +1,23 @@
+.container
+  .main-wrapper
+    = render :partial=> "components/stream-heading", :locals=>{}
+    .breadcrumb-wrapper
+      = render :partial => "components/breadcrumbs"
+    .memory-large-image.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
+    .memory-large-text
+
+      = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
+                                                                :tags=> @memory.tags,
+                                                                :categories=> @memory.categories,
+                                                                :category_ref=> @category_ref,
+                                                                :sub_category_ref=> @sub_category_ref,
+                                                                :show_link=> false}
+    .memory-story-layout
+      .add-story-button
+        %a{:href=> new_guest_book_entry_path(:memory_id=> @memory.id), :tabindex=>0, :role=>"button"}
+          Drop your story
+      -if @stories.length
+        - @stories.each do |story|
+          .guest-book-entries-container
+            = render :partial => 'guest_book_entries/entry', :locals => {:entry=> story}
+

@@ -1,0 +1,137 @@
+@import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
+@import "components/memory";
+@import "dev/responsive-outliner";
+@import "utility/typography";
+@import "utility/buttons";
+
+.memory-large-image{
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 0.25rem;
+  background-color: $palette_off_white;
+  height: 60vh;
+  width: 100vw;
+}
+
+.memory-large-text{
+  @include memory-card-sizes(false,true);
+  padding: 1rem 0.313rem 1rem 0.313rem;
+  .memory-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .memory-date{
+      margin-top: .5rem;
+      font-size: 0.875rem;
+      font-weight: 200;
+      font-style: italic;
+      color: $palette_grey;
+      text-transform: capitalize;
+    }
+    .memory-link{
+      align-self: end;
+      a{
+        i{
+          transition: color 2s ease-in-out;
+          font-size: 1.75rem;
+        }
+        span{
+          transition: color 500ms ease-in-out;
+          font-weight: 200;
+          color: $palette_grey_lighter;
+          font-size: .875rem;
+          font-style: italic;
+        }
+        &:hover{
+          span{
+            color: $palette_grey_darker;
+          }
+          i{
+            color: $palette_flaneur_red
+          }
+        }
+      }
+    }
+    .memory-title{
+      @include respond-to("medium"){
+        line-height: 2.7rem;
+        font-size: 2rem;
+      }
+      font-size: 1.75rem;
+      line-height: 1.65;
+      color: $palette-flaneur_red;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .memory-body{
+      width: 100%;
+      max-width: 80%;
+      font-size: 0.875rem;
+      color: $palette_grey_lighter;
+      margin: 0;
+      padding: 0;
+    }
+    .memory-categories{
+      width: 100%;
+      max-width: 80%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 1rem;
+      font-style: normal;
+      text-transform: capitalize;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0;
+      padding: 0;
+      @include sub-header();
+      .memory-category{
+        padding-right: 0.5rem;
+        a{
+          color: $palette_blue;
+          &:hover{
+            color: lighten($palette_blue, 15%);
+          }
+        }
+      }
+    }
+    .memory-tags{
+      width: 100%;
+      max-width: 80%;
+      font-style: italic;
+      font-weight: 200;
+      text-transform: capitalize;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .memory-tag{
+        padding-right: 0.5rem;
+        a{
+          color: $palette_grey;
+          &:hover{
+            color: $palette_grey_darker;
+          }
+        }
+      }
+    }
+  }
+}
+.memory-story-layout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include memory-card-sizes(false,true);
+  .add-story-button{
+    margin: 1rem 0 1.5rem 0;
+    @include button-bg();
+    max-width: 20rem;
+  }
+}

@@ -22,6 +22,7 @@ class CategoriesController < ApplicationController
       memory_ids << memory_cat.memory_id
     end
     @memories = Memory.where(id: memory_ids, is_live: true).order(occurrence: :asc)
+    @category_ref = @category
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @category}

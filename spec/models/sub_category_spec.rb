@@ -10,7 +10,7 @@ RSpec.describe SubCategory, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-  it 'has many memories through tag memories' do
+  it 'belongs to a category' do
     should belong_to(:category)
   end
 

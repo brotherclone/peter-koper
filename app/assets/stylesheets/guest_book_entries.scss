@@ -1,6 +1,7 @@
 @import "utility/pallete";
 @import "utility/buttons";
 @import "utility/lighting";
+@import "utility/textures";
 @import "utility/typography";
 @import "vendor/kitty_giraudel/breakpoints";
 @import "dev/responsive-outliner";
@@ -10,10 +11,42 @@ $entry-sizes: ("large": 60rem, "medium":40rem, "small":23rem);
 $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
 
 .guest-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .hidden {
     display: none !important;
   }
   .headings-guest-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .thank-you-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include background-texture();
+      background: $palette_flaneur_red;
+      max-width: map_get($entry-content-sizes, "small");
+      padding: 2rem;
+      border-radius: 1rem;
+      @include box-shadower();
+      h2 {
+        color: $palette_off_white;
+        @include text-shadower();
+        margin: 0;
+        padding: 0;
+      }
+      p{
+        font-size: 1.25rem;
+        color: $palette_white;
+      }
+      .back-link{
+        margin-top: 1rem;
+        font-size: 1rem !important;
+        @include button-bg();
+      }
+    }
     .guest-book-logo {
       display: flex;
       flex-wrap: nowrap;

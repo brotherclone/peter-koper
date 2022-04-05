@@ -44,7 +44,6 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
   div ul:not(:first-child) {
     margin-top: 2rem;
   }
-  background-color: $palette_black;
   &.loading{
     background-image: none;
   }
@@ -54,6 +53,7 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0.25rem;
+    background-color: $palette_black;
     @include box-shadower();
   }
   .memory-video-container{
@@ -62,6 +62,7 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0.25rem;
+    background-color: $palette_black;
     @include box-shadower();
     .memory-video-overlay {
       display: flex;
@@ -102,6 +103,7 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
     background-size: cover;
     border-radius: 0.25rem;
     @include box-shadower();
+    background-color: $palette_black;
     .memory-pdf-overlay{
       display: flex;
       flex-direction: column;
@@ -152,6 +154,30 @@ $card-sizes: ("large": 40rem, "medium":40rem, "small":23rem);
       font-style: italic;
       color: $palette_grey;
       text-transform: capitalize;
+    }
+    .memory-link{
+      align-self: end;
+      a{
+        i{
+          transition: color 2s ease-in-out;
+          font-size: 1.75rem;
+        }
+        span{
+          transition: color 500ms ease-in-out;
+          font-weight: 200;
+          color: $palette_grey_lighter;
+          font-size: .875rem;
+          font-style: italic;
+        }
+        &:hover{
+          span{
+            color: $palette_grey_darker;
+          }
+          i{
+            color: $palette_flaneur_red
+          }
+        }
+      }
     }
     .memory-title{
       @include base-header();
