@@ -12,7 +12,3 @@
             =@memory.title
           %a.close-link{:as=>"button", :data=>{:action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
             = fa_icon "close"
-        %video.cld-video-player.cld-video-player-skin-dark.cld-fluid{:id=>"videoPlayer#{@memory.id.to_s}",
-                                                          :controls=>true,
-                                                          :autoplay=> true,
-                                                          :data=>{:cld=>{:public=>{:id=> @memory.video.file}}}}
