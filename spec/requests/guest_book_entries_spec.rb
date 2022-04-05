@@ -49,7 +49,7 @@ RSpec.describe "/guest-book", type: :request do
 
       it "redirects to the created guest_book_entry" do
         post guest_book_entries_url, params: { guest_book_entry: valid_attributes }
-        expect(response).to redirect_to(guest_book_entry_url(GuestBookEntry.last))
+        expect(response).to redirect_to(guest_book_entries_path(:thank_you=> true, :memory_id=> @memory.id.to_s))
       end
     end
 

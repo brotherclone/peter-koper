@@ -24,6 +24,7 @@
               Add an entry to Peter's Guest Book.
             .guest-book-form
               = semantic_form_for @guest_book_entry do |f|
+                = f.semantic_errors *f.object.errors.attribute_names
                 = f.input :title
                 = f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
                 = f.input :guest_name, :class=>'guest-name'
@@ -31,11 +32,12 @@
                 %p.form-inner-text
                   Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
                 = f.input :admin_state, as: :hidden, :value => :submitted
+                = f.input :memory_id, as: :hidden, :input_html => { :value => params[:memory_id] }
                 = f.input :image_one_url, as: :file, :label=> 'Image one.'
                 = f.input :image_two_url, as: :file, :label=> 'Image two.'
                 = f.input :image_three_url, as: :file, :label=> 'Image three.'
                 = f.input :image_one_url_cache, :as => :hidden
                 = f.input :image_two_url_cache, :as => :hidden
                 = f.input :image_three_url_cache, :as => :hidden
-                = f.actions
+                = f.actions :data=> {:turbo=> false}
           = tinymce
