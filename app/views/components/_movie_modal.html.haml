@@ -14,5 +14,9 @@
             = fa_icon "close"
         .video-container
           - video_id = get_id_from_link(@memory.video.link, @memory.video.video_service)
-          %iframe{:src=>"https://player.vimeo.com/video/"+ video_id.to_s, :frameborder=>0, :allow=>"autoplay; fullscreen; picture-in-picture", :allowfullscreen=> true}
+          %iframe{:src=>"https://player.vimeo.com/video/"+ video_id.to_s,
+                                                          :frameborder=>0,
+                                                          :allow=>"autoplay; fullscreen; picture-in-picture",
+                                                          :allowfullscreen=> true}
           %script{:src=>"https://player.vimeo.com/api/player.js"}
+
