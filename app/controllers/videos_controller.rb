@@ -63,7 +63,7 @@ class VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:is_live, :memory_id, :link, :video_service)
+    params.require(:video).permit(:is_live, :memory_id, :link, :video_service, :aspect_ratio)
   end
 
 end
