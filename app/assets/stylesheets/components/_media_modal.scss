@@ -1,7 +1,6 @@
 @import "../vendor/micro-modal/modal";
 @import "../vendor/kitty_giraudel/breakpoints";
 
-
 .modal{
   @include modal();
   .adobe-dc-view{
@@ -16,8 +15,10 @@
     header {
       width: 100%;
       text-align: center;
-      margin-top: 6.5rem;
-      h3.video-modal-title {
+      margin-top: 0;
+      h3 {
+        margin-top: 4rem;
+        text-align: center;
         font-family: "Campanile", serif;
         color: $palette-off_white;
       }
@@ -35,19 +36,37 @@
       }
     }
     .video-container{
-      iframe{
-        width: 100vw;
-        height: 100vw;
-        position: relative;
-        margin: -3.125rem 0 0 0;
-        @include respond-to("small"){
-          margin: -6rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      &.video-hd-sizing{
+        min-width: calc(100vw - 1.25rem);
+        iframe{
+          min-width: calc(100vw - 1rem);
+          height: 100%;
+          min-height: 34.547rem;
+          margin-top: 0;
         }
-        @include respond-to("medium"){
-          margin: -8rem 0 0 0;
+      }
+      &.video-hd-vertical-sizing{
+        min-height: calc(100vh - 8.75rem);
+        iframe{
+          min-height: calc(100vh - 8rem);
+          min-width: 100vw;
+          margin-top: 0;
+          @include respond-to("small"){
+            min-height: calc(100vh - 8.75rem);
+          }
         }
-        @include respond-to("large"){
-          margin: -12rem 0 0 0;
+      }
+      &.video-sd-sizing{
+        min-width: calc(100vw - 1.25rem);
+        iframe{
+          min-width: calc(100vw - 1rem);
+          height: 100%;
+          min-height: 34.547rem;
+          margin-top: 0;
         }
       }
     }
