@@ -12,7 +12,7 @@
             =@memory.title
           %a.close-link{:as=>"button", :data=>{:action=>'click->media#hideplyr', :aria=>{:label=>"close movie player"}}}
             = fa_icon "close"
-        .video-container
+        .video-container{:class=> get_aspect_ratio_class(@memory.video.aspect_ratio)}
           - video_id = get_id_from_link(@memory.video.link, @memory.video.video_service)
           %iframe{:src=>"https://player.vimeo.com/video/"+ video_id.to_s,
                                                           :frameborder=>0,
