@@ -10,4 +10,8 @@ RSpec.describe Video, type: :model do
     should belong_to(:memory)
   end
 
+  describe 'Must have an aspect ratio' do
+    it { should validate_presence_of(:aspect_ratio) }
+  end
+
 end
