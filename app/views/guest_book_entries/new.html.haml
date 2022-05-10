@@ -7,8 +7,6 @@
           .challenge-wrapper-header
             %h3
               Would you be so kind as to prove your sentience?
-            %p
-              This does a bit to help with bots, spam, and other annoyances. Thanks!
           .challenge-wrapper-form
             %form{:id=> 'challengeForm'}
               %label.challenge-label{:for=>'challenge'}
@@ -25,10 +23,14 @@
             .guest-book-form
               = semantic_form_for @guest_book_entry do |f|
                 = f.semantic_errors *f.object.errors.attribute_names
-                = f.input :title
-                = f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120
-                = f.input :guest_name, :class=>'guest-name'
-                = f.input :guest_email, :label=> "Email"
+                = f.input :title, :required=> true
+                %label.label
+                  Your Memory
+                  %abbr{:title=>"required"}
+                    *
+                = f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120, :required=> true
+                = f.input :guest_name, :class=>'guest-name', :required=> true
+                = f.input :guest_email, :label=> "Email", :required=> true
                 %p.form-inner-text
                   Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
                 = f.input :admin_state, as: :hidden, :value => :submitted
