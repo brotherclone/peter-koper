@@ -43,7 +43,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       }
       .back-link{
         margin-top: 1rem;
-        font-size: 1rem !important;
+        font-size: 1.15rem !important;
         @include button-bg();
       }
     }
@@ -86,9 +86,9 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         font-family: aw-conqueror-didot, serif;
         font-weight: 200;
         @include respond-to("large"){
-          font-size: 1.15rem;
+          font-size: 1.5rem;
         }
-        font-size: 1rem;
+        font-size: 1.15rem;
       }
       .guest-book-heading-border {
         @include respond-to("large"){
@@ -103,9 +103,10 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         @include button-bg();
       }
       .show-link, .edit-link, .index-link {
-        font-size: 1rem;
+        font-size: 1.15rem;
         font-style: italic;
         transition: color 1s ease-in-out;
+        margin: 0.5rem 0 0.5rem 0;
         a {
           color: $palette_grey_darker;
           &:hover {
@@ -125,13 +126,13 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         align-items: center;
         text-align: center;
         h3 {
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-weight: 700;
-          margin-bottom: 0;
+          margin-bottom: 1rem;
           color: $palette_blue;
         }
         p {
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-style: italic;
           color: $palette_grey_darker;
           margin-bottom: 2rem;
@@ -206,7 +207,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       align-items: center;
       .attribution {
         font-style: italic;
-        font-size: 0.75rem;
+        font-size: 1.15rem;
         color: $palette_grey_lighter;
         margin:0;
       }
@@ -226,7 +227,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         text-align: center;
       }
       .name {
-        font-size: 1rem;
+        font-size: 1.15rem;
         text-transform: capitalize;
         color: $palette_grey;
         font-weight: 800;
@@ -248,7 +249,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       white-space: pre-wrap;
       overflow-wrap: break-word;
       color: $palette_grey;
-      font-size: 1rem;
+      font-size: 1.15rem;
       line-height: 1.6rem;
       @include respond-to("large"){
         max-width: map-get($entry-sizes, "large");
@@ -327,7 +328,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
 
 .guest-book-form-container {
   p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-style: italic;
     color: $palette_grey;
     margin-bottom: 2rem;
@@ -354,11 +355,12 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       }
     }
     p.form-inner-text {
-      font-size: 0.75rem;
+      font-size: 1.15rem;
       font-family: aw-conqueror-didot, serif;
       color: $palette_grey;
+      font-weight: 400;
       text-align: left;
-      width: 50%;
+      width: 80%;
     }
     input[type=text] {
       width: 100%;

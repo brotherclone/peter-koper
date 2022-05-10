@@ -14,4 +14,13 @@ RSpec.describe GuestBookEntry, type: :model do
     it { should validate_presence_of(:body) }
   end
 
+  describe 'Must have an email' do
+    it { should validate_presence_of(:guest_email) }
+  end
+
+  describe 'Must have an email' do
+    it { should validate_presence_of(:guest_name) }
+  end
+
+
 end
