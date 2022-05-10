@@ -43,7 +43,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       }
       .back-link{
         margin-top: 1rem;
-        font-size: 1rem !important;
+        font-size: 1.15rem !important;
         @include button-bg();
       }
     }
@@ -86,9 +86,9 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         font-family: aw-conqueror-didot, serif;
         font-weight: 200;
         @include respond-to("large"){
-          font-size: 1.15rem;
+          font-size: 1.5rem;
         }
-        font-size: 1rem;
+        font-size: 1.15rem;
       }
       .guest-book-heading-border {
         @include respond-to("large"){
@@ -103,7 +103,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         @include button-bg();
       }
       .show-link, .edit-link, .index-link {
-        font-size: 1rem;
+        font-size: 1.15rem;
         font-style: italic;
         transition: color 1s ease-in-out;
         a {
@@ -125,13 +125,13 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         align-items: center;
         text-align: center;
         h3 {
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-weight: 700;
           margin-bottom: 0;
           color: $palette_blue;
         }
         p {
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-style: italic;
           color: $palette_grey_darker;
           margin-bottom: 2rem;
@@ -226,7 +226,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
         text-align: center;
       }
       .name {
-        font-size: 1rem;
+        font-size: 1.15rem;
         text-transform: capitalize;
         color: $palette_grey;
         font-weight: 800;
@@ -248,7 +248,7 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
       white-space: pre-wrap;
       overflow-wrap: break-word;
       color: $palette_grey;
-      font-size: 1rem;
+      font-size: 1.15rem;
       line-height: 1.6rem;
       @include respond-to("large"){
         max-width: map-get($entry-sizes, "large");
