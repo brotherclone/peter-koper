@@ -12,7 +12,7 @@
         Back
     .guest-book-logo
       .logo-wrapper
-        = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+        =link_to image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard"), root_path
   -if @thank_you
     .thank-you-container
       %h2
