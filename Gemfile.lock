@@ -346,7 +346,7 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
-    tinymce-rails (6.0.2)
+    tinymce-rails (5.10.4)
       railties (>= 3.1.1)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
@@ -418,7 +418,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   stimulus-rails
-  tinymce-rails
+  tinymce-rails (~> 5.10.2)
   turbo-rails
   turbolinks (~> 5)
   tzinfo-data
