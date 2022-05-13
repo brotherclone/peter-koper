@@ -1,12 +1,9 @@
--@category = category
--@sub_categories = sub_categories
-
-.category-card.col-3
-  =link_to category_path(@category) do
-    .category-card-image{:style=> "background-image: url(#{@category.image.to_s});"}
+.category-card
+  =link_to category_path(category) do
+    .category-card-image{:style=> "background-image: url(#{category.image.to_s});"}
   .category-card-text
     %h2
-      =link_to @category.name, category_path(@category)
-    -@sub_categories.each do |s|
+      =link_to category.name, category_path(category)
+    -sub_categories.each do |s|
       %h3
-        =link_to s.name, [@category, s]
+        =link_to s.name, [category, s]
