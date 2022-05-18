@@ -9,6 +9,7 @@ export default class extends Controller {
         petersLastName: String,
         isTestEnv: Boolean
     }
+
     connect(){
         imageLoading();
         tinyInit();
