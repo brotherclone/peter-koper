@@ -2,7 +2,7 @@
   .main-wrapper
     .guest-book
       = render :partial => "components/guest_book_header", :locals=>{:link_types=>"authoring", :thank_you=> false}
-      .guest-book-entry-authoring-container{:data=>{:controller=>'guest', :guest_peters_last_name_value=>'koper', :guest_hide_class=>'hidden', :guest_touched_class=>'not-touched'}}
+      .guest-book-entry-authoring-container{:data=>{:controller=>'guest', :guest_is_test_env_value=>Rails.env.test?, :guest_peters_last_name_value=>'koper', :guest_hide_class=>'hidden', :guest_touched_class=>'not-touched'}}
         .challenge-wrapper{:data=>{:guest=>{:target=>'question'}}}
           .challenge-wrapper-header
             %h3
