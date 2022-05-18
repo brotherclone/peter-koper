@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'Guest Book displays correctly', :type => :feature do
 
-
   it 'checks the easy challenge with the wrong info', :js=> true do
     visit new_guest_book_entry_path
     within("#challengeForm") do
