@@ -10,8 +10,5 @@
     .main-navigation-links.right
       .contact-us
         = mail_to "hello@peterkoper.com", "Contact Us", encode: "hex"
-      .drop-stories
-        %a{:href=> new_guest_book_entry_path, :tab=>{:index=>0}}
-          Drop Your Stories
     .stream-heading-logo.loading
       =link_to image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard"), root_path
