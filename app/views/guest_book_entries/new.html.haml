@@ -18,6 +18,8 @@
             Please check your spelling, that's incorrect.
         .show-hide-form-wrapper.hidden{:data=>{:guest=>{:target=>'form'}}}
           .guest-book-form-container
+            %p{:id=>'formContainerText'}
+              Add an entry to Peter's Guest Book.
             .guest-book-form{:id=>"entryForm"}
               = semantic_form_for @guest_book_entry do |f|
                 = f.semantic_errors *f.object.errors.attribute_names
@@ -42,6 +44,7 @@
                     = mail_to "hello@peterkoper.com", "email us here", encode: "hex"
                   and we'll help post it for you
                 = f.input :image_one_url_cache, :as => :hidden
-                = f.actions do
-                  = f.action :submit, :data=> {:turbo=> false}, :label=> "Add Your Memory"
+                = f.input :image_two_url_cache, :as => :hidden
+                = f.input :image_three_url_cache, :as => :hidden
+                = f.actions :data=> {:turbo=> false}
           = tinymce
