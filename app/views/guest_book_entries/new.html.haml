@@ -33,12 +33,8 @@
                   Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
                 = f.input :admin_state, as: :hidden, :value => :submitted
                 = f.input :memory_id, as: :hidden, :input_html => { :value => params[:memory_id] }
-                = f.input :image_one_url, as: :file, :label=> 'Image one.'
-                = f.input :image_two_url, as: :file, :label=> 'Image two.'
-                = f.input :image_three_url, as: :file, :label=> 'Image three.'
+                = f.input :image_one_url, as: :file, :label=> 'Photo'
                 = f.input :image_one_url_cache, :as => :hidden
-                = f.input :image_two_url_cache, :as => :hidden
-                = f.input :image_three_url_cache, :as => :hidden
                 = f.actions do
                   = f.action :submit, :data=> {:turbo=> false}, :label=> "Add Your Memory"
           = tinymce
