@@ -357,10 +357,23 @@ $entry-content-sizes: ("large": 58rem, "medium":38rem, "small":21rem);
     p.form-inner-text {
       font-size: 1.15rem;
       font-family: aw-conqueror-didot, serif;
-      color: $palette_grey;
+      color: $palette_grey_darker;
       font-weight: 400;
       text-align: left;
       width: 80%;
+      .note{
+        color: $palette_flaneur_red;
+        font-weight: 600;
+      }
+      .contact{
+        a{
+          color: $palette_flaneur_red;
+          font-weight: 600;
+          &:hover{
+            color: $palette_blue;
+          }
+        }
+      }
     }
     input[type=text] {
       width: 100%;

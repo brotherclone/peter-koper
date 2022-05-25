@@ -33,7 +33,14 @@
                   Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
                 = f.input :admin_state, as: :hidden, :value => :submitted
                 = f.input :memory_id, as: :hidden, :input_html => { :value => params[:memory_id] }
-                = f.input :image_one_url, as: :file, :label=> 'Photo'
+                = f.input :image_one_url, as: :file, :label=> 'Photo (JPEG, less than 10MB)'
+                %p.form-inner-text
+                  %span{:class=>"note"}
+                    NOTE:
+                  if you have trouble uploading an image or if you'd like to add a PDF, video, or audio memory
+                  %span{:class=>"contact"}
+                    = mail_to "hello@peterkoper.com", "email us here", encode: "hex"
+                  and we'll help post it for you
                 = f.input :image_one_url_cache, :as => :hidden
                 = f.actions do
                   = f.action :submit, :data=> {:turbo=> false}, :label=> "Add Your Memory"
