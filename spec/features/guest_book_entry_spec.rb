@@ -18,8 +18,8 @@ describe 'Guest Book displays correctly', :type => :feature do
       fill_in 'challenge', with: 'koper'
     end
     find(:css,"#challengeButton").click
-    find(:css, '#formContainerText')
-    expect(page).to have_content "Add an entry to Peter's Guest Book."
+    find(:css, '#entryForm')
+    expect(page).to have_content "YOUR MEMORY"
   end
 
 
