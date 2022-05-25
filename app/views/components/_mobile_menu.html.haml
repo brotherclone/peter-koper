@@ -16,6 +16,10 @@
               Memories from the life of our Flanuer
         - if @current != "drop"
           .main-mobile-menu-item
-            =link_to "Drop Your Stories", guest_book_entries_path
+            =link_to "Drop Your Stories", new_guest_book_entry_path
             %span
               Leave Your Outrageous Memories And Photos Of Peter
+        .main-mobile-menu-item
+          = mail_to "hello@peterkoper.com", "Contact Us", encode: "hex"
+          %span
+            Get in touch if you need any help or have any questions.
