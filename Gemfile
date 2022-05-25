@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 gem 'activeadmin'
+gem 'actionview-encoded_mail_to'
 gem 'bootsnap', require: false
 gem 'breadcrumbs_on_rails'
 gem 'carrierwave'
