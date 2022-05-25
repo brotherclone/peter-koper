@@ -39,5 +39,6 @@
                 = f.input :image_one_url_cache, :as => :hidden
                 = f.input :image_two_url_cache, :as => :hidden
                 = f.input :image_three_url_cache, :as => :hidden
-                = f.actions :data=> {:turbo=> false}
+                = f.actions do
+                  = f.action :submit, :data=> {:turbo=> false}, :label=> "Add Your Memory"
           = tinymce
