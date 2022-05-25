@@ -1,24 +1,21 @@
-
--@link_types = link_types
--@thank_you = thank_you
-
 .headings-guest-book
   .guest-book-heading-wrapper
     .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
       %a{:data=>{:action=>"click->mobile#show"}}
         =fa_icon "bars"
-    .stroll-button{:data=>{:controller=>"back"}}
-      %a{:href=> "#", :tab=>{:index=>0}, :data=>{:action=>"click->back#goback" }}
-        Back
+    .main-navigation-links.left
+      .stroll{:data=>{:controller=>"back"}}
+        %a{:href=> "#", :tab=>{:index=>0}, :data=>{:action=>"click->back#goback" }}
+          Back
     .guest-book-logo
       .logo-wrapper
         =link_to image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard"), root_path
-  -if @thank_you
+  -if thank_you
     .thank-you-container
       %h2
         Thank you!
       %p
-        for submitting your story. It will be up as soon as we've had a chance to make sure it's outrageous enough.
+        for submitting your memory. It will be up as soon as we've had a chance to make sure it's outrageous enough.
       - if params[:memory_id]
         = link_to "Stroll back to where you left off", memory_path(params[:memory_id]), class:"back-link"
   .guest-book-sub-heading
@@ -27,8 +24,8 @@
     = image_tag("border_ornament-horizontal.png", role: "presentation", class:"guest-book-heading-border")
     %h2
       Leave your outrageous memories and photos of Peter
-    -if @link_types === "default" or !@link_types
-      - if @thank_you
+    -if link_types === "default" or !link_types
+      - if thank_you
         .sign-link
           = link_to 'Want to drop another story?', new_guest_book_entry_path, role: "button"
         .index-link
@@ -36,9 +33,9 @@
       - else
         .sign-link
           = link_to 'Drop your story here!', new_guest_book_entry_path, role: "button"
-    - elsif @link_types === "authoring"
+    - elsif link_types === "authoring"
       .index-link
         = link_to 'Return to all memories', guest_book_entries_path
-    - elsif @link_types === "display"
+    - elsif link_types === "display"
       .index-link
         = link_to 'Return to all memories', guest_book_entries_path

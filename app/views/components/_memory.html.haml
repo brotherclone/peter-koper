@@ -11,8 +11,7 @@
                                                             :tags=> @memory.tags,
                                                             :categories=> @memory.categories,
                                                             :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref,
-                                                            :show_link=> true}
+                                                            :sub_category_ref=> @sub_category_ref}
 - elsif @memory.video and !@memory.pdf
   .modals
     = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}

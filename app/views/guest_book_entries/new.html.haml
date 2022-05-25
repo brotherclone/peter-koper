@@ -18,9 +18,7 @@
             Please check your spelling, that's incorrect.
         .show-hide-form-wrapper.hidden{:data=>{:guest=>{:target=>'form'}}}
           .guest-book-form-container
-            %p{:id=>'formContainerText'}
-              Add an entry to Peter's Guest Book.
-            .guest-book-form
+            .guest-book-form{:id=>"entryForm"}
               = semantic_form_for @guest_book_entry do |f|
                 = f.semantic_errors *f.object.errors.attribute_names
                 = f.input :title, :required=> true
@@ -35,11 +33,15 @@
                   Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
                 = f.input :admin_state, as: :hidden, :value => :submitted
                 = f.input :memory_id, as: :hidden, :input_html => { :value => params[:memory_id] }
-                = f.input :image_one_url, as: :file, :label=> 'Image one.'
-                = f.input :image_two_url, as: :file, :label=> 'Image two.'
-                = f.input :image_three_url, as: :file, :label=> 'Image three.'
+                = f.input :image_one_url, as: :file, :label=> 'Photo (JPEG, less than 10MB)'
+                %p.form-inner-text
+                  %span{:class=>"note"}
+                    NOTE:
+                  if you have trouble uploading an image or if you'd like to add a PDF, video, or audio memory
+                  %span{:class=>"contact"}
+                    = mail_to "hello@peterkoper.com", "email us here", encode: "hex"
+                  and we'll help post it for you
                 = f.input :image_one_url_cache, :as => :hidden
-                = f.input :image_two_url_cache, :as => :hidden
-                = f.input :image_three_url_cache, :as => :hidden
-                = f.actions :data=> {:turbo=> false}
+                = f.actions do
+                  = f.action :submit, :data=> {:turbo=> false}, :label=> "Add Your Memory"
           = tinymce
