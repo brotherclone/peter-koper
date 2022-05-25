@@ -7,14 +7,13 @@
             =fa_icon "bars"
         .main-navigation-links.left
           .stroll{:id=>"scrollHelp",:data=>{:home=>{:target=>"help"}}}
-            %a{:href=> root_path, :tab=>{:index=>0}}
-              Scroll to Stroll
+            Scroll to Stroll
         .main-navigation-links.right
           .contact-us
             = mail_to "hello@peterkoper.com", "Contact Us", encode: "hex"
-          .drop-stories
-            %a{:href=> new_guest_book_entry_path, :tab=>{:index=>0}}
-              Drop Your Stories
+          -#.drop-stories
+          -#  %a{:href=> new_guest_book_entry_path, :tab=>{:index=>0}}
+          -#    Drop Your Stories
         .home-heading-peter.loading{:id=>"peterHome",:data=>{:home=>{:target=>"peter"}}}
           = image_tag("peter.png", alt:"Our Flaneur")
         .home-heading-logo.loading{:id=>"logoHome",:data=>{:home=>{:target=>"logo"}}}
