@@ -16,8 +16,6 @@
         Thank you!
       %p
         for submitting your memory. It will be up as soon as we've had a chance to make sure it's outrageous enough.
-      - if params[:memory_id]
-        = link_to "Stroll back to where you left off", memory_path(params[:memory_id]), class:"back-link"
   .guest-book-sub-heading
     %h1
       Drop your stories
@@ -33,9 +31,4 @@
       - else
         .sign-link
           = link_to 'Drop your story here!', new_guest_book_entry_path, role: "button"
-    - elsif link_types === "authoring"
-      .index-link
-        = link_to 'Return to all memories', guest_book_entries_path
-    - elsif link_types === "display"
-      .index-link
-        = link_to 'Return to all memories', guest_book_entries_path
+
