@@ -4,9 +4,9 @@
       %a{:data=>{:action=>"click->mobile#show"}}
         =fa_icon "bars"
     .main-navigation-links.left
-      .stroll{:data=>{:controller=>"back"}}
-        %a{:href=> "#", :tab=>{:index=>0}, :data=>{:action=>"click->back#goback" }}
-          Back
+      .stroll
+        %a{:href=> root_path, :tab=>{:index=>0}}
+          Home
     .guest-book-logo
       .logo-wrapper
         =link_to image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard"), root_path
