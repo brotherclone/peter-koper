@@ -10,8 +10,7 @@
                                                                 :tags=> @memory.tags,
                                                                 :categories=> @memory.categories,
                                                                 :category_ref=> @category_ref,
-                                                                :sub_category_ref=> @sub_category_ref,
-                                                                :show_link=> false}
+                                                                :sub_category_ref=> @sub_category_ref}
     .memory-story-layout
       .add-story-button
         %a{:href=> new_guest_book_entry_path(:memory_id=> @memory.id), :tabindex=>0, :role=>"button"}
