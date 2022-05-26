@@ -1,53 +1,48 @@
--@memory = memory
--@category_ref = category_ref
--@sub_category_ref = sub_category_ref
--@categories = categories
--@tags = tags
-
-- if !@memory.video and !@memory.pdf
-  .memory-container{:id=> "memory_"+@memory.id.to_s}
-    .memory-image-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');'}
-    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
-                                                            :tags=> @memory.tags,
-                                                            :categories=> @memory.categories,
-                                                            :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref}
-- elsif @memory.video and !@memory.pdf
+- if !memory.video and !memory.pdf
+  .memory-container{:id=> "memory_"+memory.id.to_s}
+    .memory-image-container.loading{:style=> 'background-image: url('+ memory.image.to_s+');'}
+    = render :partial=> "components/memory_text", :locals=> {:memory=> memory,
+                                                            :tags=> memory.tags,
+                                                            :categories=> memory.categories,
+                                                            :category_ref=> category_ref,
+                                                            :sub_category_ref=> sub_category_ref,
+                                                            :comment_link => true}
+- elsif memory.video and !memory.pdf
   .modals
-    = render :partial => "components/movie_modal", :locals=>{:memory=> @memory}
-  .memory-container{:id=> "memory_"+@memory.id.to_s, :data=>{:controller=>"media",
-                                                     :modal=>"movie_modal_#{@memory.id.to_s}",
-                                                     :videoplayerid=>"videoPlayer#{@memory.id.to_s}",
+    = render :partial => "components/movie_modal", :locals=>{:memory=> memory}
+  .memory-container{:id=> "memory_"+memory.id.to_s, :data=>{:controller=>"media",
+                                                     :modal=>"movie_modal_#{memory.id.to_s}",
+                                                     :videoplayerid=>"videoPlayer#{memory.id.to_s}",
                                                      :media=>{:target=>"memory"}}}
-    .memory-video-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:action=>"click->media#showplyr"}}
+    .memory-video-container.loading{:style=> 'background-image: url('+ memory.image.to_s+');', :data=>{:action=>"click->media#showplyr"}}
       .memory-video-overlay
         =fa_icon "play"
         .memory-video-overlay-cta
           Click to Watch
-    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
-                                                            :tags=> @memory.tags,
-                                                            :categories=> @memory.categories,
-                                                            :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref,
-                                                            :show_link=> true}
+    = render :partial=> "components/memory_text", :locals=> {:memory=> memory,
+                                                            :tags=> memory.tags,
+                                                            :categories=> memory.categories,
+                                                            :category_ref=> category_ref,
+                                                            :sub_category_ref=> sub_category_ref,
+                                                            :comment_link => true}
 - else
   .modals
-    = render :partial => "components/document_modal", :locals=>{:memory=> @memory}
-  .memory-container{:id=> "memory_"+@memory.id.to_s, :data=>{:controller=>"media",
-                                                     :modal=>"document_modal_#{@memory.id.to_s}",
+    = render :partial => "components/document_modal", :locals=>{:memory=> memory}
+  .memory-container{:id=> "memory_"+memory.id.to_s, :data=>{:controller=>"media",
+                                                     :modal=>"document_modal_#{memory.id.to_s}",
                                                      :clientid=> show_adobe_id,
-                                                     :pdfurl=> @memory.pdf.file,
-                                                     :pdfview=>"pdf_view_#{@memory.id.to_s}",
-                                                     :pdffile=>show_pdf_file(@memory.pdf.file),
+                                                     :pdfurl=> memory.pdf.file,
+                                                     :pdfview=>"pdf_view_#{memory.id.to_s}",
+                                                     :pdffile=>show_pdf_file(memory.pdf.file),
                                                      :media=>{:target=>"memory"}}}
-    .memory-pdf-container.loading{:style=> 'background-image: url('+ @memory.image.to_s+');', :data=>{:modal=>"document_modal_#{@memory.id.to_s}", :media=>{:target=>"pdf"}, :pdfurl=> @memory.pdf.file,:pdfview=>"pdf_view_#{@memory.id.to_s}", :pdffile=>show_pdf_file(@memory.pdf.file), :action=>"click->media#showrdr"}}
+    .memory-pdf-container.loading{:style=> 'background-image: url('+ memory.image.to_s+');', :data=>{:modal=>"document_modal_#{memory.id.to_s}", :media=>{:target=>"pdf"}, :pdfurl=> memory.pdf.file,:pdfview=>"pdf_view_#{memory.id.to_s}", :pdffile=>show_pdf_file(memory.pdf.file), :action=>"click->media#showrdr"}}
       .memory-pdf-overlay
         =fa_icon "file"
         .memory-pdf-overlay-cta
           Click to Read
-    = render :partial=> "components/memory_text", :locals=> {:memory=> @memory,
-                                                            :tags=> @memory.tags,
-                                                            :categories=> @memory.categories,
-                                                            :category_ref=> @category_ref,
-                                                            :sub_category_ref=> @sub_category_ref,
-                                                            :show_link=> true}
+    = render :partial=> "components/memory_text", :locals=> {:memory=> memory,
+                                                            :tags=> memory.tags,
+                                                            :categories=> memory.categories,
+                                                            :category_ref=> category_ref,
+                                                            :sub_category_ref=> sub_category_ref,
+                                                            :comment_link => true}

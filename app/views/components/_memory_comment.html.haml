@@ -1,0 +1,14 @@
+- if preview_mode
+  .memory-comment-small
+    .commeont-icon
+      = fa_icon "comment"
+    .comment-body
+      = memory_comment.try(:html_safe)
+    .comment-author
+      = memory_comment.author_name
+- else
+  .memory-comment
+    .comment-body
+      = memory_comment.try(:html_safe)
+    .comment-author
+      = memory_comment.author_name

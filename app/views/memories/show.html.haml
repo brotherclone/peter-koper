@@ -9,13 +9,5 @@
                                                                 :tags=> @memory.tags,
                                                                 :categories=> @memory.categories,
                                                                 :category_ref=> @category_ref,
-                                                                :sub_category_ref=> @sub_category_ref}
-    -#.memory-story-layout
-    -#  .add-story-button
-    -#    %a{:href=> new_guest_book_entry_path(:memory_id=> @memory.id), :tabindex=>0, :role=>"button"}
-    -#      Drop your story
-    -#  -if @stories.length
-    -#    - @stories.each do |story|
-    -#      .guest-book-entries-container
-    -#        = render :partial => 'guest_book_entries/entry', :locals => {:entry=> story}
-    -#
+                                                                :sub_category_ref=> @sub_category_ref,
+                                                                :comment_link => false }

@@ -28,3 +28,21 @@
   - if memory.fuzzy_date != :no_show
     .memory-date
       = display_fuzzy_date(memory.occurrence, memory.fuzzy_date, false)
+  .memory-comment-container
+    - if comment_link
+      - memory.memory_comments.each do |comment|
+        = render :partial=> "components/memory_comment", :locals=> {:memory_comment=> comment, :preview_mode=> !comment_link }
+      .memory-comment-link-container
+        .memory-comment-icon
+          = fa_icon "comment"
+        .memory-comment-link
+        - if category_ref
+          = link_to "Read", memory_path(memory, :category_ref=> category_ref)
+          - if sub_category_ref
+            = link_to "Read", memory_path(memory, :category_ref=> category_ref, :sub_category_ref=> sub_category_ref)
+        -else
+          = link_to "Read", memory_path(memory)
+    - else
+      - memory.memory_comments.each do |comment|
+        = render :partial=> "components/memory_comment", :locals=> {:memory_comment=> comment, :preview_mode=> !comment_link }
+      = turbo_frame_tag "memory_comment_new", src: new_memory_comment_url(:memory_id=> memory.id)

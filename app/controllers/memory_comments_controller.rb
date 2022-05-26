@@ -41,6 +41,11 @@ class MemoryCommentsController < ApplicationController
       if @memory_comment.save
         format.html { redirect_to @memory_comment }
         format.json { render :show, status: :created, location: @memory_comment }
+        format.turbo_stream do
+          render turbo_stream:[
+            turbo_stream.replace("memory_comment_new", partial: "components/memory_comment_thanks", locals:{:test=>"thie"})
+          ]
+        end
       else
         format.html { render :new }
         format.json { render json: @memory_comment.errors, status: :unprocessable_entity }

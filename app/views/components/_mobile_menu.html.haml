@@ -1,5 +1,3 @@
--@current = current
-
 .mobile-menu-wrapper{:id=>"mobileMenu", :data=>{:controller=>"mobile"}}
   .modal-close{:tabindex=>-1, :data=>{:micromodal=>{:close=> true}}}
     .mobile-menu-heading{:role=>"dialog", :aria=>{:modal=>"true", :labelledby=>"mobile-modal-title"}}
@@ -13,6 +11,10 @@
           =link_to "Select a Stroll", root_path
           %span
             Memories from the life of our Flanuer
+        .main-mobile-menu-item
+          =link_to "Drop Your Stories", new_memory_path
+          %span
+            Leave Your Outrageous Memories And Photos Of Peter
         .main-mobile-menu-item
           = mail_to "hello@peterkoper.com", "Contact Us", encode: "hex"
           %span
