@@ -43,7 +43,7 @@ class MemoryCommentsController < ApplicationController
         format.json { render :show, status: :created, location: @memory_comment }
         format.turbo_stream do
           render turbo_stream:[
-            turbo_stream.replace("memory_comment_new", partial: "components/memory_comment_thanks", locals:{:test=>"thie"})
+            turbo_stream.replace("memory_comment_new", partial: "components/memory_comment_thanks", locals:{:memory_id=>@memory_comment.memory.id})
           ]
         end
       else

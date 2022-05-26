@@ -1,3 +1,77 @@
-// Place all the styles related to the MemoryComments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "utility/pallete";
+@import "vendor/kitty_giraudel/breakpoints";
+@import "dev/responsive-outliner";
+@import "utility/forms";
+
+.memory-comment-form-container{
+  margin-top: 3rem;
+  text-align: center;
+  h2{
+    color: $palette_flaneur_red;
+  }
+  .memory-comment-form{
+    @include form-help();
+  }
+}
+
+.memory-comment-thank-you-container{
+  width: 100%;
+  .memory-comment-thank-you{
+    text-align: center;
+    h2{
+      color: $palette_flaneur_red;
+    }
+    width: 100%;
+    margin: 1rem;
+    .memory-comment-thank-you-link{
+      margin-top: 2rem;
+    }
+  }
+}
+
+.memory-comment-small, .memory-comment{
+  .memory-comment-quote-group{
+    display: flex;
+    .comment-icon{
+      padding: 1rem;
+    }
+    .comment-body{
+      width: 100%;
+      color: $palette_black !important;
+      p{
+        margin: 0;
+        font-size: 1rem;
+        padding: 1rem 0 0 0;
+        color: $palette_black !important;
+      }
+    }
+  }
+  .comment-author{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+}
+
+.memory-comment-small{
+  margin-bottom: 2rem;
+}
+.memory-comment{
+  margin-bottom: 2.25rem;
+  .comment-icon{
+   font-size: 1.5rem;
+    color: $palette_grey_darker;
+  }
+  .comment-body {
+    width: 100%;
+    p {
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+  .comment-author{
+    font-size: 1.25rem;
+  }
+}

@@ -106,7 +106,7 @@
       font-style: italic;
       font-weight: 200;
       text-transform: capitalize;
-      margin: 0;
+      margin: 0.5rem 0 0 0;
       padding: 0;
       display: flex;
       flex-direction: row;
@@ -124,14 +124,19 @@
     }
   }
 }
-.memory-story-layout{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @include memory-card-sizes(false,true);
-  .add-story-button{
-    margin: 1rem 0 1.5rem 0;
-    @include button-bg();
-    max-width: 20rem;
+
+.memory-comment-container{
+  width: 100%;
+  .memory-comment-link-container{
+    display: flex;
+    justify-content: flex-end;
+    .memory-comment-icon{
+      color: $palette_flaneur_red;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+    .memory-comment-link{
+      font-size: 1rem;
+    }
   }
 }
