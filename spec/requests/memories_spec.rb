@@ -43,9 +43,9 @@ RSpec.describe "/memories", type: :request do
         }.to change(Memory, :count).by(1)
       end
 
-      it "redirects to the created memory" do
+      it "redirects to the thank you page" do
         post memories_url, params: { memory: valid_attributes }
-        expect(response).to redirect_to(memory_url(Memory.last))
+        expect(response).to redirect_to(thanks_path)
       end
     end
 
