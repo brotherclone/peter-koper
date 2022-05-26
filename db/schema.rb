@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_173212) do
+ActiveRecord::Schema.define(version: 2022_05_25_215004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,21 +84,6 @@ ActiveRecord::Schema.define(version: 2022_04_06_173212) do
     t.index ["category_id"], name: "index_category_sequences_on_category_id"
   end
 
-  create_table "guest_book_entries", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.string "image_one_url"
-    t.string "image_two_url"
-    t.string "image_three_url"
-    t.string "guest_name"
-    t.string "guest_email"
-    t.integer "admin_state", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "memory_id"
-    t.index ["memory_id"], name: "index_guest_book_entries_on_memory_id"
-  end
-
   create_table "memories", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -110,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_04_06_173212) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "show_title"
     t.text "notes"
+    t.string "author_name"
+    t.string "author_email"
   end
 
   create_table "memory_categories", force: :cascade do |t|

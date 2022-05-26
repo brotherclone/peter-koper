@@ -4,7 +4,7 @@ FactoryBot.define do
     body { Faker::Lorem.paragraph }
     title { Faker::Lorem.word }
     show_title { true }
-    image { Faker::Internet.url}
+    image { Faker::Internet.url }
     occurrence { Faker::Date.backward(days: 1000) }
     fuzzy_date { 'regular' }
     notes { Faker::Lorem.paragraph}
@@ -31,11 +31,6 @@ FactoryBot.define do
     factory :memory_with_pdf do
       after(:create) do |memory|
         create(:pdf, memory: memory)
-      end
-    end
-    factory :memory_with_stories do
-      after(:create) do |memory|
-        create(:guest_book_entry, memory: memory)
       end
     end
   end

@@ -1,0 +1,33 @@
+-require 'date'
+
+.container
+  .main-wrapper
+    = render :partial=> "components/stream-heading", :locals=>{}
+    .breadcrumb-wrapper
+      = render :partial => "components/breadcrumbs"
+      .add-memory-form-container
+        .add-memory-form
+          = semantic_form_for @memory do |f|
+            = f.semantic_errors *f.object.errors.attribute_names
+            = f.input :title, :required=> true
+            %label.label
+              Your Memory
+              %abbr{:title=>"required"}
+                *
+            = f.text_area :body, :class => "tinymce", :rows => 140, :cols => 120, :required=> true
+            = f.input :author_name, :label=> "Your Name", :class=>'author-name', :required=> true
+            = f.input :author_email, :label=> "Email", :class=>'author-email', :required=> true
+            %p.form-inner-text
+              Your email won't be displayed. Collected in case we want to get in touch with friends of Peter. You are an elusive bunch.
+            = f.input :image, as: :file, :label=> 'Photo (JPEG, less than 10MB)'
+            %p.form-inner-text
+              %span{:class=>"note"}
+                NOTE:
+              if you have trouble uploading an image or if you'd like to add a PDF, video, or audio memory
+              %span{:class=>"contact"}
+                = mail_to "hello@peterkoper.com", "email us here", encode: "hex"
+              and we'll help post it for you
+            = f.input :occurrence, :as=> :hidden, :input_html => { :value => Date.today.to_s }
+            = f.input :image_cache, :as => :hidden
+            = f.actions :data=> {:turbo=> false }
+= tinymce
