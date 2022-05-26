@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :guest_book_entries, path: :your_stories
   resources :memories
   resources :pdfs
   resources :categories do
@@ -14,5 +13,6 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
   get 'document', to: 'media_modal#document'
   get 'movie', to: 'media_modal#movie'
+  get 'thanks', to:'memories#thanks'
   root 'home#index'
 end

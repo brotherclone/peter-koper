@@ -1,8 +1,0 @@
-import {Controller} from "@hotwired/stimulus";
-
-export default class extends Controller {
-    goback(){
-        history.go(-1)
-        return false
-    }
-}

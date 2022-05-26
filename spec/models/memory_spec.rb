@@ -26,10 +26,6 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_pdf)).to be_valid }
   end
 
-  describe 'Factory with stories (guest book entries)'do
-    it{ expect(build(:memory_with_stories)).to be_valid }
-  end
-
   describe 'Must have an occurrence' do
     it { should validate_presence_of(:occurrence) }
   end
@@ -37,6 +33,7 @@ RSpec.describe Memory, type: :model do
   describe 'Must have a title' do
     it { should validate_presence_of(:title) }
   end
+
 
   it 'has one video' do
     should have_one(:video)
@@ -59,10 +56,6 @@ RSpec.describe Memory, type: :model do
   it 'has many sub-categories through memory subcategories' do
     should have_many(:memory_sub_categories)
     should have_many(:sub_categories).through(:memory_sub_categories)
-  end
-
-  it 'has many stories (guest book entries)' do
-    should have_many (:guest_book_entries)
   end
 
 end

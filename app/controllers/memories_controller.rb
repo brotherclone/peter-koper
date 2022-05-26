@@ -19,7 +19,6 @@ class MemoriesController < ApplicationController
   end
   
   def show
-
     if params[:category_ref]
       category = Category.find(params[:category_ref])
       if category
@@ -34,12 +33,9 @@ class MemoriesController < ApplicationController
         end
       end
     end
-
     if  @memory.title
       add_breadcrumb @memory.title.to_s, memory_path
     end
-    @stories = GuestBookEntry.where(memory_id: @memory.id)
-
     respond_to do |format|
       format.html { render :show}
       format.json { render :json => @memory}
@@ -54,11 +50,15 @@ class MemoriesController < ApplicationController
 
   end
 
+  def thanks
+    add_breadcrumb "Thank you for your submission", :thanks_path
+  end
+
   def create
     @memory = Memory.new(memory_params)
     respond_to do |format|
       if @memory.save
-        format.html { redirect_to @memory, notice: 'Memory was successfully created.' }
+        format.html { redirect_to thanks_path}
         format.json { render :show, status: :created, location: @memory }
       else
         format.html { render :new }
@@ -93,7 +93,9 @@ class MemoriesController < ApplicationController
   end
 
   def memory_params
-    params.require(:memory).permit(:title, :show_title, :body, :is_live, :image, :image_cache, :occurrence, :fuzzy_date, :viewing, :notes)
+    params.require(:memory).permit(:title, :show_title, :body, :is_live, :image,
+                                   :image_cache, :occurrence, :fuzzy_date, :viewing,
+                                   :author_name, :author_email, :notes)
   end
 
 end
