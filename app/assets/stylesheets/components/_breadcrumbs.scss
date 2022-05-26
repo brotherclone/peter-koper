@@ -19,6 +19,10 @@
       li{
         font-size: .85rem;
         margin: 1rem;
+        text-transform: capitalize;
+        a{
+          text-transform: capitalize;
+        }
       }
       .breadcrumb-separator{
         font-family: "Campanile", serif;

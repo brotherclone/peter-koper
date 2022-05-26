@@ -1,0 +1,22 @@
+- if preview_mode
+  .memory-comment-small
+    .memory-comment-quote-group
+      .comment-icon
+        = fa_icon "quote-left"
+      .comment-body
+        = memory_comment.body.try(:html_safe)
+    .comment-author
+      \-
+      = memory_comment.author_name
+    %hr
+- else
+  .memory-comment
+    .memory-comment-quote-group
+      .comment-icon
+        = fa_icon "quote-left"
+      .comment-body
+        = memory_comment.body.try(:html_safe)
+    .comment-author
+      \-
+      = memory_comment.author_name
+    %hr

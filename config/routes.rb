@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memory_comments
   resources :memories
   resources :pdfs
   resources :categories do

@@ -1,0 +1,17 @@
+= turbo_frame_tag "memory_comment_new" do
+  .memory-comment-form-container
+    %h2
+      Add your comments
+    .memory-comment-form
+      = semantic_form_for @memory_comment do |f|
+        = f.semantic_errors *f.object.errors.attribute_names
+        = f.input :author_name, :required=> true, :label=> "Name"
+        = f.input :author_email, :required=> true, :label=> "Email"
+        %label.label
+          Comment
+          %abbr{:title=>"required"}
+            *
+        = f.input :memory_id, :input_html => { :value => params[:memory_id] }, :as=> :hidden
+        = f.text_area :body,:rows => 20, :cols => 120, :required=> true
+        = f.actions do
+          = f.action :submit, :label=> "Add your comment"
