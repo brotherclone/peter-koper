@@ -8,6 +8,8 @@ FactoryBot.define do
     occurrence { Faker::Date.backward(days: 1000) }
     fuzzy_date { 'regular' }
     notes { Faker::Lorem.paragraph}
+    author_name {Faker::Name.name }
+    author_email { Faker::Internet.email }
     factory :memory_with_tags do
       after(:create) do |memory|
         create(:tag, memory: memory)
