@@ -35,5 +35,10 @@ FactoryBot.define do
         create(:pdf, memory: memory)
       end
     end
+    factory :memory_with_memory_comment do
+      after(:create) do |memory|
+        create(:memory_comment, memory: memory)
+      end
+    end
   end
 end

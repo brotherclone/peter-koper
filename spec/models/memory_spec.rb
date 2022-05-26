@@ -26,6 +26,10 @@ RSpec.describe Memory, type: :model do
     it{ expect(build(:memory_with_pdf)).to be_valid }
   end
 
+  describe 'Factory with memory comment'do
+    it{ expect(build(:memory_with_memory_comment)).to be_valid }
+  end
+
   describe 'Must have an occurrence' do
     it { should validate_presence_of(:occurrence) }
   end
@@ -34,6 +38,9 @@ RSpec.describe Memory, type: :model do
     it { should validate_presence_of(:title) }
   end
 
+  it 'has has many' do
+    should have_many(:memory_comments)
+  end
 
   it 'has one video' do
     should have_one(:video)
