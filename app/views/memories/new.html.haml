@@ -25,7 +25,7 @@
                 NOTE:
               if you have trouble uploading an image or if you'd like to add a PDF, video, or audio memory
               %span{:class=>"contact"}
-                = mail_to "hello@peterkoper.com", "email us here", encode: "hex"
+                = mail_to "rebecca@peterkoper.com", "email us here", encode: "hex"
               and we'll help post it for you
             = f.input :occurrence, :as=> :hidden, :input_html => { :value => Date.today.to_s }
             = f.input :image_cache, :as => :hidden

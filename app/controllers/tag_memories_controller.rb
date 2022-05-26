@@ -1,7 +1,6 @@
 class TagMemoriesController < ApplicationController
 
   add_breadcrumb "Home", :root_path
-  add_breadcrumb "Guest Book", :tag_memories_path
 
   before_action :set_tag_memory, only: [:show, :edit, :update, :destroy]
 
