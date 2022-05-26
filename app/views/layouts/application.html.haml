@@ -9,6 +9,15 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %script{:src=>"https://documentcloud.adobe.com/view-sdk/main.js"}
+    %script{:src=>"https://www.googletagmanager.com/gtag/js?id=G-60J1NPVYXJ", :async=> true}
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){
+        dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+      gtag('config', 'G-60J1NPVYXJ');
+
     =tinymce_assets
   %body{:id=>"flanuerBody"}
     = render :partial=> "components/mobile_menu", :locals=> {:current=> @current ? @current : nil}
