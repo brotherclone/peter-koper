@@ -11,5 +11,6 @@ class Memory < ApplicationRecord
   validates :title, presence: true
   has_one :video
   has_one :pdf
+  has_many :memory_comments
   validates_size_of :image, maximum: 10.megabytes, message: "should be less than 10MB"
 end

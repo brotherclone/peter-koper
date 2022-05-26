@@ -1,0 +1,11 @@
+.memory-comment-thank-you-container
+  .memory-comment-thank-you
+    %h2
+      Thanks!
+    %p
+    Your submission will be reviewed and added to the collection shortly. If you have any questions, please feel free to
+    = succeed '.' do
+      = mail_to "hello@peterkoper.com", "contact us", encode: "hex"
+    .memory-comment-thank-you-link
+      = link_to "Add another comment", memory_path(memory_id)
+
