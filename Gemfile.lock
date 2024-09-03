@@ -144,7 +144,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.3.0)
       net-http
-    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     formtastic (5.0.0)
@@ -229,6 +229,8 @@ GEM
       net-protocol
     nio4r (2.7.3)
     nokogiri (1.16.7-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.7)
@@ -389,6 +391,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   actionview-encoded_mail_to
