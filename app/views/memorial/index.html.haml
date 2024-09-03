@@ -1,0 +1,23 @@
+.container
+  .main-wrapper
+    .home-heading{:data=>{:controller=>"home"}}
+      .home-heading-wrapper
+        .mobile-menu-button{:data=>{:controller=>"mobile",:micromodal=>{:trigger=>"mobileMenu"}}}
+          %a{:data=>{:action=>"click->mobile#show"}}
+            =fa_icon "bars"
+        .main-navigation-links.left
+          .stroll{:id=>"scrollHelp",:data=>{:home=>{:target=>"help"}}}
+            %span
+              Scroll to Stroll
+        .main-navigation-links.right
+          .contact-us
+            = mail_to "rebecca@peterkoper.com", "Contact Us", encode: "hex"
+          .drop-stories
+            %a{:href=> new_memory_path, :tab=>{:index=>0}}
+              Drop Your Stories
+        .home-heading-peter.loading{:id=>"peterHome",:data=>{:home=>{:target=>"peter"}}}
+          = image_tag("peter.png", alt:"Our Flaneur")
+        .home-heading-logo.loading{:id=>"logoHome",:data=>{:home=>{:target=>"logo"}}}
+          = image_tag("logo.png", alt:"Peter Koper, Flaneur, Strolls Along Life's Boulevard")
+    %main{:id=>"mainStart"}
+      %iframe{src: "https://docs.google.com/forms/d/e/1FAIpQLSdFT92v7U5POSkHb_UqfZkbPTQWFEB_qg2e7D42hvHCIhTFtQ/viewform?embedded=true", width: "640", height: "2142", frameborder: "0", marginheight: "0", marginwidth: "0"} Loading…

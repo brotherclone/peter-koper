@@ -7,8 +7,10 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'faker'
+require 'selenium-webdriver'
 Faker::Config.locale = 'en-US'
 
+Selenium::WebDriver::Chrome.driver_path  = '/usr/local/bin/chromedriver'
 
 ActiveRecord::Migration.maintain_test_schema!
 
