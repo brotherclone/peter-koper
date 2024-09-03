@@ -2,6 +2,7 @@ module.exports = {
     entry: './app/javascript/packs/application.js',
     "mode": "production",
     resolve: {
+        modules: ['app/javascript', 'node_modules'],
         fallback: {
             "os": require.resolve("os-browserify/browser"),
             "crypto": require.resolve("crypto-browserify"),
@@ -12,9 +13,19 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
+        rules: [
+            {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
-        }]
+            },
+            {
+                test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            }
+        ]
     }
 }
