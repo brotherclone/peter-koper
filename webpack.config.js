@@ -2,6 +2,7 @@ module.exports = {
     entry: './app/javascript/packs/application.js',
     "mode": "production",
     resolve: {
+        modules: ['app/javascript', 'node_modules'],
         fallback: {
             "os": require.resolve("os-browserify/browser"),
             "crypto": require.resolve("crypto-browserify"),
