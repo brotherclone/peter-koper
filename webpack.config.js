@@ -13,9 +13,19 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
+        rules: [
+            {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
-        }]
+            },
+            {
+                test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            }
+        ]
     }
 }

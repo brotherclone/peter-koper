@@ -29,7 +29,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
     "style-loader": "^4.0.0",
+    "url-loader": "^4.1.1",
     "webpack-dev-server": "^4.7.4"
   }
 }
