@@ -2,7 +2,7 @@ module.exports = {
     entry: './app/javascript/packs/application.js',
     "mode": "production",
     resolve: {
-        modules: ['app/javascript', 'node_modules'],
+        modules: ['app/javascript', 'node_modules', 'app/assets/javascripts'],
         fallback: {
             "os": require.resolve("os-browserify/browser"),
             "crypto": require.resolve("crypto-browserify"),
@@ -10,7 +10,8 @@ module.exports = {
             "buffer": require.resolve("buffer/"),
             "stream" : require.resolve("stream-browserify"),
             "vm" : require.resolve("vm-browserify")
-        }
+        },
+        extensions: ['.js', '.json', '.css', '.scss'],
     },
     module: {
         rules: [
