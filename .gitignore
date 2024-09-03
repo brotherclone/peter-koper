@@ -46,3 +46,5 @@ cheat-sheet.txt
 public/uploads/tmp/
 **/.DS_Store
 latest.dump
+/app/assets/builds/*
+!/app/assets/builds/.keep

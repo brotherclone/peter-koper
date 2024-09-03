@@ -25,7 +25,7 @@ gem 'stimulus-rails'
 gem 'tinymce-rails', '~>5.10.2'
 gem 'turbo-rails'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 5.0'
+gem 'jsbundling-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
