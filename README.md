@@ -21,7 +21,7 @@ The ouput should start with something like `ruby 2.7.2`
 If not, install the right ruby version using [rvm](https://rvm.io/) (it could take a while):
 
 ```shell
-rvm install 2.7.2 
+rvm install 3.1.1 
 ```
 
 ### Install dependencies
