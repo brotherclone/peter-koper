@@ -1,16 +1,16 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: ../app/javascript
+  source_path: ./../app/javascript
   source_entry_path: packs
-  public_root_path: public
+  public_root_path: ./../public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
   webpack_compile_output: true
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
-  additional_paths: [../app/assets]
+  additional_paths: [./../app/assets]
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
