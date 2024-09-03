@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.1.1'
 
 gem 'activeadmin'
 gem 'actionview-encoded_mail_to'
@@ -45,10 +45,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver', '~> 4.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
