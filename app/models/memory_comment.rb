@@ -5,4 +5,11 @@ class MemoryComment < ApplicationRecord
   validates :author_email, presence: true
   validates :body, presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id memory_id author_name author_email body created_at is_live]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["memory"]
+  end
 end
