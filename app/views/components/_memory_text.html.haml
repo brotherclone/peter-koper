@@ -36,11 +36,11 @@
       .memory-comment-link-container
         .memory-comment-link
           - if category_ref
-            = link_to "Add Your Comment", memory_path(memory, :category_ref=> category_ref)
+            = link_to "Add your comment", memory_path(memory, :category_ref=> category_ref)
             - if sub_category_ref
-              = link_to "Add Your Comment", memory_path(memory, :category_ref=> category_ref, :sub_category_ref=> sub_category_ref)
+              = link_to "Add your comment", memory_path(memory, :category_ref=> category_ref, :sub_category_ref=> sub_category_ref)
           -else
-            = link_to "Add Your Comment", memory_path(memory)
+            = link_to "Add your comment", memory_path(memory)
         .memory-comment-icon
           = fa_icon "comment"
     - else
