@@ -42,14 +42,15 @@ export default class extends Controller {
         let clientID =  this.memoryTarget.dataset.clientid
         let pdfUrl = this.nowthatssecure(this.memoryTarget.dataset.pdfurl)
         let modal = this.memoryTarget.dataset.modal
-        let pdfFile = this.memoryTarget.dataset.pdffile
+        let pdfFile = this.memoryTarget.dataset.pdfurl.split("/").pop()
+        console.log(pdfFile)
         let pdfView = this.memoryTarget.dataset.pdfview
         let adobeDCView = new AdobeDC.View({
             clientId: clientID,
             divId: pdfView,
         });
         try {
-            adobeDCView.previewFile({content: { promise: this.load(pdfUrl) }, metaData: { fileName: pdfFile}},viewerOptions);
+            adobeDCView.previewFile({content: { promise: this.load(pdfUrl) }, metaData: { fileName: pdfFile}}, viewerOptions);
         }catch (e) {
             console.log("Adobe PDF Error: "+e);
         }

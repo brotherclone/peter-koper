@@ -33,7 +33,7 @@
                                                      :clientid=> show_adobe_id,
                                                      :pdfurl=> memory.pdf.file,
                                                      :pdfview=>"pdf_view_#{memory.id.to_s}",
-                                                     :pdffile=>show_pdf_file(memory.pdf.file),
+
                                                      :media=>{:target=>"memory"}}}
     .memory-pdf-container.loading{:style=> 'background-image: url('+ memory.image.to_s+');', :data=>{:modal=>"document_modal_#{memory.id.to_s}", :media=>{:target=>"pdf"}, :pdfurl=> memory.pdf.file,:pdfview=>"pdf_view_#{memory.id.to_s}", :pdffile=>show_pdf_file(memory.pdf.file), :action=>"click->media#showrdr"}}
       .memory-pdf-overlay
