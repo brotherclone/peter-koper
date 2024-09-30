@@ -43,7 +43,6 @@ export default class extends Controller {
         let pdfUrl = this.nowthatssecure(this.memoryTarget.dataset.pdfurl)
         let modal = this.memoryTarget.dataset.modal
         let pdfFile = this.memoryTarget.dataset.pdfurl.split("/").pop()
-        console.log(pdfFile)
         let pdfView = this.memoryTarget.dataset.pdfview
         let adobeDCView = new AdobeDC.View({
             clientId: clientID,
